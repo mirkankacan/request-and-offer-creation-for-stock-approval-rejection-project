@@ -1,0 +1,456 @@
+﻿@{
+    ViewBag.Title = "Siparisler";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+<link href="https://cdn.datatables.net/buttons/2.3.6/css/buttons.bootstrap5.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
+<div class="conatiner-fluid content-inner mt-5 py-0">
+    <div class="row">
+        <div class="col-md-12 col-lg-12">
+            <div class="card" data-aos="fade-up" data-aos-delay="800">
+                <div class="text-center card-body justify-content-center">
+                    <table id="siparisler-tbl" class="table table-striped" style="width:100% !important">
+                        <thead>
+                            <tr>
+                                <th>SİPARİŞ NO</th>
+
+                                <th>DURUM</th>
+                                <th>TALEBİ<br /> OLUŞTURAN</th>
+                                <th>TALEP<br />  OLUŞTURULMA<br /> TARİHİ</th>
+                                <th>TEKLİFİ<br /> OLUŞTURAN</th>
+                                <th>TEKLİF<br />  OLUŞTURULMA<br /> TARİHİ</th>
+                                <th>SİPARİŞİ<br /> OLUŞTURAN</th>
+                                <th>SİPARİŞ<br />  OLUŞTURULMA<br /> TARİHİ</th>
+                                @if (User.IsInRole("1") || User.IsInRole("4"))
+                                {
+                                        <th></th>
+                                }
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                @if (User.IsInRole("1") || User.IsInRole("4"))
+                                {
+                                        <td></td>
+                                }
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- Modal -->
+
+    <div class="modal fade" id="siparisDetayModal" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" data-bs-backdrop="static" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" style="max-width:600px">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 id="detayNo" class="modal-title"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label" for="detayFirma">Firma</label>
+                            <input type="text" class="form-control" id="detayFirma" disabled />
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label" for="detayTeklifFiyat">Teklif Fiyat</label>
+                            <input type="text" class="form-control" id="detayTeklifFiyat" disabled />
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label" for="detayStokGrup">Stok Grup Adı</label>
+                            <input type="text" class="form-control" id="detayStokGrup" disabled />
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label" for="detayStok">Stok Adı</label>
+                            <input type="text" class="form-control" id="detayStok" disabled />
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label" for="detayOlcuBirim">Stok Ölçü Birimi</label>
+                            <input type="text" class="form-control" id="detayOlcuBirim" disabled />
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label" for="detayMiktar">Talep Miktar</label>
+                            <input type="text" class="form-control" id="detayMiktar" disabled />
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label" for="detayDurum">Durum</label>
+                            <input type="text" class="form-control" id="detayDurum" disabled />
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label" for="detayDepo">Stok Depo Adı</label>
+                            <input type="text" class="form-control" id="detayDepo" disabled />
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label" for="detaySiparisOlusturan">Siparişi Oluşturan</label>
+                            <input type="text" class="form-control" id="detaySiparisOlusturan" disabled />
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label" for="detaySiparisTarih">Sipariş Oluşturma Tarihi</label>
+                            <input type="text" class="form-control" id="detaySiparisTarih" disabled />
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label" for="detayTalepOlusturan">Talebi Oluşturan</label>
+                            <input type="text" class="form-control" id="detayTalepOlusturan" disabled />
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label" for="detayTalepTarih">Talep Oluşturma Tarihi</label>
+                            <input type="text" class="form-control" id="detayTalepTarih" disabled />
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label" for="detayTeklifOlusturan">Teklifi Oluşturan</label>
+                            <input type="text" class="form-control" id="detayTeklifOlusturan" disabled />
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label" for="detayTeklifTarih">Teklif Oluşturma Tarihi</label>
+                            <input type="text" class="form-control" id="detayTeklifTarih" disabled />
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label" for="detayTalepNot">Talep Oluşturan Not</label>
+                            <textarea class="form-control" id="detayTalepNot" disabled></textarea>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label" for="detayTeklifNot">Teklif Oluşturan Not</label>
+                            <textarea class="form-control" id="detayTeklifNot" disabled></textarea>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label" for="detayTalepOnaylayanNot">Talep Onaylayan Not</label>
+                            <textarea class="form-control" id="detayTalepOnaylayanNot" disabled></textarea>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label" for="detayTeklifOnaylayanNot">Teklif Onaylayan Not</label>
+                            <textarea class="form-control" id="detayTeklifOnaylayanNot" disabled></textarea>
+                        </div>
+                    </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <div class="row mt-3">
+                            <input type="hidden" disabled id="siparisIdForGuncelleme">
+                            @*<div class="col-md-6 mb-2">
+                                <button type="button" class="btn btn-info btn-block w-100 btn-islem" onclick="onaylaFunc('teslim')"><i class="fa-solid fa-truck-ramp-box"></i> TESLİM ALINDI</button>
+                            </div>*@
+                            <div class="col-md-12">
+                                <button type="button" class="btn btn-success btn-block w-100 btn-islem" onclick="onaylaFunc('tamam')"><i class="fa-solid fa-check"></i> TAMAMLANDI</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <script src="~/Scripts/jquery-3.7.0.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.6/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.bootstrap5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.print.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.colVis.min.js"></script>
+    <script>
+
+    $(document).ready(function () {
+        var bugun = new Date();
+        var tarihSaat = bugun.toLocaleString();
+
+        var table = $('#siparisler-tbl').DataTable({
+            dom: 'Bfrtip',
+            orderCellsTop: true,
+
+            buttons: ['copy', 'excel', 'pdf', 'colvis'],
+            ajax: {
+                url: "/umetapi/siparis-liste",
+                dataType: "json",
+                type: "GET",
+                dataSrc: ""
+            },
+
+            columns: [
+                {
+                    data: "SIPARIS_NO", render: function (data, type, row) {
+                        if (data || data != null) {
+                            return (data);
+                        }
+                        return "-";
+                    }
+                },
+
+                {
+                    data: "DURUM_AD", render: function (data, type, row) {
+                        if (data || data != null) {
+                            return (data);
+                        }
+                        return "-";
+                    }
+                },
+
+                {
+                    data: "TALEP_OLUSTURAN_ISIM", render: function (data, type, row) {
+                        if (data || data != null) {
+                            return (data);
+                        }
+                        return "-";
+                    }
+                },
+                {
+                    data: "TALEP_OLUSTURULMA_TARIH", render: function (data, type, row) {
+                        if (data || data != null) {
+                            var formattedDate = moment(data).format('DD.MM.YYYY HH:mm');
+                            return (formattedDate);
+                        }
+                        return "-";
+                    }
+                },
+                {
+                    data: "TEKLIF_OLUSTURAN_ISIM", render: function (data, type, row) {
+                        if (data || data != null) {
+                            return (data);
+                        }
+                        return "-";
+                    }
+                },
+                {
+                    data: "TEKLIF_OLUSTURULMA_TARIH", render: function (data, type, row) {
+                        if (data || data != null) {
+                            var formattedDate = moment(data).format('DD.MM.YYYY HH:mm');
+                            return (formattedDate);
+                        }
+                        return "-";
+                    }
+                },
+                {
+                    data: "SIPARIS_OLUSTURAN_ISIM", render: function (data, type, row) {
+                        if (data || data != null) {
+                            return (data);
+                        }
+                        return "-";
+                    }
+                },
+                {
+                    data: "SIPARIS_OLUSTURULMA_TARIH", render: function (data, type, row) {
+                        if (data || data != null) {
+                            var formattedDate = moment(data).format('DD.MM.YYYY HH:mm');
+                            return (formattedDate);
+                        }
+                        return "-";
+                    }
+                },
+                 @if (User.IsInRole("1") || User.IsInRole("4") )
+                {
+                    <text>
+                        {
+                            data: "SIPARIS_ID", "orderable": false, render: function (data, type, row) {
+                                if (data || data != null) {
+
+                                        return (`<a class="btn btn-warning" data-bs-toggle="modal" href="#siparisDetayModal" data-bs-target="#siparisDetayModal"  onclick="siparisDetay(${data})" role="button"><i class="fa-solid fa-magnifying-glass"></i></a>`);
+
+                                }
+                                return "";
+                            }
+                        },
+                  </text>
+                }
+
+            ],
+            columnDefs: [
+                { targets: "_all", className: "dt-center" },
+
+            ],
+            order: [[7, 'desc']],
+            language: {
+                info: "_TOTAL_ kayıttan _START_ - _END_ kayıt gösteriliyor.",
+                infoEmpty: "Gösterilecek hiç kayıt yok.",
+                loadingRecords: "Kayıtlar yükleniyor.",
+                lengthMenu: "Sayfada _MENU_ kayıt göster",
+                zeroRecords: "Tablo boş",
+                search: "Arama:",
+                infoFiltered: "(toplam _MAX_ kayıttan filtrelenenler)",
+                buttons: {
+                    copy: "Kopyala",
+                    print: "Yazdır",
+                    pdf: "PDF",
+                    excel: "Excel"
+                },
+                paginate: {
+                    first: "İlk",
+                    previous: "Önceki",
+                    next: "Sonraki",
+                    last: "Son"
+                },
+
+            },
+            initComplete: function () {
+                let columnIdx = 1;
+
+                let select = $('<select class="form-select"><option value=""></option></select>')
+                    .appendTo($('#siparisler-tbl thead tr:eq(1) td').eq(columnIdx))
+                    .on('click', function (e) {
+                        e.stopPropagation();
+                    })
+                    .on('change', function () {
+                        let val = $.fn.dataTable.util.escapeRegex($(this).val());
+
+                        table
+                            .column(columnIdx)
+                            .search(val ? '^' + val + '$' : '', true, false)
+                            .draw();
+                    });
+
+                table
+                    .column(columnIdx)
+                    .data()
+                    .unique()
+                    .sort()
+                    .each(function (d) {
+                        select.append($('<option>' + d + '</option>'));
+                    });
+
+            }
+
+        });
+
+    });
+    async function siparisDetay(id) {
+        $('#siparisIdForGuncelleme').val(id);
+        let formdata = new FormData();
+
+        formdata.append("id", id);
+
+        try {
+            await $.ajax({
+                url: "/umetapi/siparis-detay",
+                dataType: "json",
+                dataSrc: "",
+                data: formdata,
+                processData: false,
+                contentType: false,
+                type: "POST",
+                success: function (response, textStatus, xhr) {
+                    if (xhr.status === 200) {
+                        if (response.SIPARIS_DURUM_ID == 15) {
+                            $('.btn-islem').removeAttr('hidden').removeAttr('disabled');
+                        }
+                        else {
+                            $('.btn-islem').attr('disabled', 'disabled').attr('hidden', true);
+
+                        }
+
+                        $('#detayNo').html(response.SIPARIS_NO + " Sipariş Detay Sayfası");
+
+                        $('#detayFirma').val(response.FIRMA_AD);
+
+                        if (response.TEKLIF_FIYAT != null) {
+                            var formattedFiyat = parseFloat(response.TEKLIF_FIYAT).toLocaleString('tr-TR', {
+                                style: 'currency',
+                                currency: 'TRY',
+                                minimumFractionDigits: 2
+                            });
+
+                            $('#detayTeklifFiyat').val(formattedFiyat);
+                        }
+
+                        $('#detayStokGrup').val(response.GRUP_ADI);
+                        $('#detayStok').val(response.STOK_ADI);
+
+                        $('#detayOlcuBirim').val(response.OLCU_BR);
+                        $('#detayMiktar').val(response.TALEP_MIKTAR);
+
+                        $('#detayDurum').val(response.DURUM_AD);
+                        $('#detayDepo').val(response.DEPO_AD);
+
+                        $('#detaySiparisOlusturan').val(response.SIPARIS_OLUSTURAN_ISIM);
+                        if (response.SIPARIS_OLUSTURULMA_TARIH != null) {
+                            let formatted = moment(response.SIPARIS_OLUSTURULMA_TARIH).format('DD.MM.YYYY HH:mm');
+                            $('#detaySiparisTarih').val(formatted);
+                        }
+
+                        $('#detayTalepOlusturan').val(response.TALEP_OLUSTURAN_ISIM);
+                        if (response.TALEP_OLUSTURULMA_TARIH != null) {
+                            let formatted = moment(response.TALEP_OLUSTURULMA_TARIH).format('DD.MM.YYYY HH:mm');
+                            $('#detayTalepTarih').val(formatted);
+                        }
+
+                        $('#detayTeklifOlusturan').val(response.TEKLIF_OLUSTURAN_ISIM);
+                        if (response.TEKLIF_OLUSTURULMA_TARIH != null) {
+                            let formatted = moment(response.TEKLIF_OLUSTURULMA_TARIH).format('DD.MM.YYYY HH:mm');
+                            $('#detayTeklifTarih').val(formatted);
+                        }
+
+                        $('#detayTalepNot').val(response.TALEP_NOT);
+                        $('#detayTeklifNot').val(response.TEKLIF_NOT);
+
+                        $('#detayTalepOnaylayanNot').val(response.TALEP_ISLEM_ACIKLAMA);
+                        $('#detayTeklifOnaylayanNot').val(response.TEKLIF_ISLEM_ACIKLAMA);
+
+                        toastr["success"]("Sipariş detayı getirildi. ");
+                    }
+
+                }
+            });
+        } catch (error) {
+            toastr["error"]("Sipariş detayı getirilemedi. " + error.responseJSON.Message);
+
+        }
+    };
+
+    async function onaylaFunc(durum) {
+        let id = $("#siparisIdForGuncelleme").val();
+        let formdata = new FormData();
+        formdata.append("durum", durum);
+        formdata.append("id", id);
+
+        let drm = "";
+        if (durum == "teslim") {
+            drm = "teslim edildi";
+        }
+        else if (durum == "tamam") {
+            drm = "tamamlandı";
+        }
+        try {
+            await $.ajax({
+                url: "/umetapi/siparis-durum-guncelle",
+                data: formdata,
+                processData: false,
+                contentType: false,
+                dataSrc: "",
+                type: "POST",
+                success: function (data, textStatus, xhr) {
+                    if (xhr.status === 200) {
+                        toastr["success"]("Sipariş durumu " + drm.toUpperCase() + " olarak güncellendi.");
+                        $('#siparisDetayModal').modal('hide');
+                        $('#siparisler-tbl').DataTable().ajax.reload();
+                    } else {
+                        toastr["error"]("Sipariş güncellenemedi!");
+                    }
+                }
+            });
+
+        } catch (error) {
+            toastr["error"]("Hata! " +error);
+        }
+    }
+    </script>

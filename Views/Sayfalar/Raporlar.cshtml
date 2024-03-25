@@ -1,0 +1,378 @@
+﻿
+@{
+    ViewBag.Title = "Raporlar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<link href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+<link href="https://cdn.datatables.net/buttons/2.3.6/css/buttons.bootstrap5.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
+<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+
+
+<div class="conatiner-fluid content-inner mt-5 py-0">
+    <div class="row">
+        <div class="col-md-12 col-lg-12">
+            <div class="card">
+                <div class="card-header d-flex justify-content-center">
+                    <div class="header-title">
+                        <h4 class="card-title">Rapor Sayfası</h4>
+                        <hr class="hr-horizontal">
+                    </div>
+                </div>
+                <div class="card-body justify-content-center">
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label" for="drpTablo">Tablo</label>
+                            <select class="form-select" id="drpTablo" required="">
+                                <option selected disabled="" value="0">Seçim yapınız  ...</option>
+                                <option value="SIPARIS">SİPARİŞ</option>
+                                <option value="TALEP">TALEP</option>
+                                <option value="TEKLIF">TEKLİF</option>
+                                <option value="STOKHAREKET">STOK HAREKET</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label" for="startDate">Yıl</label>
+                            <select class="form-select" id="startDate">
+                                <option selected value="0">BOŞ</option>
+                            </select>
+                          
+                        </div>
+                      
+                        <div id="departmanDiv" class="col-md-6 mb-3">
+                            <label class="form-label" for="drpDepartman">Departman</label>
+                            <select class="form-select" id="drpDepartman">
+                                <option selected value="0">BOŞ</option>
+                                <option value="1">TESİS</option>
+                                <option value="2">ARAÇ</option>
+                                <option value="3">DİĞER</option>
+                                <option value="4">OFİS</option>
+                            </select>
+                        </div>
+                        <div id="plakaDiv" class="col-md-6 mb-3">
+                            <label class="form-label" for="drpPlakaBirim">Plaka/Birim</label>
+                            <select id="drpPlakaBirim" class="form-select js-example-basic-single" style="width: 100%;"></select>
+                        </div>
+                        <div id="stokDiv" class="col-md-6 mb-3">
+                            <label class="form-label" for="drpGrup">Stok Grubu</label>
+                            <select id="drpGrup" onchange="stokGetir(this.value)" class="form-select" style="width: 100%;"></select>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label" for="drpStok">Stok</label>
+                            <select id="drpStok" onchange="stokBirimGetir(this.value); stokMevcutMiktarGetir(this.value);" class="form-select js-example-basic-single" style="width: 100%;"></select>
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-success btn-block w-100" type="button" onclick="raporAraFunc()">RAPOR AL &nbsp;&nbsp;<i class="fa-solid fa-newspaper"></i></button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="~/Scripts/jquery-3.7.0.min.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.3.6/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.bootstrap5.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.print.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.colVis.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+<script>
+    $(document).ready(function () {
+        var today = new Date();
+        $('#drpStok').select2({
+            theme: 'bootstrap-5',
+        });
+        stokGrupGetir();
+        yilGetir();
+        $('#drpPlakaBirim').select2({
+            theme: 'bootstrap-5',
+        });
+
+        $('#drpDepartman').on('change', function () {
+            var selectedValue = $(this).val();
+            plakaVeBirimGetir(selectedValue);
+        });
+
+
+        $('#liste-tbl').DataTable({
+            orderCellsTop: true,
+            dom: 'Bfrtip',
+            buttons: [
+                {
+                    extend: 'excel',
+                    text: '<i class="fas fa-fw fa-file-excel"></i>',
+                    titleAttr: 'Excel',
+                    title: 'Sepet' + " - " + today
+                },
+                {
+                    extend: 'pdf',
+                    text: '<i class="fas fa-fw fa-file-pdf"></i>',
+                    titleAttr: 'PDF',
+                    title: 'Sepet' + " - " + today
+                },
+                {
+                    extend: 'print',
+                    text: '<i class="fas fa-fw fa-print"></i>',
+                    titleAttr: 'Print',
+                    title: 'Sepet' + " - " + today
+                }
+
+            ],
+
+            columnDefs: [
+                { targets: "_all", className: "dt-center" },
+
+            ],
+            language: {
+                info: "_TOTAL_ kayıttan _START_ - _END_ kayıt gösteriliyor.",
+                infoEmpty: "Gösterilecek hiç kayıt yok.",
+                loadingRecords: "Kayıtlar yükleniyor.",
+                lengthMenu: "Sayfada _MENU_ kayıt göster",
+                zeroRecords: "Tablo boş",
+                search: "Arama:",
+                infoFiltered: "(toplam _MAX_ kayıttan filtrelenenler)",
+                buttons: {
+                    copy: "Kopyala",
+                    print: "Yazdır",
+                    pdf: "PDF",
+                    excel: "Excel"
+                },
+                paginate: {
+                    first: "İlk",
+                    previous: "Önceki",
+                    next: "Sonraki",
+                    last: "Son"
+                },
+
+            }
+
+        });
+    });
+
+    async function plakaVeBirimGetir(departman_id) {
+        try {
+            const formdata = new FormData();
+
+            formdata.append("departman_id", departman_id);
+            await $.ajax({
+                url: "/api/plaka-birim-liste",
+                dataType: "json",
+                type: "POST",
+                data: formdata,
+                dataSrc: "",
+                processData: false,
+                contentType: false,
+                success: function (data, textStatus, xhr) {
+                    if (xhr.status === 200) {
+                        $('#drpPlakaBirim').empty();
+                        $('#drpPlakaBirim').append(`<option selected value="0">BOŞ</option>`);
+                        $.each(data, function () {
+                            $('#drpPlakaBirim').append(`<option value="${this['PLAKA_BIRIM']}">${this['PLAKA_BIRIM']}</option>`);
+                        });
+                    }
+                }
+            });
+        } catch (error) {
+            toastr["error"]("Plakalar getirilemedi. " + error.responseJSON.Message);
+        }
+    };
+    async function stokGrupGetir() {
+        try {
+
+            await $.ajax({
+                url: "/api/stok-gruplar",
+                dataType: "json",
+                type: "GET",
+                dataSrc: "",
+                processData: false,
+                contentType: false,
+                success: function (data, textStatus, xhr) {
+                    if (xhr.status === 200) {
+                        $('#drpGrup').empty();
+                        $('#drpGrup').append(`<option selected value="0">BOŞ</option>`);
+                        $.each(data, function () {
+                            $('#drpGrup').append(`<option value="${this['ID']}">${this['GRUP_ADI']}</option>`);
+                        });
+
+                    }
+                }
+            });
+        } catch (error) {
+            toastr["error"]("Stok grup getirilemedi. " + error.responseJSON.Message);
+
+        }
+    };
+    async function stokGetir(stokGrup) {
+        if (stokGrup === 0 || stokGrup === "0") {
+
+        }
+        else {
+            const formdata = new FormData();
+
+            formdata.append("grup_id", String(stokGrup));
+            try {
+                await $.ajax({
+                    url: "/api/stoklar",
+                    dataType: "json",
+                    type: "POST",
+                    dataSrc: "",
+                    processData: false,
+                    contentType: false,
+
+                    data: formdata,
+                    success: function (data, textStatus, xhr) {
+                        $('#drpStok').empty();
+                        $('#drpStok').append(`<option selected value="0">BOŞ</option>`);
+                        $.each(data, function () {
+                            $('#drpStok').append(`<option value="${this['STOK_KODU']}">${this['STOK_ADI']}</option>`);
+                        });
+                    }
+                });
+            } catch (error) {
+                toastr["error"]("Stoklar listelenemedi. " + error.responseJSON.Message);
+
+            }
+        }
+    };
+    function yilGetir() {
+        var max = new Date().getFullYear(),
+            min = max - 10,
+            selectstart = document.getElementById('startDate');
+
+        for (var i = max; i >= min; i--) {
+            var optStart = document.createElement('option');
+            optStart.value = i;
+            optStart.innerHTML = i;
+            selectstart.appendChild(optStart);
+
+        }
+
+    };
+
+    async function stokMevcutMiktarGetir(stokKodu) {
+        if (stokKodu === 0 || stokKodu === "0") {
+            $("#txtStokMevcut").val("");
+        }
+        else {
+            const formdata = new FormData();
+            formdata.append("stok_kodu", String(stokKodu));
+            try {
+                await $.ajax({
+                    url: "/api/stok-mevcut-miktar",
+                    data: formdata,
+                    processData: false,
+                    dataSrc: "",
+                    contentType: false,
+                    type: "POST",
+                    success: function (data, textStatus, xhr) {
+                        if (xhr.status === 200) {
+                            $("#txtStokMevcut").val("");
+                            $("#txtStokMevcut").val(data);
+                        }
+                    }
+                });
+            }
+            catch (error) {
+                toastr["error"]("Stok mevcut miktarı getirilemedi." + error);
+            }
+        }
+    };
+    async function stokBirimGetir(stokKodu) {
+        if (stokKodu === 0 || stokKodu === "0") {
+            $("#txtBirim").val("");
+        }
+        else {
+            const formdata = new FormData();
+            formdata.append("stok_kodu", String(stokKodu));
+            try {
+                await $.ajax({
+                    url: "/api/stok-birim",
+                    data: formdata,
+                    processData: false,
+                    dataSrc: "",
+                    contentType: false,
+                    type: "POST",
+                    success: function (data, textStatus, xhr) {
+                        if (xhr.status === 200) {
+                            $("#txtBirim").val("");
+                            $("#txtBirim").val(data);
+                        }
+                    }
+                });
+            }
+            catch (error) {
+                toastr["error"]("Stok birimi getirilemedi." + error);
+            }
+        }
+    };
+    async function raporAraFunc() {
+        const tbl_value = $("#drpTablo :selected").val()
+        if (tbl_value == null || tbl_value == 0) {
+            toastr["error"]("Tablo seçimi zorunludur!");
+            return;
+        }
+        const departmanid = ($("#drpDepartman :selected").val() == 0 ? null : $("#drpDepartman :selected").val()) || null;
+        const stok_grup = ($("#drpGrup :selected").val() == 0 ? null : $("#drpGrup :selected").val()) || null;
+        const stokid = ($("#drpStok :selected").val() == 0 ? null : $("#drpStok :selected").val()) || null;
+        const plakaSelected = ($("#drpPlakaBirim :selected").val() == 0 ? null : $("#drpPlakaBirim :selected").val()) || null;
+        const yil = ($("#startDate :selected").val() == 0 ? null : $("#startDate :selected").val()) || null;
+
+        const formdata = new FormData();
+        formdata.append("tablo", tbl_value);
+        formdata.append("departman", departmanid);
+        formdata.append("plaka", plakaSelected);
+        formdata.append("stok_grup", stok_grup);
+        formdata.append("stok", stokid);
+        formdata.append("yil", yil);
+
+        try {
+            const response = await fetch("/api/rapor-al", {
+                method: "POST",
+                body: formdata,
+            });
+            if (!response.ok) {
+                const responseData = await response.json();
+                if (responseData.Message) {
+                    throw new Error(responseData.Message);
+                }
+                throw new Error("Bağlantı kurulamadı!");
+            }
+            const blob = await response.blob();
+            if (blob && blob !== null && blob !== undefined) {
+                toastr["success"]("Rapor oluşturuldu.");
+                const url = window.URL.createObjectURL(blob);
+                const link = document.createElement('a');
+                link.href = url;
+                link.setAttribute('download', tbl_value + '_RAPOR.xlsx');
+                document.body.appendChild(link);
+                link.click();
+                link.parentNode.removeChild(link);
+            } else {
+                throw new Error("Sunucudan geçersiz dosya yanıtı alındı!");
+            }
+        } catch (error) {
+            toastr["error"]("Hata! " + error.message);
+        }
+    };
+
+
+
+</script>

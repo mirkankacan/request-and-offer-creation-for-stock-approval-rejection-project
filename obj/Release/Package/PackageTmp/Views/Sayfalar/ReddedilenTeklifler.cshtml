@@ -1,0 +1,548 @@
+﻿
+@{
+    ViewBag.Title = "ReddedilenTeklifler";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+<link href="https://cdn.datatables.net/buttons/2.3.6/css/buttons.bootstrap5.min.css" rel="stylesheet">
+
+<div class="conatiner-fluid content-inner mt-5 py-0">
+    <div class="row">
+        <div class="col-md-12 col-lg-12">
+            <div class="card" data-aos="fade-up" data-aos-delay="800">
+                <div class="text-center card-body justify-content-center">
+                    <table id="red-teklifler-tbl" class="table table-striped" style="width:100% !important">
+                        <thead>
+                            <tr>
+
+                                <th>TEKLİF NO</th>
+                                <th>STOK ADI</th>
+                                <th>MİKTAR</th>
+
+                                <th>TEKLİF FİYAT</th>
+                                <th>FİRMA</th>
+                                <th>DURUM</th>
+                                <th>TEKLİFİ<br /> OLUŞTURAN</th>
+                                <th>OLUŞTURULMA<br /> TARİHİ</th>
+                                @if (User.IsInRole("1") || User.IsInRole("2") || User.IsInRole("3") || User.IsInRole("4"))
+                                {
+                                    <th></th>
+                                }
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                @if (User.IsInRole("1") || User.IsInRole("2") || User.IsInRole("3") || User.IsInRole("4"))
+                                {
+                                    <th></th>
+                                }
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="teklifDetayModal" aria-hidden="true" aria-labelledby="teklifDetayModal" data-bs-backdrop="static" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" style="max-width:600px">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 id="detayNo" class="modal-title"></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label" for="detayDepartman">Departman Adı</label>
+                        <input type="text" class="form-control" id="detayDepartman" disabled>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label" for="detayGrupAdi">Stok Grup Adı</label>
+                        <input type="text" class="form-control" id="detayGrupAdi" disabled>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label" for="detayStokAdi">Stok Adı</label>
+                        <input type="text" class="form-control" id="detayStokAdi" disabled>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label" for="detayFirma">Firma</label>
+                        <input type="text" class="form-control" id="detayFirma" disabled>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label" for="detayStokBirim">Stok Ölçü Birimi</label>
+                        <input type="text" class="form-control" id="detayStokBirim" disabled>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label" for="detayMiktar">Miktar</label>
+                        <input type="text" class="form-control" id="detayMiktar" disabled>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label" for="detayFiyat">Fiyat</label>
+                        <input type="text" class="form-control" id="detayFiyat" disabled>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label" for="detayDurum">Durum</label>
+                        <input type="text" class="form-control" id="detayDurum" disabled>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label" for="detayOlusturan">Teklifi Oluşturan</label>
+                        <input type="text" class="form-control" id="detayOlusturan" disabled>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label" for="detayOlusturmaTarih">Teklif Oluşturulma Tarihi</label>
+                        <input type="text" class="form-control" id="detayOlusturmaTarih" disabled>
+                    </div>
+
+                    @*<div class="col-md-6 mb-3">
+                        <label class="form-label" for="detayOnay1">Onay 1</label>
+                        <input type="text" class="form-control" id="detayOnay1" disabled>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label" for="detayOnay1Tarihi">Onay 1 Tarihi</label>
+                        <input type="text" class="form-control" id="detayOnay1Tarihi" disabled>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <label class="form-label" for="detayOnay1Kullanici">Onay 1 Kullanıcı</label>
+                        <input type="text" class="form-control" id="detayOnay1Kullanici" disabled>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label" for="detayOnay2">Onay 2</label>
+                        <input type="text" class="form-control" id="detayOnay2" disabled>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label" for="detayOnay2Tarihi">Onay 2 Tarihi</label>
+                        <input type="text" class="form-control" id="detayOnay2Tarihi" disabled>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <label class="form-label" for="detayOnay2Kullanici">Onay 2 Kullanıcı</label>
+                        <input type="text" class="form-control" id="detayOnay2Kullanici" disabled>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label" for="detayOnay3">Onay 3</label>
+                        <input type="text" class="form-control" id="detayOnay3" disabled>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label" for="detayOnay3Tarihi">Onay 3 Tarihi</label>
+                        <input type="text" class="form-control" id="detayOnay3Tarihi" disabled>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <label class="form-label" for="detayOnay3Kullanici">Onay 3 Kullanıcı</label>
+                        <input type="text" class="form-control" id="detayOnay3Kullanici" disabled>
+                    </div>*@
+
+                    <div class="col-md-12 mb-3">
+                        <label class="form-label" for="detayNot">Teklif Not</label>
+                        <textarea class="form-control" id="detayNot" disabled></textarea>
+                    </div>
+                    @*<div class="col-md-6 mb-3">
+                        <label class="form-label" for="detayIslemNot">İşlem Yapan Not</label>
+                        <textarea class="form-control" id="detayIslemNot" disabled></textarea>
+                    </div>*@
+                </div>
+            </div>
+          
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+@*<div class="modal fade" id="guncelleModal" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Teklif Onay/Red Sayfası</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label for="aciklama-text" class="col-form-label">Açıklama:</label>
+                            <textarea class="form-control" id="aciklama-text" maxlength="299"></textarea>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <input type="hidden" id="teklifIdForGuncelleme" value="">
+                        <div class="col-md-6 mb-2">
+                            <button type="button" class="btn btn-danger btn-block w-100" onclick="onaylaFunc('red')"><i class="fa-solid fa-xmark"></i> REDDET</button>
+                        </div>
+                        <div class="col-md-6">
+                            <button type="button" class="btn btn-success btn-block w-100" onclick="onaylaFunc('onay')"><i class="fa-solid fa-check"></i> ONAYLA</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>*@
+
+<script src="~/Scripts/jquery-3.7.0.min.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.3.6/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.bootstrap5.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.print.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.colVis.min.js"></script>
+
+<script>
+
+    $(document).ready(function () {
+        var bugun = new Date();
+        var tarihSaat = bugun.toLocaleString();
+
+        var table = $('#red-teklifler-tbl').DataTable({
+            orderCellsTop: true,
+            dom: 'Bfrtip',
+            lengthChange: false,
+            buttons: ['copy', 'excel', 'pdf', 'colvis'],
+            ajax: {
+
+                url: "/umetapi/red-teklif-liste",
+                dataType: "json",
+                type: "GET",
+                dataSrc: ""
+            },
+            columns: [
+
+                {
+                    data: "TEKLIF_NO", render: function (data, type, row) {
+                        if (data || data != null) {
+                            return (data);
+                        }
+                        return "-";
+                    }
+                },
+                {
+                    data: "STOK_ADI", render: function (data, type, row) {
+                        if (data || data != null) {
+                            return (data);
+                        }
+                        return "-";
+                    }
+                },
+                {
+                    data: "TALEP_MIKTAR", render: function (data, type, row) {
+                        if (data || data != null) {
+                            return (data);
+                        }
+                        return "-";
+                    }
+                },
+                {
+                    data: "TEKLIF_FIYAT", render: function (data, type, row) {
+                        if (data || data != null) {
+
+                                var formattedFiyat = parseFloat(data).toLocaleString('tr-TR', {
+                                    style: 'currency',
+                                    currency: 'TRY',
+                                    minimumFractionDigits: 2
+                                });
+
+                            return (formattedFiyat);
+                        }
+                        return "-";
+                    }
+                },
+                {
+                    data: "FIRMA_AD", render: function (data, type, row) {
+                        if (data || data != null) {
+                            return (data);
+                        }
+                        return "-";
+                    }
+                },
+                {
+                    data: "DURUM_AD", render: function (data, type, row) {
+                        if (data || data != null) {
+                            return (data);
+                        }
+                        return "-";
+                    }
+                },
+                {
+                    data: "OLUSTURAN_ISIM", render: function (data, type, row) {
+                        if (data || data != null) {
+                            return (data);
+                        }
+                        return "-";
+                    }
+                },
+                {
+                    data: "OLUSTURULMA_TARIH", render: function (data, type, row) {
+                        if (data || data != null) {
+
+                            var formattedDate = moment(data).format('DD.MM.YYYY HH:mm');
+                            return (formattedDate);
+                        }
+                        return "-";
+                    }
+                },
+                 @if (User.IsInRole("1") || User.IsInRole("2") || User.IsInRole("3") || User.IsInRole("4"))
+                 {
+                    <text>
+                {
+                    data: "ID", "orderable": false,
+                    render: function (data, type, row) {
+                        if (data || data != null) {
+
+                                return (`<a class="btn btn-warning" data-bs-toggle="modal" href="#teklifDetayModal" data-bs-target="#teklifDetayModal"  onclick="teklifDetay(${data})" role="button"><i class="fa-solid fa-magnifying-glass"></i></a>`);
+                        }
+                        return "";
+                    }
+                }
+                </text>
+                     }
+            ],
+            columnDefs: [
+                { targets: "_all", className: "dt-center" },
+
+            ],
+            order: [[5, 'desc']],
+
+            language: {
+                         info: "_TOTAL_ kayıttan _START_ - _END_ kayıt gösteriliyor.",
+                infoEmpty: "Gösterilecek hiç kayıt yok.",
+                loadingRecords: "Kayıtlar yükleniyor.",
+                lengthMenu: "Sayfada _MENU_ kayıt göster",
+                zeroRecords: "Tablo boş",
+                search: "Arama:",
+                infoFiltered: "(toplam _MAX_ kayıttan filtrelenenler)",
+                buttons: {
+                             copy: "Kopyala",
+                    print: "Yazdır",
+                    pdf: "PDF",
+                    excel: "Excel"
+                },
+                paginate: {
+                             first: "İlk",
+                    previous: "Önceki",
+                    next: "Sonraki",
+                    last: "Son"
+                },
+
+            },
+            initComplete: function () {
+                         let columnIdx = 5; // 5. sütunun sıfır tabanlı indeksi
+
+                         let select = $('<select class="form-select"><option value=""></option></select>')
+                             .appendTo($('#red-teklifler-tbl thead tr:eq(1) td').eq(columnIdx))
+                             .on('click', function (e) {
+                             e.stopPropagation();
+                         })
+                    .on('change', function () {
+                             let val = $.fn.dataTable.util.escapeRegex($(this).val());
+
+                             table
+                                 .column(columnIdx)
+                                 .search(val ? '^' + val + '$' : '', true, false)
+                                 .draw();
+                         });
+
+                         table
+                             .column(columnIdx)
+                             .data()
+                             .unique()
+                             .sort()
+                             .each(function (d) {
+                             select.append($('<option>' + d + '</option>'));
+                         });
+
+                     }
+
+                 });
+
+    });
+
+    async function teklifDetay(id) {
+        $('#teklifIdForGuncelleme').val(id);
+        let formdata = new FormData();
+
+        formdata.append("id", id);
+
+        try {
+            await $.ajax({
+                url: "/umetapi/teklif-detay",
+                dataType: "json",
+                dataSrc: "",
+                data: formdata,
+                processData: false,
+                contentType: false,
+                type: "POST",
+                success: function (response, textStatus, xhr) {
+                    if (xhr.status === 200) {
+                        let userRole = '@User.Identity.Name';
+
+                        if (response.TEKLIF_DURUM_ID == 10 || response.TEKLIF_DURUM_ID == 14 || response.TEKLIF_DURUM_ID == 21) {
+                            $('#detayIslemNot').attr('disabled', 'disabled');
+                            $('.btn-islem').attr('disabled', 'disabled').attr('hidden', true);
+
+                        }
+                        else {
+                            $('#detayIslemNot').removeAttr('disabled');
+                            $('.btn-islem').removeAttr('hidden').removeAttr('disabled');
+
+                        }
+                        $('#detayMiktar').val(response.TALEP_MIKTAR);
+
+                        $('#detayNo').html(response.TEKLIF_NO + " Teklif Detay Sayfası");
+                        $('#detayStokAdi').val(response.STOK_ADI);
+                        $('#detayStokBirim').val(response.OLCU_BR);
+                        $('#detayFirma').val(response.FIRMA_AD);
+                        $('#detayDepartman').val(response.DEPARTMAN_AD);
+                        $('#detayGrupAdi').val(response.GRUP_ADI);
+                        $('#detayOlusturan').val(response.OLUSTURAN_ISIM);
+                        if (response.TEKLIF_FIYAT != null) {
+                            var formattedFiyat = parseFloat(response.TEKLIF_FIYAT).toLocaleString('tr-TR', {
+                                style: 'currency',
+                                currency: 'TRY',
+                                minimumFractionDigits: 2
+                            });
+
+                            $('#detayFiyat').val(formattedFiyat);
+                        }
+                        $('#detayIslemYapan').val(response.ISLEM_YAPAN_ISIM);
+                        $('#detayDurum').val(response.DURUM_AD);
+                        $('#detayNot').val(response.TEKLIF_NOT);
+                        if (response.OLUSTURULMA_TARIH != null) {
+                            var formattedOnay = moment(response.OLUSTURULMA_TARIH).format('DD.MM.YYYY HH:mm');
+                            $('#detayOlusturmaTarih').val(formattedOnay);
+                        }
+
+                        $('#detayIslemNot').val(response.TEKLIF_ISLEM_ACIKLAMA);
+
+                        if (response.ONAY1_TARIH != null) {
+                            var formattedOnay = moment(response.ONAY1_TARIH).format('DD.MM.YYYY HH:mm');
+                            $('#detayOnay1Tarihi').val(formattedOnay);
+                        }
+                        $('#detayOnay2Kullanici').val(response.ONAY2_AD);
+                        if (response.ONAY2_TARIH != null) {
+                            var formattedOnay = moment(response.ONAY2_TARIH).format('DD.MM.YYYY HH:mm');
+                            $('#detayOnay2Tarihi').val(formattedOnay);
+                        }
+                        $('#detayOnay3Kullanici').val(response.ONAY3_AD);
+                        if (response.ONAY3_TARIH != null) {
+                            var formattedOnay = moment(response.ONAY3_TARIH).format('DD.MM.YYYY HH:mm');
+                            $('#detayOnay3Tarihi').val(formattedOnay);
+                        }
+
+                        if (response.ONAY1 != null && response.ONAY2 == null && response.ONAY3 == null) {
+                            console.log("1")
+
+                            if (userRole != "1" && userRole != "3") {
+                                $('#detayIslemNot').attr('disabled', 'disabled');
+                                $('.btn-islem').attr('disabled', 'disabled').attr('hidden', true);
+                            }
+                            $('#detayOnay1Kullanici').val(response.ONAY1_AD);
+
+                        }
+                        else if (response.ONAY1 == null && response.ONAY2 == null && response.ONAY3 == null) {
+                            console.log("2")
+
+                            if (userRole != "1" && userRole != "2" && userRole != "3") {
+
+                                $('#detayIslemNot').attr('disabled', 'disabled');
+                                $('.btn-islem').attr('disabled', 'disabled').attr('hidden', true);
+                            }
+                        }
+
+                        if (response.ONAY2 != null && response.ONAY1 != null && response.ONAY3 == null) {
+                            console.log("3")
+
+                            if (userRole != "1") {
+                                $('#detayIslemNot').attr('disabled', 'disabled');
+                                $('.btn-islem').attr('disabled', 'disabled').attr('hidden', true);
+                            }
+
+                        }
+                        else if (response.ONAY2 == null && response.ONAY1 != null && response.ONAY3 == null) {
+                            console.log("4")
+
+                            if (userRole != "1" && userRole != "3") {
+                                $('#detayIslemNot').attr('disabled', 'disabled');
+                                $('.btn-islem').attr('disabled', 'disabled').attr('hidden', true);
+                            }
+                        }
+
+                        if (response.ONAY3 != null && response.ONAY2 != null && response.ONAY3 != null) {
+                            console.log("5")
+
+                            if (userRole != "1") {
+                                $('#detayIslemNot').attr('disabled', 'disabled');
+                                $('.btn-islem').attr('disabled', 'disabled').attr('hidden', true);
+                            }
+
+                        }
+                        else if (response.ONAY3 == null && response.ONAY2 != null && response.ONAY3 != null) {
+                            console.log("6")
+
+                            if (userRole != "1" && userRole != "3") {
+                                $('#detayIslemNot').attr('disabled', 'disabled');
+                                $('.btn-islem').attr('disabled', 'disabled').attr('hidden', true);
+                            }
+                        }
+
+                        if (response.ONAY1 == 1) {
+                            $('#detayOnay1').val("Teklif Aşama 1 Onaylandı");
+                        }
+                        else if (response.ONAY1 == 0) {
+                            $('#detayOnay1').val("Teklif Aşama 1 Reddedildi");
+                        }
+                        else {
+                            $('#detayOnay1').val("Teklif Aşama 1 Beklemede");
+                        }
+
+                        if (response.ONAY2 == 1) {
+                            $('#detayOnay2').val("Teklif Aşama 2 Onaylandı");
+
+                        }
+                        else if (response.ONAY2 == 0) {
+                            $('#detayOnay2').val("Teklif Aşama 2 Reddedildi");
+                        }
+                        else {
+                            $('#detayOnay2').val("Teklif Aşama 2 Beklemede");
+                        }
+
+                        if (response.ONAY3 == 1) {
+                            $('#detayOnay3').val("Teklif Aşama 3 Onaylandı");
+                        }
+                        else if (response.ONAY3 == 0) {
+                            $('#detayOnay3').val("Teklif Aşama 3 Reddedildi");
+                        }
+                        else {
+                            $('#detayOnay3').val("Teklif Aşama 3 Beklemede");
+                        }
+
+
+                        toastr["success"]("Teklif detayı getirildi. ");
+                    }
+
+                }
+            });
+        } catch (error) {
+            toastr["error"]("Teklif detayı getirilemedi. " + error.responseJSON.Message);
+
+        }
+    };
+
+ 
+</script>

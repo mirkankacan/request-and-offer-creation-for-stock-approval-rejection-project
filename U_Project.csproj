@@ -1,0 +1,1229 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CD4D5119-AE03-4767-8B9A-B64448AFC7D4}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UMET</RootNamespace>
+    <AssemblyName>UMET</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44303</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>packages\BouncyCastle.1.8.9\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="ClosedXML, Version=0.102.2.0, Culture=neutral, PublicKeyToken=fd1eb21b62ae805b, processorArchitecture=MSIL">
+      <HintPath>packages\ClosedXML.0.102.2\lib\netstandard2.0\ClosedXML.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.16.0.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>packages\DocumentFormat.OpenXml.2.16.0\lib\net46\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus, Version=7.0.9.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>packages\EPPlus.7.0.9\lib\net462\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus.Interfaces, Version=6.1.1.0, Culture=neutral, PublicKeyToken=a694d7f3b0907a61, processorArchitecture=MSIL">
+      <HintPath>packages\EPPlus.Interfaces.6.1.1\lib\net462\EPPlus.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus.System.Drawing, Version=6.1.1.0, Culture=neutral, PublicKeyToken=2308d35469c9bac0, processorArchitecture=MSIL">
+      <HintPath>packages\EPPlus.System.Drawing.6.1.1\lib\net462\EPPlus.System.Drawing.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelNumberFormat, Version=1.1.0.0, Culture=neutral, PublicKeyToken=23c6f5d73be07eca, processorArchitecture=MSIL">
+      <HintPath>packages\ExcelNumberFormat.1.1.0\lib\net20\ExcelNumberFormat.dll</HintPath>
+    </Reference>
+    <Reference Include="Irony, Version=1.0.11.0, Culture=neutral, PublicKeyToken=ca48ace7223ead47, processorArchitecture=MSIL">
+      <HintPath>packages\Irony.NetCore.1.0.11\lib\net461\Irony.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.3, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>packages\iTextSharp.5.5.13.3\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Authentication, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNetCore.Authentication.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Authentication.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Authentication.Cookies, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNetCore.Authentication.Cookies.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Authentication.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Authentication.Core, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNetCore.Authentication.Core.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Authentication.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Cryptography.Internal, Version=7.0.9.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNetCore.Cryptography.Internal.7.0.9\lib\net462\Microsoft.AspNetCore.Cryptography.Internal.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Cryptography.KeyDerivation, Version=7.0.9.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNetCore.Cryptography.KeyDerivation.7.0.9\lib\net462\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.DataProtection, Version=7.0.9.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNetCore.DataProtection.7.0.9\lib\net462\Microsoft.AspNetCore.DataProtection.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.DataProtection.Abstractions, Version=7.0.9.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNetCore.DataProtection.Abstractions.7.0.9\lib\net462\Microsoft.AspNetCore.DataProtection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Http, Version=2.2.2.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNetCore.Http.2.2.2\lib\netstandard2.0\Microsoft.AspNetCore.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Http.Features, Version=5.0.17.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNetCore.Http.Features.5.0.17\lib\net461\Microsoft.AspNetCore.Http.Features.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.WebUtilities, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNetCore.WebUtilities.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.WebUtilities.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Bcl.AsyncInterfaces.7.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\lib\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Extensions.Configuration, Version=7.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.Configuration.7.0.0\lib\net462\Microsoft.Extensions.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Abstractions, Version=7.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.Configuration.Abstractions.7.0.0\lib\net462\Microsoft.Extensions.Configuration.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Binder, Version=7.0.0.4, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.Configuration.Binder.7.0.4\lib\net462\Microsoft.Extensions.Configuration.Binder.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection, Version=7.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.DependencyInjection.7.0.0\lib\net462\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=7.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.DependencyInjection.Abstractions.7.0.0\lib\net462\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileProviders.Abstractions, Version=7.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.FileProviders.Abstractions.7.0.0\lib\net462\Microsoft.Extensions.FileProviders.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Hosting.Abstractions, Version=7.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.Hosting.Abstractions.7.0.0\lib\net462\Microsoft.Extensions.Hosting.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging, Version=7.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.Logging.7.0.0\lib\net462\Microsoft.Extensions.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=7.0.0.1, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.Logging.Abstractions.7.0.1\lib\net462\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.ObjectPool, Version=7.0.9.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.ObjectPool.7.0.9\lib\net462\Microsoft.Extensions.ObjectPool.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Options, Version=7.0.0.1, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.Options.7.0.1\lib\net462\Microsoft.Extensions.Options.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=7.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.Primitives.7.0.0\lib\net462\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.WebEncoders, Version=7.0.9.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.WebEncoders.7.0.9\lib\net462\Microsoft.Extensions.WebEncoders.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Abstractions, Version=6.31.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.IdentityModel.Abstractions.6.31.0\lib\net472\Microsoft.IdentityModel.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.JsonWebTokens, Version=6.31.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.IdentityModel.JsonWebTokens.6.31.0\lib\net472\Microsoft.IdentityModel.JsonWebTokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Logging, Version=6.31.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.IdentityModel.Logging.6.31.0\lib\net472\Microsoft.IdentityModel.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Tokens, Version=6.31.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.IdentityModel.Tokens.6.31.0\lib\net472\Microsoft.IdentityModel.Tokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IO.RecyclableMemoryStream, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.IO.RecyclableMemoryStream.3.0.0\lib\netstandard2.0\Microsoft.IO.RecyclableMemoryStream.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Net.Http.Headers, Version=2.2.8.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Net.Http.Headers.2.2.8\lib\netstandard2.0\Microsoft.Net.Http.Headers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Web.Infrastructure.2.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Win32.Registry, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Win32.Registry.5.0.0\lib\net461\Microsoft.Win32.Registry.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="SixLabors.Fonts, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d998eea7b14cab13, processorArchitecture=MSIL">
+      <HintPath>packages\SixLabors.Fonts.1.0.0\lib\netstandard2.0\SixLabors.Fonts.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.CodeDom, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.CodeDom.7.0.0\lib\net462\System.CodeDom.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.ComponentModel.Annotations.5.0.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=7.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Diagnostics.DiagnosticSource.7.0.2\lib\net462\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.IdentityModel.Tokens.Jwt, Version=6.31.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\System.IdentityModel.Tokens.Jwt.6.31.0\lib\net472\System.IdentityModel.Tokens.Jwt.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.IO.4.3.0\lib\net462\System.IO.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Packaging, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.IO.Packaging.6.0.0\lib\net461\System.IO.Packaging.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Pipelines, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.IO.Pipelines.7.0.0\lib\net462\System.IO.Pipelines.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Net.Http.4.3.4\lib\net46\System.Net.Http.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.WebApi.Client.5.2.9\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.4.3.0\lib\net462\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.Security.AccessControl, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.AccessControl.6.0.0\lib\net461\System.Security.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Cryptography.Algorithms.4.3.0\lib\net463\System.Security.Cryptography.Algorithms.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Xml, Version=7.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Cryptography.Xml.7.0.1\lib\net462\System.Security.Cryptography.Xml.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Permissions, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Permissions.7.0.0\lib\net462\System.Security.Permissions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Principal.Windows, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Principal.Windows.5.0.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Text.Encodings.Web, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Text.Encodings.Web.7.0.0\lib\net462\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=7.0.0.3, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Text.Json.7.0.3\lib\net462\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.RegularExpressions, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Text.RegularExpressions.4.3.1\lib\net463\System.Text.RegularExpressions.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.WebApi.Core.5.2.9\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.WebApi.WebHost.5.2.9\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.Mvc.5.2.9\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.Razor.3.2.9\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="XLParser, Version=1.5.2.0, Culture=neutral, PublicKeyToken=63397e1e46bb91b4, processorArchitecture=MSIL">
+      <HintPath>packages\XLParser.1.5.2\lib\net461\XLParser.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\HelpPage\ApiDescriptionExtensions.cs" />
+    <Compile Include="Areas\HelpPage\App_Start\HelpPageConfig.cs" />
+    <Compile Include="Areas\HelpPage\Controllers\HelpController.cs" />
+    <Compile Include="Areas\HelpPage\HelpPageAreaRegistration.cs" />
+    <Compile Include="Areas\HelpPage\HelpPageConfigurationExtensions.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\CollectionModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ComplexTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\DictionaryModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\EnumTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\EnumValueDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\IModelDocumentationProvider.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\KeyValuePairModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelDescriptionGenerator.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelNameAttribute.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelNameHelper.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterAnnotation.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\SimpleTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\Models\HelpPageApiModel.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleGenerator.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleKey.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\ImageSample.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\InvalidSample.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\ObjectGenerator.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
+    <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\APIController.cs" />
+    <Compile Include="Controllers\ErrorsController.cs" />
+    <Compile Include="Controllers\SayfalarController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\C__MigrationHistory.cs">
+      <DependentUpon>UMET_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\IDP_PLAKA_BIRIM_LIST_Result.cs">
+      <DependentUpon>UMET_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\IDP_SIPARIS_GRID_Result.cs">
+      <DependentUpon>UMET_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\IDP_STOK_HAREKET_GRID_Result.cs">
+      <DependentUpon>UMET_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\IDP_STOK_HAREKET_LOG_GRID_Result.cs">
+      <DependentUpon>UMET_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\IDP_TALEP_GRID_Result.cs">
+      <DependentUpon>UMET_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\IDP_TEKLIF_ASAMASINDAKI_TALEPLER_GRID_Result.cs">
+      <DependentUpon>UMET_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\IDP_TEKLIF_GRID_Result.cs">
+      <DependentUpon>UMET_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TBL_DEPARTMAN.cs">
+      <DependentUpon>UMET_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TBL_DEPO.cs">
+      <DependentUpon>UMET_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TBL_DURUM.cs">
+      <DependentUpon>UMET_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TBL_FIRMA.cs">
+      <DependentUpon>UMET_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TBL_KULLANICI.cs">
+      <DependentUpon>UMET_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TBL_PLAKA_BIRIM.cs">
+      <DependentUpon>UMET_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TBL_ROL.cs">
+      <DependentUpon>UMET_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TBL_SIPARIS.cs">
+      <DependentUpon>UMET_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TBL_STOK.cs">
+      <DependentUpon>UMET_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TBL_STOK_GRUP.cs">
+      <DependentUpon>UMET_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TBL_STOK_HAREKET2.cs">
+      <DependentUpon>UMET_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TBL_STOK_HAREKET_LOG.cs">
+      <DependentUpon>UMET_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TBL_SUBE.cs">
+      <DependentUpon>UMET_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TBL_TALEP.cs">
+      <DependentUpon>UMET_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TBL_TEKLIF.cs">
+      <DependentUpon>UMET_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UMET_DB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UMET_DB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UMET_DB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UMET_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\U_DB.Context.cs" />
+    <Compile Include="Models\U_DB.Context1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>U_DB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\U_DB.cs" />
+    <Compile Include="Models\U_DB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>U_DB.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\U_DB1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>U_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\VW_DASHBOARD.cs" />
+    <Compile Include="Models\VW_KULLANICI.cs">
+      <DependentUpon>UMET_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\VW_SIPARIS.cs">
+      <DependentUpon>UMET_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\VW_STOK_HAREKET.cs">
+      <DependentUpon>UMET_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\VW_STOK_HAREKET_LOG.cs">
+      <DependentUpon>UMET_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\VW_TALEP.cs">
+      <DependentUpon>UMET_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\VW_TEKLIF.cs">
+      <DependentUpon>UMET_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WebRoleProvider.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\HelpPage\HelpPage.css" />
+    <Content Include="assets\css\core\libs.min.css" />
+    <Content Include="assets\css\custom.css" />
+    <Content Include="assets\css\custom.min.css" />
+    <Content Include="assets\css\customizer.css" />
+    <Content Include="assets\css\customizer.min.css" />
+    <Content Include="assets\css\dark.css" />
+    <Content Include="assets\css\dark.min.css" />
+    <Content Include="assets\css\hope-ui.css" />
+    <Content Include="assets\css\hope-ui.min.css" />
+    <Content Include="assets\css\rtl.css" />
+    <Content Include="assets\css\rtl.min.css" />
+    <Content Include="assets\images\auth\01.png" />
+    <Content Include="assets\images\auth\02.png" />
+    <Content Include="assets\images\auth\03.png" />
+    <Content Include="assets\images\auth\04.png" />
+    <Content Include="assets\images\auth\05.png" />
+    <Content Include="assets\images\auth\06.png" />
+    <Content Include="assets\images\auth\auth1.jpg" />
+    <Content Include="assets\images\auth\auth10.jpg" />
+    <Content Include="assets\images\auth\auth11.jpg" />
+    <Content Include="assets\images\auth\auth2.jpg" />
+    <Content Include="assets\images\auth\auth3.jpg" />
+    <Content Include="assets\images\auth\auth4.jpg" />
+    <Content Include="assets\images\auth\auth5.jpg" />
+    <Content Include="assets\images\auth\auth6.jpg" />
+    <Content Include="assets\images\auth\auth7.jpg" />
+    <Content Include="assets\images\auth\auth8.jpg" />
+    <Content Include="assets\images\auth\auth9.jpg" />
+    <Content Include="assets\images\avatars\01.png" />
+    <Content Include="assets\images\avatars\02.png" />
+    <Content Include="assets\images\avatars\03.png" />
+    <Content Include="assets\images\avatars\04.png" />
+    <Content Include="assets\images\avatars\05.png" />
+    <Content Include="assets\images\avatars\avtar_1.png" />
+    <Content Include="assets\images\avatars\avtar_2.png" />
+    <Content Include="assets\images\avatars\avtar_3.png" />
+    <Content Include="assets\images\avatars\avtar_4.png" />
+    <Content Include="assets\images\avatars\avtar_5.png" />
+    <Content Include="assets\images\dashboard\top-header.png" />
+    <Content Include="assets\images\dashboard\top-header1.png" />
+    <Content Include="assets\images\dashboard\top-header2.png" />
+    <Content Include="assets\images\dashboard\top-header3.png" />
+    <Content Include="assets\images\dashboard\top-header4.png" />
+    <Content Include="assets\images\dashboard\top-header5.png" />
+    <Content Include="assets\images\dashboard\top-image.jpg" />
+    <Content Include="assets\images\down-aerrow.gif" />
+    <Content Include="assets\images\error\01.png" />
+    <Content Include="assets\images\error\02.png" />
+    <Content Include="assets\images\error\03.png" />
+    <Content Include="assets\images\error\404.png" />
+    <Content Include="assets\images\error\500.png" />
+    <Content Include="assets\images\favicon.ico" />
+    <Content Include="assets\images\loader.gif" />
+    <Content Include="assets\images\settings\dark\01.png" />
+    <Content Include="assets\images\settings\dark\02.png" />
+    <Content Include="assets\images\settings\dark\03.png" />
+    <Content Include="assets\images\settings\dark\04.png" />
+    <Content Include="assets\images\settings\dark\05.png" />
+    <Content Include="assets\images\settings\dark\06.png" />
+    <Content Include="assets\images\settings\dark\07.png" />
+    <Content Include="assets\images\settings\dark\08.png" />
+    <Content Include="assets\images\settings\dark\09.png" />
+    <Content Include="assets\images\settings\dark\10.png" />
+    <Content Include="assets\images\settings\dark\11.png" />
+    <Content Include="assets\images\settings\dark\12.png" />
+    <Content Include="assets\images\settings\dark\13.png" />
+    <Content Include="assets\images\settings\light\01.png" />
+    <Content Include="assets\images\settings\light\02.png" />
+    <Content Include="assets\images\settings\light\03.png" />
+    <Content Include="assets\images\settings\light\04.png" />
+    <Content Include="assets\images\settings\light\05.png" />
+    <Content Include="assets\images\settings\light\06.png" />
+    <Content Include="assets\images\settings\light\07.png" />
+    <Content Include="assets\images\settings\light\08.png" />
+    <Content Include="assets\images\settings\light\09.png" />
+    <Content Include="assets\images\settings\light\10.png" />
+    <Content Include="assets\images\settings\light\11.png" />
+    <Content Include="assets\images\settings\light\12.png" />
+    <Content Include="assets\images\settings\light\13.png" />
+    <Content Include="assets\images\shapes\01.png" />
+    <Content Include="assets\images\shapes\02.png" />
+    <Content Include="assets\images\shapes\03.png" />
+    <Content Include="assets\images\shapes\04.png" />
+    <Content Include="assets\images\shapes\05.png" />
+    <Content Include="assets\images\shapes\06.png" />
+    <Content Include="assets\images\ulogo.png" />
+    <Content Include="assets\js\charts\apexcharts.js" />
+    <Content Include="assets\js\charts\dashboard.js" />
+    <Content Include="assets\js\charts\vectore-chart.js" />
+    <Content Include="assets\js\charts\widgetcharts.js" />
+    <Content Include="assets\js\core\external.min.js" />
+    <Content Include="assets\js\core\libs.min.js" />
+    <Content Include="assets\js\hope-ui.js" />
+    <Content Include="assets\js\plugins\calender.js" />
+    <Content Include="assets\js\plugins\circle-progress.js" />
+    <Content Include="assets\js\plugins\countdown.js" />
+    <Content Include="assets\js\plugins\flatpickr.js" />
+    <Content Include="assets\js\plugins\form-wizard.js" />
+    <Content Include="assets\js\plugins\fslightbox.js" />
+    <Content Include="assets\js\plugins\kanban.js" />
+    <Content Include="assets\js\plugins\prism.mini.js" />
+    <Content Include="assets\js\plugins\setting.js" />
+    <Content Include="assets\js\plugins\slider-tabs.js" />
+    <Content Include="assets\vendor\aos\dist\aos.css" />
+    <Content Include="assets\vendor\aos\dist\aos.js" />
+    <Content Include="assets\vendor\flatpickr\dist\flatpickr.min.css" />
+    <Content Include="assets\vendor\flatpickr\dist\flatpickr.min.js" />
+    <Content Include="assets\vendor\Iconly\Bold\2 User.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\3 User.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Activity.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Add User.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Arrow - Down 2.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Arrow - Down 3.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Arrow - Down Circle.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Arrow - Down Square.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Arrow - Down.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Arrow - Left 2.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Arrow - Left 3.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Arrow - Left Circle.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Arrow - Left Square.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Arrow - Left.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Arrow - Right 2.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Arrow - Right 3.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Arrow - Right Circle.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Arrow - Right Square.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Arrow - Right.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Arrow - Up 2.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Arrow - Up 3.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Arrow - Up Circle.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Arrow - Up Square.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Arrow - Up.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Bag 2.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Bag.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Bookmark.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Buy.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Calendar.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Call Missed.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Call Silent.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Call.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Calling.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Camera.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Category.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Chart.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Chat.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Close Square.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Danger.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Delete.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Discount.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Discovery.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Document.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Download.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Edit Square.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Edit.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Filter 2.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Filter.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Folder.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Game.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Graph.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Heart.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Hide.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Home.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Image 2.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Image.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Info Circle.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Info Square.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Location.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Lock.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Login.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Logout.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Message.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\More Circle.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\More Square.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Notification.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Paper Download.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Paper Fail.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Paper Negative.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Paper Plus.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Paper Upload.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Paper.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Password.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Play.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Plus.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Profile.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Scan.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Search.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Send.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Setting.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Shield Done.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Shield Fail.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Show.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Star.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Swap.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Tick Square.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Ticket Star.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Ticket.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Time Circle.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Time Square.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Unlock.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Upload.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Video.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Voice 2.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Voice.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Volume Down.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Volume Off.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Volume Up.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Wallet.svg" />
+    <Content Include="assets\vendor\Iconly\Bold\Work.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\2 User.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\3 User.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Activity.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Add User.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Arrow - Down 2.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Arrow - Down 3.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Arrow - Down Circle.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Arrow - Down Square.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Arrow - Down.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Arrow - Left 2.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Arrow - Left 3.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Arrow - Left Circle.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Arrow - Left Square.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Arrow - Left.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Arrow - Right 2.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Arrow - Right 3.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Arrow - Right Circle.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Arrow - Right Square.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Arrow - Right.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Arrow - Up 2.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Arrow - Up 3.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Arrow - Up Circle.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Arrow - Up Square.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Arrow - Up.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Bag 3.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Bag.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Bookmark.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Buy.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Calendar.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Call Missed.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Call Silent.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Call.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Calling.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Camera.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Category.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Chart.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Chat.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Close Square.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Danger.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Delete.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Discount.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Discovery.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Document.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Download.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Edit Square.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Edit.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Filter 2.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Filter.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Folder.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Game.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Graph.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Heart.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Hide.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Home.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Image 3.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Image.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Info Circle.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Info Square.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Location.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Lock.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Login.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Logout.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Message.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\More Circle.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\More Square.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Notification.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Paper Download.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Paper Fail.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Paper Negative.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Paper Plus.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Paper Upload.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Paper.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Password.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Play.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Plus.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Profile.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Scan.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Search.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Send.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Setting.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Shield Done.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Shield Fail.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Show.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Star.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Swap.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Tick Square.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Ticket Star.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Ticket.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Time Circle.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Time Square.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Unlock.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Upload.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Video.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Voice 3.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Voice.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Volume Down.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Volume Off.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Volume Up.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Wallet.svg" />
+    <Content Include="assets\vendor\Iconly\Colored\Work.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\2 User.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\3 User.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Activity.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Add User.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Arrow - Down 2.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Arrow - Down 3.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Arrow - Down Circle.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Arrow - Down Square.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Arrow - Down.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Arrow - Left 2.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Arrow - Left 3.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Arrow - Left Circle.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Arrow - Left Square.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Arrow - Left.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Arrow - Right 2.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Arrow - Right 3.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Arrow - Right Circle.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Arrow - Right Square.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Arrow - Right.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Arrow - Up 2.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Arrow - Up 3.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Arrow - Up Circle.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Arrow - Up Square.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Arrow - Up.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Bag 3.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Bag.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Bookmark.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Buy.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Calendar.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Call Missed.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Call Silent.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Call.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Calling.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Camera.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Category.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Chart.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Chat.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Close Square.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Danger.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Delete.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Discount.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Discovery.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Document.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Download.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Edit Square.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Edit.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Filter 2.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Filter.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Folder.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Game.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Graph.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Heart.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Hide.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Home.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Image 3.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Image.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Info Circle.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Info Square.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Location.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Lock.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Login.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Logout.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Message.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\More Circle.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\More Square.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Notification.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Paper Download.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Paper Fail.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Paper Negative.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Paper Plus.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Paper Upload.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Paper.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Password.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Play.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Plus.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Profile.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Scan.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Search.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Send.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Setting.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Shield Done.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Shield Fail.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Show.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Star.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Swap.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Tick Square.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Ticket Star.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Ticket.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Time Circle.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Time Square.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Unlock.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Upload.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Video.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Voice 3.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Voice.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Volume Down.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Volume Off.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Volume Up.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Wallet.svg" />
+    <Content Include="assets\vendor\Iconly\DualTone\Work.svg" />
+    <Content Include="assets\vendor\Iconly\Line\2 User.svg" />
+    <Content Include="assets\vendor\Iconly\Line\3 User.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Activity.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Add User.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Arrow - Down 2.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Arrow - Down 3.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Arrow - Down Circle.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Arrow - Down Square.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Arrow - Down.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Arrow - Left 2.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Arrow - Left 3.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Arrow - Left Circle.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Arrow - Left Square.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Arrow - Left.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Arrow - Right 2.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Arrow - Right 3.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Arrow - Right Circle.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Arrow - Right Square.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Arrow - Right.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Arrow - Up 2.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Arrow - Up 3.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Arrow - Up Circle.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Arrow - Up Square.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Arrow - Up.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Bag 3.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Bag.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Bookmark.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Buy.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Calendar.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Call Missed.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Call Silent.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Call.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Calling.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Camera.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Category.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Chart.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Chat.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Close Square.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Danger Circle.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Danger Triangle.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Delete.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Discount.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Discovery.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Document.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Download.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Edit Square.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Edit.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Filter 3.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Filter.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Folder.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Game.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Graph.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Heart.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Hide.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Home.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Image 3.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Image.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Info Square.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Location.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Lock.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Login.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Logout.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Message.svg" />
+    <Content Include="assets\vendor\Iconly\Line\More Circle.svg" />
+    <Content Include="assets\vendor\Iconly\Line\More Square.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Notification.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Paper Download.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Paper Fail.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Paper Negative.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Paper Plus.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Paper Upload.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Paper.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Password.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Play.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Plus.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Profile.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Scan.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Search.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Send.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Setting.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Shield Done.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Shield Fail.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Show.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Star.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Swap.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Tick Square.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Ticket Star.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Ticket.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Time Circle.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Time Square.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Unlock.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Upload.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Video.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Voice 3.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Voice.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Volume Down.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Volume Off.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Volume Up.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Wallet.svg" />
+    <Content Include="assets\vendor\Iconly\Line\Work.svg" />
+    <Content Include="assets\vendor\Leaflet\images\layers-2x.png" />
+    <Content Include="assets\vendor\Leaflet\images\layers.png" />
+    <Content Include="assets\vendor\Leaflet\images\marker-icon-2x.png" />
+    <Content Include="assets\vendor\Leaflet\images\marker-icon.png" />
+    <Content Include="assets\vendor\Leaflet\images\marker-shadow.png" />
+    <Content Include="assets\vendor\Leaflet\leaflet-src.esm.js" />
+    <Content Include="assets\vendor\Leaflet\leaflet-src.js" />
+    <Content Include="assets\vendor\Leaflet\leaflet.css" />
+    <Content Include="assets\vendor\Leaflet\leaflet.js" />
+    <Content Include="assets\vendor\lodash\lodash.min.js" />
+    <Content Include="assets\vendor\moment.min.js" />
+    <Content Include="assets\vendor\sortable\Sortable.js" />
+    <Content Include="assets\vendor\sortable\Sortable.min.js" />
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-grid.rtl.css" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css" />
+    <Content Include="Content\bootstrap-utilities.css" />
+    <Content Include="Content\bootstrap-utilities.min.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap.rtl.css" />
+    <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Global.asax" />
+    <Content Include="Areas\HelpPage\Views\Web.config" />
+    <Content Include="Areas\HelpPage\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\ResourceModel.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\Index.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\TextSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\SimpleTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Samples.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Parameters.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ModelDescriptionLink.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\KeyValuePairModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\InvalidSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ImageSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\HelpPageApiModel.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\EnumTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\DictionaryModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ComplexTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <Content Include="assets\css\maps\custom.min.css.map" />
+    <Content Include="assets\css\maps\customizer.min.css.map" />
+    <Content Include="assets\css\maps\dark.min.css.map" />
+    <Content Include="assets\css\maps\hope-ui.min.css.map" />
+    <Content Include="assets\css\maps\rtl.min.css.map" />
+    <Content Include="assets\vendor\Leaflet\leaflet-src.esm.js.map" />
+    <Content Include="assets\vendor\Leaflet\leaflet-src.js.map" />
+    <Content Include="assets\vendor\Leaflet\leaflet.js.map" />
+    <Content Include="Models\UMET_DB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>U_DB.edmx</DependentUpon>
+      <LastGenOutput>UMET_DB.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\UMET_DB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>U_DB.edmx</DependentUpon>
+      <LastGenOutput>UMET_DB.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\U_DB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>U_DB.Context1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\U_DB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>U_DB1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.esm.js" />
+    <Content Include="Scripts\bootstrap.esm.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <EntityDeploy Include="Models\U_DB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>U_DB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\U_DB.edmx.diagram">
+      <DependentUpon>U_DB.edmx</DependentUpon>
+    </Content>
+    <None Include="Scripts\jquery-3.7.0.intellisense.js" />
+    <Content Include="Scripts\jquery-3.7.0.js" />
+    <Content Include="Scripts\jquery-3.7.0.min.js" />
+    <Content Include="Scripts\jquery-3.7.0.slim.js" />
+    <Content Include="Scripts\jquery-3.7.0.slim.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\moment-with-locales.js" />
+    <Content Include="Scripts\moment-with-locales.min.js" />
+    <Content Include="Scripts\moment.js" />
+    <Content Include="Scripts\moment.min.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Sayfalar\Giris.cshtml" />
+    <Content Include="Views\Sayfalar\AnaSayfa.cshtml" />
+    <Content Include="Views\Sayfalar\Profil.cshtml" />
+    <Content Include="Views\Sayfalar\BeklemedeOnaylananTeklifler.cshtml" />
+    <Content Include="Views\Sayfalar\BeklemedeOnaylananTalepler.cshtml" />
+    <Content Include="Views\Sayfalar\TalepOlustur.cshtml" />
+    <Content Include="Views\Sayfalar\Siparisler.cshtml" />
+    <Content Include="Scripts\moment.min.js.map" />
+    <Content Include="Scripts\moment-with-locales.min.js.map" />
+    <Content Include="Views\Errors\Error404.cshtml" />
+    <Content Include="Views\Errors\Error500.cshtml" />
+    <Content Include="Views\Sayfalar\MalzemeCikis.cshtml" />
+    <Content Include="Views\Sayfalar\StokDurum.cshtml" />
+    <Content Include="Views\Sayfalar\StokKullan.cshtml" />
+    <Content Include="Views\Sayfalar\ReddedilenTalepler.cshtml" />
+    <Content Include="Views\Sayfalar\ReddedilenTeklifler.cshtml" />
+    <Content Include="Views\Sayfalar\Raporlar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.rtl.min.css.map" />
+    <Content Include="Content\bootstrap.rtl.css.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.css.map" />
+    <Content Include="Content\bootstrap-utilities.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-grid.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.esm.min.js.map" />
+    <Content Include="Scripts\bootstrap.esm.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Scripts\jquery-3.7.0.slim.min.map" />
+    <Content Include="Scripts\jquery-3.7.0.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>54302</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44303/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets'))" />
+    <Error Condition="!Exists('packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets" Condition="Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" />
+  <Import Project="packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

@@ -1,0 +1,1325 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="UMET_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+    <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TBL_DEPARTMAN">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DEPARTMAN_AD" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TBL_DEPO">
+    <Key>
+      <PropertyRef Name="DEPO_ID" />
+    </Key>
+    <Property Name="DEPO_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DEPO_AD" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="SUBE_KODU" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TBL_DURUM">
+    <Key>
+      <PropertyRef Name="DURUM_ID" />
+    </Key>
+    <Property Name="DURUM_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DURUM_AD" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TBL_FIRMA">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FIRMA_AD" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TBL_KULLANICI">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KULLANICI_ADI" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="SIFRE" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ISIM_SOYISIM" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="ROL_ID" Type="int" Nullable="false" />
+    <Property Name="SUBE_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TBL_PLAKA_BIRIM">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SUBE_ID" Type="int" Nullable="false" />
+    <Property Name="PLAKA_BIRIM" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DEPARTMAN_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TBL_ROL">
+    <Key>
+      <PropertyRef Name="ROL_ID" />
+    </Key>
+    <Property Name="ROL_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ROL_AD" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TBL_SIPARIS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SIPARIS_NO" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="TEKLIF_ID" Type="int" Nullable="false" />
+    <Property Name="TALEP_ID" Type="int" Nullable="false" />
+    <Property Name="OLUSTURULMA_TARIH" Type="datetime" Nullable="false" />
+    <Property Name="ONAY_TARIH" Type="datetime" />
+    <Property Name="RED_TARIH" Type="datetime" />
+    <Property Name="OLUSTURAN_ID" Type="int" Nullable="false" />
+    <Property Name="ISLEM_YAPAN_ID" Type="int" />
+    <Property Name="SUBE_ID" Type="int" Nullable="false" />
+    <Property Name="SIPARIS_DURUM_ID" Type="int" Nullable="false" />
+    <Property Name="DURUM_GUNCELLEME_TARIH" Type="datetime" />
+  </EntityType>
+  <EntityType Name="TBL_STOK">
+    <Key>
+      <PropertyRef Name="STOK_KODU" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SUBE_KODU" Type="int" />
+    <Property Name="STOK_KODU" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="STOK_ADI" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="OLCU_BR" Type="nvarchar" MaxLength="50" />
+    <Property Name="GRUP_KODU" Type="int" Nullable="false" />
+    <Property Name="A_FIYAT" Type="float" />
+    <Property Name="S_FIYAT" Type="float" />
+    <Property Name="KDV_ORAN" Type="int" />
+    <Property Name="DEPO_KODU" Type="int" />
+  </EntityType>
+  <EntityType Name="TBL_STOK_GRUP">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GRUP_ADI" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TBL_STOK_HAREKET_LOG">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="STOK_KODU" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MIKTAR" Type="float" Nullable="false" />
+    <Property Name="TARIH" Type="datetime" Nullable="false" />
+    <Property Name="KULLANICI_ID" Type="int" Nullable="false" />
+    <Property Name="SUBE_ID" Type="int" Nullable="false" />
+    <Property Name="KULLANILDI_MI" Type="bit" Nullable="false" />
+    <Property Name="STOK_GRUP_ID" Type="int" Nullable="false" />
+    <Property Name="DEPARTMAN_ID" Type="int" Nullable="false" />
+    <Property Name="DEPO_ID" Type="int" Nullable="false" />
+    <Property Name="PLAKA_BIRIM" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="H_NOT" Type="nvarchar" MaxLength="350" />
+  </EntityType>
+  <EntityType Name="TBL_STOK_HAREKET2">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FISNO" Type="nvarchar" MaxLength="50" />
+    <Property Name="STOK_KODU" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MIKTAR" Type="float" Nullable="false" />
+    <Property Name="GC_KOD" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="TARIH" Type="datetime" Nullable="false" />
+    <Property Name="SIPARIS_NO" Type="nvarchar" MaxLength="50" />
+    <Property Name="ALIS_MALIYET" Type="float" />
+    <Property Name="KULLANICI_ID" Type="int" />
+    <Property Name="DEPO_ID" Type="int" />
+    <Property Name="STOK_GRUP_ID" Type="int" />
+    <Property Name="KAYIT_ZAMAN" Type="datetime" />
+    <Property Name="SUBE_ID" Type="int" />
+    <Property Name="DEPARTMAN_ID" Type="int" />
+  </EntityType>
+  <EntityType Name="TBL_SUBE">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SUBE_ADI" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TBL_TALEP">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TALEP_NO" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="TALEP_MIKTAR" Type="int" Nullable="false" />
+    <Property Name="TALEP_DEPARTMAN_ID" Type="int" Nullable="false" />
+    <Property Name="TALEP_NOT" Type="nvarchar" MaxLength="300" />
+    <Property Name="PLAKA_BIRIM" Type="nvarchar" MaxLength="50" />
+    <Property Name="OLUSTURULMA_TARIH" Type="datetime" Nullable="false" />
+    <Property Name="OLUSTURAN_ID" Type="int" Nullable="false" />
+    <Property Name="STOK_KODU" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="SUBE_ID" Type="int" Nullable="false" />
+    <Property Name="TALEP_ISLEM_ACIKLAMA" Type="nvarchar" MaxLength="300" />
+    <Property Name="ONAY1" Type="bit" />
+    <Property Name="ONAY2" Type="bit" />
+    <Property Name="ONAY3" Type="bit" />
+    <Property Name="ONAY1_TARIH" Type="datetime" />
+    <Property Name="ONAY2_TARIH" Type="datetime" />
+    <Property Name="ONAY3_TARIH" Type="datetime" />
+    <Property Name="ONAY1_KULLANICI" Type="int" />
+    <Property Name="ONAY2_KULLANICI" Type="int" />
+    <Property Name="ONAY3_KULLANICI" Type="int" />
+    <Property Name="TALEP_DURUM_ID" Type="int" />
+  </EntityType>
+  <EntityType Name="TBL_TEKLIF">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TALEP_ID" Type="int" Nullable="false" />
+    <Property Name="FIRMA_ID" Type="int" Nullable="false" />
+    <Property Name="TEKLIF_NO" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="TEKLIF_FIYAT" Type="money" Nullable="false" />
+    <Property Name="TEKLIF_NOT" Type="nvarchar" MaxLength="300" />
+    <Property Name="MARKA" Type="nvarchar" MaxLength="100" />
+    <Property Name="OLUSTURULMA_TARIH" Type="datetime" Nullable="false" />
+    <Property Name="OLUSTURAN_ID" Type="int" Nullable="false" />
+    <Property Name="SUBE_ID" Type="int" Nullable="false" />
+    <Property Name="TEKLIF_ISLEM_ACIKLAMA" Type="nvarchar" MaxLength="300" />
+    <Property Name="ONAY1" Type="bit" />
+    <Property Name="ONAY2" Type="bit" />
+    <Property Name="ONAY3" Type="bit" />
+    <Property Name="ONAY1_KULLANICI" Type="int" />
+    <Property Name="ONAY2_KULLANICI" Type="int" />
+    <Property Name="ONAY3_KULLANICI" Type="int" />
+    <Property Name="ONAY1_TARIH" Type="datetime" />
+    <Property Name="ONAY2_TARIH" Type="datetime" />
+    <Property Name="ONAY3_TARIH" Type="datetime" />
+    <Property Name="TEKLIF_DURUM_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'UMET_DB.dbo.VW_KULLANICI' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="VW_KULLANICI">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="KULLANICI_ADI" />
+      <PropertyRef Name="SIFRE" />
+      <PropertyRef Name="ISIM_SOYISIM" />
+      <PropertyRef Name="ROL_AD" />
+      <PropertyRef Name="ROL_ID" />
+      <PropertyRef Name="SUBE_ID" />
+      <PropertyRef Name="SUBE_ADI" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="KULLANICI_ADI" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="SIFRE" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ISIM_SOYISIM" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="ROL_AD" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ROL_ID" Type="int" Nullable="false" />
+    <Property Name="SUBE_ID" Type="int" Nullable="false" />
+    <Property Name="SUBE_ADI" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'UMET_DB.dbo.VW_SIPARIS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="VW_SIPARIS">
+    <Key>
+      <PropertyRef Name="SIPARIS_ID" />
+      <PropertyRef Name="SIPARIS_NO" />
+      <PropertyRef Name="TEKLIF_ID" />
+      <PropertyRef Name="TALEP_ID" />
+      <PropertyRef Name="SIPARIS_OLUSTURULMA_TARIH" />
+      <PropertyRef Name="SUBE_ID" />
+      <PropertyRef Name="SIPARIS_DURUM_ID" />
+      <PropertyRef Name="TEKLIF_FIYAT" />
+      <PropertyRef Name="TEKLIF_OLUSTURULMA_TARIH" />
+      <PropertyRef Name="TEKLIF_OLUSTURAN_ID" />
+      <PropertyRef Name="DURUM_AD" />
+      <PropertyRef Name="FIRMA_AD" />
+      <PropertyRef Name="DEPARTMAN_AD" />
+      <PropertyRef Name="DEPARTMAN_ID" />
+      <PropertyRef Name="TALEP_MIKTAR" />
+      <PropertyRef Name="TALEP_OLUSTURULMA_TARIH" />
+      <PropertyRef Name="TALEP_NO" />
+      <PropertyRef Name="STOK_ADI" />
+      <PropertyRef Name="STOK_GRUP_ID" />
+      <PropertyRef Name="STOK_KODU" />
+      <PropertyRef Name="DEPO_AD" />
+    </Key>
+    <Property Name="SIPARIS_ID" Type="int" Nullable="false" />
+    <Property Name="SIPARIS_NO" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="TEKLIF_ID" Type="int" Nullable="false" />
+    <Property Name="TALEP_ID" Type="int" Nullable="false" />
+    <Property Name="SIPARIS_OLUSTURULMA_TARIH" Type="datetime" Nullable="false" />
+    <Property Name="ONAY_TARIH" Type="datetime" />
+    <Property Name="RED_TARIH" Type="datetime" />
+    <Property Name="SIPARIS_OLUSTURAN_ISIM" Type="nvarchar" MaxLength="100" />
+    <Property Name="SIPARIS_ISLEM_YAPAN_ISIM" Type="nvarchar" MaxLength="100" />
+    <Property Name="SUBE_ID" Type="int" Nullable="false" />
+    <Property Name="SIPARIS_DURUM_ID" Type="int" Nullable="false" />
+    <Property Name="DURUM_GUNCELLEME_TARIH" Type="datetime" />
+    <Property Name="TEKLIF_ISLEM_ACIKLAMA" Type="nvarchar" MaxLength="300" />
+    <Property Name="TEKLIF_FIYAT" Type="money" Nullable="false" />
+    <Property Name="TEKLIF_NOT" Type="nvarchar" MaxLength="300" />
+    <Property Name="TEKLIF_OLUSTURULMA_TARIH" Type="datetime" Nullable="false" />
+    <Property Name="TEKLIF_OLUSTURAN_ID" Type="int" Nullable="false" />
+    <Property Name="TALEP_ISLEM_ACIKLAMA" Type="nvarchar" MaxLength="300" />
+    <Property Name="DURUM_AD" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="FIRMA_AD" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="DEPARTMAN_AD" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DEPARTMAN_ID" Type="int" Nullable="false" />
+    <Property Name="TALEP_MIKTAR" Type="int" Nullable="false" />
+    <Property Name="TALEP_OLUSTURULMA_TARIH" Type="datetime" Nullable="false" />
+    <Property Name="PLAKA_BIRIM" Type="nvarchar" MaxLength="50" />
+    <Property Name="TEKLIF_OLUSTURAN_ISIM" Type="nvarchar" MaxLength="100" />
+    <Property Name="TALEP_NO" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="STOK_ADI" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="OLCU_BR" Type="nvarchar" MaxLength="50" />
+    <Property Name="GRUP_ADI" Type="nvarchar" MaxLength="50" />
+    <Property Name="STOK_GRUP_ID" Type="int" Nullable="false" />
+    <Property Name="TEKLIF_ONAY1" Type="bit" />
+    <Property Name="TEKLIF_ONAY2" Type="bit" />
+    <Property Name="TEKLIF_ONAY3" Type="bit" />
+    <Property Name="TEKLIF_ONAY1_TARIH" Type="datetime" />
+    <Property Name="TEKLIF_ONAY2_TARIH" Type="datetime" />
+    <Property Name="TEKLIF_ONAY3_TARIH" Type="datetime" />
+    <Property Name="TEKLIF_ONAY1_KULLANICI" Type="int" />
+    <Property Name="TEKLIF_ONAY2_KULLANICI" Type="int" />
+    <Property Name="TEKLIF_ONAY3_KULLANICI" Type="int" />
+    <Property Name="TEKLIF_ONAY1_AD" Type="nvarchar" MaxLength="100" />
+    <Property Name="TEKLIF_ONAY2_AD" Type="nvarchar" MaxLength="100" />
+    <Property Name="TEKLIF_ONAY3_AD" Type="nvarchar" MaxLength="100" />
+    <Property Name="TALEP_OLUSTURAN_ISIM" Type="nvarchar" MaxLength="100" />
+    <Property Name="TALEP_ONAY1" Type="bit" />
+    <Property Name="TALEP_ONAY2" Type="bit" />
+    <Property Name="TALEP_ONAY3" Type="bit" />
+    <Property Name="TALEP_ONAY1_TARIH" Type="datetime" />
+    <Property Name="TALEP_ONAY2_TARIH" Type="datetime" />
+    <Property Name="TALEP_ONAY3_TARIH" Type="datetime" />
+    <Property Name="TALEP_ONAY1_KULLANICI" Type="int" />
+    <Property Name="TALEP_ONAY2_KULLANICI" Type="int" />
+    <Property Name="TALEP_ONAY3_KULLANICI" Type="int" />
+    <Property Name="TALEP_ONAY1_AD" Type="nvarchar" MaxLength="100" />
+    <Property Name="TALEP_ONAY2_AD" Type="nvarchar" MaxLength="100" />
+    <Property Name="TALEP_ONAY3_AD" Type="nvarchar" MaxLength="100" />
+    <Property Name="STOK_KODU" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DEPO_AD" Type="nvarchar" MaxLength="250" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'UMET_DB.dbo.VW_STOK_HAREKET' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="VW_STOK_HAREKET">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="STOK_KODU" />
+      <PropertyRef Name="MIKTAR" />
+      <PropertyRef Name="GC_KOD" />
+      <PropertyRef Name="TARIH" />
+      <PropertyRef Name="DEPARTMAN_AD" />
+      <PropertyRef Name="DEPO_AD" />
+      <PropertyRef Name="ISIM_SOYISIM" />
+      <PropertyRef Name="STOK_ADI" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="FISNO" Type="nvarchar" MaxLength="50" />
+    <Property Name="STOK_KODU" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MIKTAR" Type="float" Nullable="false" />
+    <Property Name="GC_KOD" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="TARIH" Type="datetime" Nullable="false" />
+    <Property Name="SIPARIS_NO" Type="nvarchar" MaxLength="50" />
+    <Property Name="ALIS_MALIYET" Type="float" />
+    <Property Name="KULLANICI_ID" Type="int" />
+    <Property Name="DEPO_ID" Type="int" />
+    <Property Name="STOK_GRUP_ID" Type="int" />
+    <Property Name="KAYIT_ZAMAN" Type="datetime" />
+    <Property Name="SUBE_ID" Type="int" />
+    <Property Name="DEPARTMAN_ID" Type="int" />
+    <Property Name="DEPARTMAN_AD" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DEPO_AD" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="GRUP_ADI" Type="nvarchar" MaxLength="50" />
+    <Property Name="ISIM_SOYISIM" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="STOK_ADI" Type="nvarchar" MaxLength="150" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'UMET_DB.dbo.VW_STOK_HAREKET_LOG' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="VW_STOK_HAREKET_LOG">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="STOK_KODU" />
+      <PropertyRef Name="MIKTAR" />
+      <PropertyRef Name="TARIH" />
+      <PropertyRef Name="KULLANICI_ID" />
+      <PropertyRef Name="SUBE_ID" />
+      <PropertyRef Name="KULLANILDI_MI" />
+      <PropertyRef Name="STOK_GRUP_ID" />
+      <PropertyRef Name="DEPARTMAN_ID" />
+      <PropertyRef Name="DEPO_ID" />
+      <PropertyRef Name="PLAKA_BIRIM" />
+      <PropertyRef Name="DEPARTMAN_AD" />
+      <PropertyRef Name="DEPO_AD" />
+      <PropertyRef Name="ISIM_SOYISIM" />
+      <PropertyRef Name="STOK_ADI" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="STOK_KODU" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MIKTAR" Type="float" Nullable="false" />
+    <Property Name="TARIH" Type="datetime" Nullable="false" />
+    <Property Name="KULLANICI_ID" Type="int" Nullable="false" />
+    <Property Name="SUBE_ID" Type="int" Nullable="false" />
+    <Property Name="KULLANILDI_MI" Type="bit" Nullable="false" />
+    <Property Name="STOK_GRUP_ID" Type="int" Nullable="false" />
+    <Property Name="DEPARTMAN_ID" Type="int" Nullable="false" />
+    <Property Name="DEPO_ID" Type="int" Nullable="false" />
+    <Property Name="PLAKA_BIRIM" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="H_NOT" Type="nvarchar" MaxLength="350" />
+    <Property Name="DEPARTMAN_AD" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DEPO_AD" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="GRUP_ADI" Type="nvarchar" MaxLength="50" />
+    <Property Name="ISIM_SOYISIM" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="STOK_ADI" Type="nvarchar" MaxLength="150" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'UMET_DB.dbo.VW_TALEP' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="VW_TALEP">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="TALEP_NO" />
+      <PropertyRef Name="TALEP_MIKTAR" />
+      <PropertyRef Name="TALEP_DEPARTMAN_ID" />
+      <PropertyRef Name="OLUSTURULMA_TARIH" />
+      <PropertyRef Name="OLUSTURAN_ID" />
+      <PropertyRef Name="SUBE_ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="TALEP_NO" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="TALEP_ISLEM_ACIKLAMA" Type="nvarchar" MaxLength="300" />
+    <Property Name="TALEP_MIKTAR" Type="int" Nullable="false" />
+    <Property Name="TALEP_DEPARTMAN_ID" Type="int" Nullable="false" />
+    <Property Name="TALEP_DURUM_ID" Type="int" />
+    <Property Name="TALEP_NOT" Type="nvarchar" MaxLength="300" />
+    <Property Name="OLUSTURULMA_TARIH" Type="datetime" Nullable="false" />
+    <Property Name="OLUSTURAN_ID" Type="int" Nullable="false" />
+    <Property Name="DEPARTMAN_AD" Type="nvarchar" MaxLength="50" />
+    <Property Name="DURUM_AD" Type="nvarchar" MaxLength="50" />
+    <Property Name="SUBE_ID" Type="int" Nullable="false" />
+    <Property Name="PLAKA_BIRIM" Type="nvarchar" MaxLength="50" />
+    <Property Name="OLUSTURAN_ISIM" Type="nvarchar" MaxLength="100" />
+    <Property Name="STOK_KODU" Type="nvarchar" MaxLength="50" />
+    <Property Name="STOK_ADI" Type="nvarchar" MaxLength="150" />
+    <Property Name="OLCU_BR" Type="nvarchar" MaxLength="50" />
+    <Property Name="GRUP_KODU" Type="int" />
+    <Property Name="A_FIYAT" Type="float" />
+    <Property Name="S_FIYAT" Type="float" />
+    <Property Name="KDV_ORAN" Type="int" />
+    <Property Name="DEPO_KODU" Type="int" />
+    <Property Name="STOK_GRUP_ID" Type="int" />
+    <Property Name="GRUP_ADI" Type="nvarchar" MaxLength="50" />
+    <Property Name="ONAY1" Type="bit" />
+    <Property Name="ONAY2" Type="bit" />
+    <Property Name="ONAY3" Type="bit" />
+    <Property Name="ONAY1_TARIH" Type="datetime" />
+    <Property Name="ONAY2_TARIH" Type="datetime" />
+    <Property Name="ONAY3_TARIH" Type="datetime" />
+    <Property Name="ONAY1_KULLANICI" Type="int" />
+    <Property Name="ONAY2_KULLANICI" Type="int" />
+    <Property Name="ONAY3_KULLANICI" Type="int" />
+    <Property Name="DEPO_AD" Type="nvarchar" MaxLength="250" />
+    <Property Name="ANLIK_STOK_MIKTAR" Type="float" />
+    <Property Name="ONAY1_AD" Type="nvarchar" MaxLength="100" />
+    <Property Name="ONAY2_AD" Type="nvarchar" MaxLength="100" />
+    <Property Name="ONAY3_AD" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'UMET_DB.dbo.VW_TEKLIF' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="VW_TEKLIF">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="TALEP_ID" />
+      <PropertyRef Name="TEKLIF_NO" />
+      <PropertyRef Name="TEKLIF_FIYAT" />
+      <PropertyRef Name="OLUSTURULMA_TARIH" />
+      <PropertyRef Name="OLUSTURAN_ID" />
+      <PropertyRef Name="TEKLIF_DURUM_ID" />
+      <PropertyRef Name="DURUM_AD" />
+      <PropertyRef Name="FIRMA_AD" />
+      <PropertyRef Name="SUBE_ID" />
+      <PropertyRef Name="DEPARTMAN_AD" />
+      <PropertyRef Name="DEPARTMAN_ID" />
+      <PropertyRef Name="TALEP_MIKTAR" />
+      <PropertyRef Name="TALEP_NO" />
+      <PropertyRef Name="STOK_ADI" />
+      <PropertyRef Name="STOK_KODU" />
+      <PropertyRef Name="STOK_GRUP_ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="TALEP_ID" Type="int" Nullable="false" />
+    <Property Name="TEKLIF_NO" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="TEKLIF_ISLEM_ACIKLAMA" Type="nvarchar" MaxLength="300" />
+    <Property Name="TEKLIF_FIYAT" Type="money" Nullable="false" />
+    <Property Name="MARKA" Type="nvarchar" MaxLength="100" />
+    <Property Name="TEKLIF_NOT" Type="nvarchar" MaxLength="300" />
+    <Property Name="OLUSTURULMA_TARIH" Type="datetime" Nullable="false" />
+    <Property Name="OLUSTURAN_ID" Type="int" Nullable="false" />
+    <Property Name="TEKLIF_DURUM_ID" Type="int" Nullable="false" />
+    <Property Name="TALEP_ISLEM_ACIKLAMA" Type="nvarchar" MaxLength="300" />
+    <Property Name="DURUM_AD" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="FIRMA_AD" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="SUBE_ID" Type="int" Nullable="false" />
+    <Property Name="DEPARTMAN_AD" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DEPARTMAN_ID" Type="int" Nullable="false" />
+    <Property Name="TALEP_MIKTAR" Type="int" Nullable="false" />
+    <Property Name="PLAKA_BIRIM" Type="nvarchar" MaxLength="50" />
+    <Property Name="OLUSTURAN_ISIM" Type="nvarchar" MaxLength="100" />
+    <Property Name="TALEP_NO" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="STOK_ADI" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="STOK_KODU" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="OLCU_BR" Type="nvarchar" MaxLength="50" />
+    <Property Name="GRUP_ADI" Type="nvarchar" MaxLength="50" />
+    <Property Name="STOK_GRUP_ID" Type="int" Nullable="false" />
+    <Property Name="ONAY1" Type="bit" />
+    <Property Name="ONAY2" Type="bit" />
+    <Property Name="ONAY3" Type="bit" />
+    <Property Name="ONAY1_TARIH" Type="datetime" />
+    <Property Name="ONAY2_TARIH" Type="datetime" />
+    <Property Name="ONAY3_TARIH" Type="datetime" />
+    <Property Name="ONAY1_KULLANICI" Type="int" />
+    <Property Name="ONAY2_KULLANICI" Type="int" />
+    <Property Name="ONAY3_KULLANICI" Type="int" />
+    <Property Name="ONAY1_AD" Type="nvarchar" MaxLength="100" />
+    <Property Name="ONAY2_AD" Type="nvarchar" MaxLength="100" />
+    <Property Name="ONAY3_AD" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <Association Name="FK_TBL_DEPO_TBL_SUBE">
+    <End Role="TBL_SUBE" Type="Self.TBL_SUBE" Multiplicity="1" />
+    <End Role="TBL_DEPO" Type="Self.TBL_DEPO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_SUBE">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBL_DEPO">
+        <PropertyRef Name="SUBE_KODU" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_PLAKA_BIRIM_TBL_DEPARTMAN">
+    <End Role="TBL_DEPARTMAN" Type="Self.TBL_DEPARTMAN" Multiplicity="1" />
+    <End Role="TBL_PLAKA_BIRIM" Type="Self.TBL_PLAKA_BIRIM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_DEPARTMAN">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBL_PLAKA_BIRIM">
+        <PropertyRef Name="DEPARTMAN_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_PLAKA_BIRIM_TBL_SUBE">
+    <End Role="TBL_SUBE" Type="Self.TBL_SUBE" Multiplicity="1" />
+    <End Role="TBL_PLAKA_BIRIM" Type="Self.TBL_PLAKA_BIRIM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_SUBE">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBL_PLAKA_BIRIM">
+        <PropertyRef Name="SUBE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_SIPARIS_TBL_DURUM">
+    <End Role="TBL_DURUM" Type="Self.TBL_DURUM" Multiplicity="1" />
+    <End Role="TBL_SIPARIS" Type="Self.TBL_SIPARIS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_DURUM">
+        <PropertyRef Name="DURUM_ID" />
+      </Principal>
+      <Dependent Role="TBL_SIPARIS">
+        <PropertyRef Name="SIPARIS_DURUM_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_SIPARIS_TBL_SUBE">
+    <End Role="TBL_SUBE" Type="Self.TBL_SUBE" Multiplicity="1" />
+    <End Role="TBL_SIPARIS" Type="Self.TBL_SIPARIS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_SUBE">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBL_SIPARIS">
+        <PropertyRef Name="SUBE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_SIPARIS_TBL_TALEP">
+    <End Role="TBL_TALEP" Type="Self.TBL_TALEP" Multiplicity="1" />
+    <End Role="TBL_SIPARIS" Type="Self.TBL_SIPARIS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_TALEP">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBL_SIPARIS">
+        <PropertyRef Name="TALEP_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_SIPARIS_TBL_TEKLIF">
+    <End Role="TBL_TEKLIF" Type="Self.TBL_TEKLIF" Multiplicity="1" />
+    <End Role="TBL_SIPARIS" Type="Self.TBL_SIPARIS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_TEKLIF">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBL_SIPARIS">
+        <PropertyRef Name="TEKLIF_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_STOK_HAREKET_LOG_TBL_DEPARTMAN">
+    <End Role="TBL_DEPARTMAN" Type="Self.TBL_DEPARTMAN" Multiplicity="1" />
+    <End Role="TBL_STOK_HAREKET_LOG" Type="Self.TBL_STOK_HAREKET_LOG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_DEPARTMAN">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBL_STOK_HAREKET_LOG">
+        <PropertyRef Name="DEPARTMAN_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_STOK_HAREKET_LOG_TBL_DEPO">
+    <End Role="TBL_DEPO" Type="Self.TBL_DEPO" Multiplicity="1" />
+    <End Role="TBL_STOK_HAREKET_LOG" Type="Self.TBL_STOK_HAREKET_LOG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_DEPO">
+        <PropertyRef Name="DEPO_ID" />
+      </Principal>
+      <Dependent Role="TBL_STOK_HAREKET_LOG">
+        <PropertyRef Name="DEPO_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_STOK_HAREKET_LOG_TBL_KULLANICI">
+    <End Role="TBL_KULLANICI" Type="Self.TBL_KULLANICI" Multiplicity="1" />
+    <End Role="TBL_STOK_HAREKET_LOG" Type="Self.TBL_STOK_HAREKET_LOG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_KULLANICI">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBL_STOK_HAREKET_LOG">
+        <PropertyRef Name="KULLANICI_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_STOK_HAREKET_LOG_TBL_STOK">
+    <End Role="TBL_STOK" Type="Self.TBL_STOK" Multiplicity="1" />
+    <End Role="TBL_STOK_HAREKET_LOG" Type="Self.TBL_STOK_HAREKET_LOG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_STOK">
+        <PropertyRef Name="STOK_KODU" />
+      </Principal>
+      <Dependent Role="TBL_STOK_HAREKET_LOG">
+        <PropertyRef Name="STOK_KODU" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_STOK_HAREKET_LOG_TBL_STOK_GRUP">
+    <End Role="TBL_STOK_GRUP" Type="Self.TBL_STOK_GRUP" Multiplicity="1" />
+    <End Role="TBL_STOK_HAREKET_LOG" Type="Self.TBL_STOK_HAREKET_LOG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_STOK_GRUP">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBL_STOK_HAREKET_LOG">
+        <PropertyRef Name="STOK_GRUP_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_STOK_HAREKET_LOG_TBL_SUBE">
+    <End Role="TBL_SUBE" Type="Self.TBL_SUBE" Multiplicity="1" />
+    <End Role="TBL_STOK_HAREKET_LOG" Type="Self.TBL_STOK_HAREKET_LOG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_SUBE">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBL_STOK_HAREKET_LOG">
+        <PropertyRef Name="SUBE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_STOK_HAREKET2_TBL_DEPARTMAN">
+    <End Role="TBL_DEPARTMAN" Type="Self.TBL_DEPARTMAN" Multiplicity="0..1" />
+    <End Role="TBL_STOK_HAREKET2" Type="Self.TBL_STOK_HAREKET2" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_DEPARTMAN">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBL_STOK_HAREKET2">
+        <PropertyRef Name="DEPARTMAN_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_STOK_HAREKET2_TBL_DEPO">
+    <End Role="TBL_DEPO" Type="Self.TBL_DEPO" Multiplicity="0..1" />
+    <End Role="TBL_STOK_HAREKET2" Type="Self.TBL_STOK_HAREKET2" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_DEPO">
+        <PropertyRef Name="DEPO_ID" />
+      </Principal>
+      <Dependent Role="TBL_STOK_HAREKET2">
+        <PropertyRef Name="DEPO_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_STOK_HAREKET2_TBL_KULLANICI">
+    <End Role="TBL_KULLANICI" Type="Self.TBL_KULLANICI" Multiplicity="0..1" />
+    <End Role="TBL_STOK_HAREKET2" Type="Self.TBL_STOK_HAREKET2" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_KULLANICI">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBL_STOK_HAREKET2">
+        <PropertyRef Name="KULLANICI_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_STOK_HAREKET2_TBL_STOK">
+    <End Role="TBL_STOK" Type="Self.TBL_STOK" Multiplicity="1" />
+    <End Role="TBL_STOK_HAREKET2" Type="Self.TBL_STOK_HAREKET2" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_STOK">
+        <PropertyRef Name="STOK_KODU" />
+      </Principal>
+      <Dependent Role="TBL_STOK_HAREKET2">
+        <PropertyRef Name="STOK_KODU" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_STOK_HAREKET2_TBL_STOK_GRUP">
+    <End Role="TBL_STOK_GRUP" Type="Self.TBL_STOK_GRUP" Multiplicity="0..1" />
+    <End Role="TBL_STOK_HAREKET2" Type="Self.TBL_STOK_HAREKET2" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_STOK_GRUP">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBL_STOK_HAREKET2">
+        <PropertyRef Name="STOK_GRUP_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_STOK_HAREKET2_TBL_SUBE">
+    <End Role="TBL_SUBE" Type="Self.TBL_SUBE" Multiplicity="0..1" />
+    <End Role="TBL_STOK_HAREKET2" Type="Self.TBL_STOK_HAREKET2" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_SUBE">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBL_STOK_HAREKET2">
+        <PropertyRef Name="SUBE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_STOK_TBL_DEPO">
+    <End Role="TBL_DEPO" Type="Self.TBL_DEPO" Multiplicity="0..1" />
+    <End Role="TBL_STOK" Type="Self.TBL_STOK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_DEPO">
+        <PropertyRef Name="DEPO_ID" />
+      </Principal>
+      <Dependent Role="TBL_STOK">
+        <PropertyRef Name="DEPO_KODU" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_STOK_TBL_STOK_GRUP">
+    <End Role="TBL_STOK_GRUP" Type="Self.TBL_STOK_GRUP" Multiplicity="1" />
+    <End Role="TBL_STOK" Type="Self.TBL_STOK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_STOK_GRUP">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBL_STOK">
+        <PropertyRef Name="GRUP_KODU" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_STOK_TBL_SUBE">
+    <End Role="TBL_SUBE" Type="Self.TBL_SUBE" Multiplicity="0..1" />
+    <End Role="TBL_STOK" Type="Self.TBL_STOK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_SUBE">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBL_STOK">
+        <PropertyRef Name="SUBE_KODU" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_TALEP_TBL_DEPARTMAN">
+    <End Role="TBL_DEPARTMAN" Type="Self.TBL_DEPARTMAN" Multiplicity="1" />
+    <End Role="TBL_TALEP" Type="Self.TBL_TALEP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_DEPARTMAN">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBL_TALEP">
+        <PropertyRef Name="TALEP_DEPARTMAN_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_TALEP_TBL_DURUM3">
+    <End Role="TBL_DURUM" Type="Self.TBL_DURUM" Multiplicity="0..1" />
+    <End Role="TBL_TALEP" Type="Self.TBL_TALEP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_DURUM">
+        <PropertyRef Name="DURUM_ID" />
+      </Principal>
+      <Dependent Role="TBL_TALEP">
+        <PropertyRef Name="TALEP_DURUM_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_TALEP_TBL_KULLANICI">
+    <End Role="TBL_KULLANICI" Type="Self.TBL_KULLANICI" Multiplicity="0..1" />
+    <End Role="TBL_TALEP" Type="Self.TBL_TALEP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_KULLANICI">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBL_TALEP">
+        <PropertyRef Name="ONAY1_KULLANICI" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_TALEP_TBL_KULLANICI1">
+    <End Role="TBL_KULLANICI" Type="Self.TBL_KULLANICI" Multiplicity="0..1" />
+    <End Role="TBL_TALEP" Type="Self.TBL_TALEP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_KULLANICI">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBL_TALEP">
+        <PropertyRef Name="ONAY2_KULLANICI" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_TALEP_TBL_KULLANICI2">
+    <End Role="TBL_KULLANICI" Type="Self.TBL_KULLANICI" Multiplicity="0..1" />
+    <End Role="TBL_TALEP" Type="Self.TBL_TALEP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_KULLANICI">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBL_TALEP">
+        <PropertyRef Name="ONAY3_KULLANICI" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_TALEP_TBL_STOK">
+    <End Role="TBL_STOK" Type="Self.TBL_STOK" Multiplicity="1" />
+    <End Role="TBL_TALEP" Type="Self.TBL_TALEP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_STOK">
+        <PropertyRef Name="STOK_KODU" />
+      </Principal>
+      <Dependent Role="TBL_TALEP">
+        <PropertyRef Name="STOK_KODU" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_TALEP_TBL_SUBE">
+    <End Role="TBL_SUBE" Type="Self.TBL_SUBE" Multiplicity="1" />
+    <End Role="TBL_TALEP" Type="Self.TBL_TALEP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_SUBE">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBL_TALEP">
+        <PropertyRef Name="SUBE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_TEKLIF_TBL_DURUM">
+    <End Role="TBL_DURUM" Type="Self.TBL_DURUM" Multiplicity="1" />
+    <End Role="TBL_TEKLIF" Type="Self.TBL_TEKLIF" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_DURUM">
+        <PropertyRef Name="DURUM_ID" />
+      </Principal>
+      <Dependent Role="TBL_TEKLIF">
+        <PropertyRef Name="TEKLIF_DURUM_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_TEKLIF_TBL_KULLANICI">
+    <End Role="TBL_KULLANICI" Type="Self.TBL_KULLANICI" Multiplicity="0..1" />
+    <End Role="TBL_TEKLIF" Type="Self.TBL_TEKLIF" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_KULLANICI">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBL_TEKLIF">
+        <PropertyRef Name="ONAY1_KULLANICI" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_TEKLIF_TBL_KULLANICI1">
+    <End Role="TBL_KULLANICI" Type="Self.TBL_KULLANICI" Multiplicity="0..1" />
+    <End Role="TBL_TEKLIF" Type="Self.TBL_TEKLIF" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_KULLANICI">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBL_TEKLIF">
+        <PropertyRef Name="ONAY2_KULLANICI" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_TEKLIF_TBL_KULLANICI2">
+    <End Role="TBL_KULLANICI" Type="Self.TBL_KULLANICI" Multiplicity="0..1" />
+    <End Role="TBL_TEKLIF" Type="Self.TBL_TEKLIF" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_KULLANICI">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBL_TEKLIF">
+        <PropertyRef Name="ONAY3_KULLANICI" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_TEKLIF_TBL_SUBE">
+    <End Role="TBL_SUBE" Type="Self.TBL_SUBE" Multiplicity="1" />
+    <End Role="TBL_TEKLIF" Type="Self.TBL_TEKLIF" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_SUBE">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBL_TEKLIF">
+        <PropertyRef Name="SUBE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_USER_TBL_ROLE">
+    <End Role="TBL_SUBE" Type="Self.TBL_SUBE" Multiplicity="1" />
+    <End Role="TBL_KULLANICI" Type="Self.TBL_KULLANICI" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_SUBE">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBL_KULLANICI">
+        <PropertyRef Name="SUBE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="IDF_ORDER_SIPARISNO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="varchar">
+    <Parameter Name="SERI" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="IDF_ORDER_STOKNO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="varchar">
+    <Parameter Name="SERI" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="IDF_ORDER_TALEPNO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="varchar">
+    <Parameter Name="SERI" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="IDF_ORDER_TEKLIFNO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="varchar">
+    <Parameter Name="SERI" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="IDP_PLAKA_BIRIM_LIST" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="KULLANICI_ID" Type="int" Mode="In" />
+    <Parameter Name="DEPARTMAN_ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="IDP_SIPARIS_GRID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="KULLANICI_ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="IDP_STOK_HAR_I" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FISNO" Type="nvarchar" Mode="In" />
+    <Parameter Name="STOK_KODU" Type="nvarchar" Mode="In" />
+    <Parameter Name="MIKTAR" Type="float" Mode="In" />
+    <Parameter Name="GCKOD" Type="varchar" Mode="In" />
+    <Parameter Name="TARIH" Type="datetime" Mode="In" />
+    <Parameter Name="KULLANICI_ID" Type="int" Mode="In" />
+    <Parameter Name="DEPARMTAN_ID" Type="int" Mode="In" />
+    <Parameter Name="SIPARIS_NO" Type="nvarchar" Mode="In" />
+    <Parameter Name="KULLANILDIMI" Type="bit" Mode="In" />
+    <Parameter Name="PLAKA_BIRIM" Type="nvarchar" Mode="In" />
+    <Parameter Name="H_NOT" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="IDP_STOK_HAREKET_GRID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="KULLANICI_ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="IDP_STOK_HAREKET_LOG_GRID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="KULLANICI_ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="IDP_TALEP_GRID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="KULLANICI_ID" Type="int" Mode="In" />
+    <Parameter Name="DURUM" Type="int" Mode="In" />
+  </Function>
+  <Function Name="IDP_TEKLIF_ASAMASINDAKI_TALEPLER_GRID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="KULLANICI_ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="IDP_TEKLIF_GRID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="KULLANICI_ID" Type="int" Mode="In" />
+    <Parameter Name="DURUM" Type="int" Mode="In" />
+    <Parameter Name="TALEPID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="TURK" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="nvarchar">
+    <Parameter Name="A" Type="nvarchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="UMET_DBModelStoreContainer">
+    <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_DEPARTMAN" EntityType="Self.TBL_DEPARTMAN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_DEPO" EntityType="Self.TBL_DEPO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_DURUM" EntityType="Self.TBL_DURUM" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_FIRMA" EntityType="Self.TBL_FIRMA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_KULLANICI" EntityType="Self.TBL_KULLANICI" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_PLAKA_BIRIM" EntityType="Self.TBL_PLAKA_BIRIM" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_ROL" EntityType="Self.TBL_ROL" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_SIPARIS" EntityType="Self.TBL_SIPARIS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_STOK" EntityType="Self.TBL_STOK" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_STOK_GRUP" EntityType="Self.TBL_STOK_GRUP" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_STOK_HAREKET_LOG" EntityType="Self.TBL_STOK_HAREKET_LOG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_STOK_HAREKET2" EntityType="Self.TBL_STOK_HAREKET2" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_SUBE" EntityType="Self.TBL_SUBE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_TALEP" EntityType="Self.TBL_TALEP" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_TEKLIF" EntityType="Self.TBL_TEKLIF" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VW_KULLANICI" EntityType="Self.VW_KULLANICI" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [VW_KULLANICI].[ID] AS [ID], 
+    [VW_KULLANICI].[KULLANICI_ADI] AS [KULLANICI_ADI], 
+    [VW_KULLANICI].[SIFRE] AS [SIFRE], 
+    [VW_KULLANICI].[ISIM_SOYISIM] AS [ISIM_SOYISIM], 
+    [VW_KULLANICI].[ROL_AD] AS [ROL_AD], 
+    [VW_KULLANICI].[ROL_ID] AS [ROL_ID], 
+    [VW_KULLANICI].[SUBE_ID] AS [SUBE_ID], 
+    [VW_KULLANICI].[SUBE_ADI] AS [SUBE_ADI]
+    FROM [dbo].[VW_KULLANICI] AS [VW_KULLANICI]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VW_SIPARIS" EntityType="Self.VW_SIPARIS" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [VW_SIPARIS].[SIPARIS_ID] AS [SIPARIS_ID], 
+    [VW_SIPARIS].[SIPARIS_NO] AS [SIPARIS_NO], 
+    [VW_SIPARIS].[TEKLIF_ID] AS [TEKLIF_ID], 
+    [VW_SIPARIS].[TALEP_ID] AS [TALEP_ID], 
+    [VW_SIPARIS].[SIPARIS_OLUSTURULMA_TARIH] AS [SIPARIS_OLUSTURULMA_TARIH], 
+    [VW_SIPARIS].[ONAY_TARIH] AS [ONAY_TARIH], 
+    [VW_SIPARIS].[RED_TARIH] AS [RED_TARIH], 
+    [VW_SIPARIS].[SIPARIS_OLUSTURAN_ISIM] AS [SIPARIS_OLUSTURAN_ISIM], 
+    [VW_SIPARIS].[SIPARIS_ISLEM_YAPAN_ISIM] AS [SIPARIS_ISLEM_YAPAN_ISIM], 
+    [VW_SIPARIS].[SUBE_ID] AS [SUBE_ID], 
+    [VW_SIPARIS].[SIPARIS_DURUM_ID] AS [SIPARIS_DURUM_ID], 
+    [VW_SIPARIS].[DURUM_GUNCELLEME_TARIH] AS [DURUM_GUNCELLEME_TARIH], 
+    [VW_SIPARIS].[TEKLIF_ISLEM_ACIKLAMA] AS [TEKLIF_ISLEM_ACIKLAMA], 
+    [VW_SIPARIS].[TEKLIF_FIYAT] AS [TEKLIF_FIYAT], 
+    [VW_SIPARIS].[TEKLIF_NOT] AS [TEKLIF_NOT], 
+    [VW_SIPARIS].[TEKLIF_OLUSTURULMA_TARIH] AS [TEKLIF_OLUSTURULMA_TARIH], 
+    [VW_SIPARIS].[TEKLIF_OLUSTURAN_ID] AS [TEKLIF_OLUSTURAN_ID], 
+    [VW_SIPARIS].[TALEP_ISLEM_ACIKLAMA] AS [TALEP_ISLEM_ACIKLAMA], 
+    [VW_SIPARIS].[DURUM_AD] AS [DURUM_AD], 
+    [VW_SIPARIS].[FIRMA_AD] AS [FIRMA_AD], 
+    [VW_SIPARIS].[DEPARTMAN_AD] AS [DEPARTMAN_AD], 
+    [VW_SIPARIS].[DEPARTMAN_ID] AS [DEPARTMAN_ID], 
+    [VW_SIPARIS].[TALEP_MIKTAR] AS [TALEP_MIKTAR], 
+    [VW_SIPARIS].[TALEP_OLUSTURULMA_TARIH] AS [TALEP_OLUSTURULMA_TARIH], 
+    [VW_SIPARIS].[PLAKA_BIRIM] AS [PLAKA_BIRIM], 
+    [VW_SIPARIS].[TEKLIF_OLUSTURAN_ISIM] AS [TEKLIF_OLUSTURAN_ISIM], 
+    [VW_SIPARIS].[TALEP_NO] AS [TALEP_NO], 
+    [VW_SIPARIS].[STOK_ADI] AS [STOK_ADI], 
+    [VW_SIPARIS].[OLCU_BR] AS [OLCU_BR], 
+    [VW_SIPARIS].[GRUP_ADI] AS [GRUP_ADI], 
+    [VW_SIPARIS].[STOK_GRUP_ID] AS [STOK_GRUP_ID], 
+    [VW_SIPARIS].[TEKLIF_ONAY1] AS [TEKLIF_ONAY1], 
+    [VW_SIPARIS].[TEKLIF_ONAY2] AS [TEKLIF_ONAY2], 
+    [VW_SIPARIS].[TEKLIF_ONAY3] AS [TEKLIF_ONAY3], 
+    [VW_SIPARIS].[TEKLIF_ONAY1_TARIH] AS [TEKLIF_ONAY1_TARIH], 
+    [VW_SIPARIS].[TEKLIF_ONAY2_TARIH] AS [TEKLIF_ONAY2_TARIH], 
+    [VW_SIPARIS].[TEKLIF_ONAY3_TARIH] AS [TEKLIF_ONAY3_TARIH], 
+    [VW_SIPARIS].[TEKLIF_ONAY1_KULLANICI] AS [TEKLIF_ONAY1_KULLANICI], 
+    [VW_SIPARIS].[TEKLIF_ONAY2_KULLANICI] AS [TEKLIF_ONAY2_KULLANICI], 
+    [VW_SIPARIS].[TEKLIF_ONAY3_KULLANICI] AS [TEKLIF_ONAY3_KULLANICI], 
+    [VW_SIPARIS].[TEKLIF_ONAY1_AD] AS [TEKLIF_ONAY1_AD], 
+    [VW_SIPARIS].[TEKLIF_ONAY2_AD] AS [TEKLIF_ONAY2_AD], 
+    [VW_SIPARIS].[TEKLIF_ONAY3_AD] AS [TEKLIF_ONAY3_AD], 
+    [VW_SIPARIS].[TALEP_OLUSTURAN_ISIM] AS [TALEP_OLUSTURAN_ISIM], 
+    [VW_SIPARIS].[TALEP_ONAY1] AS [TALEP_ONAY1], 
+    [VW_SIPARIS].[TALEP_ONAY2] AS [TALEP_ONAY2], 
+    [VW_SIPARIS].[TALEP_ONAY3] AS [TALEP_ONAY3], 
+    [VW_SIPARIS].[TALEP_ONAY1_TARIH] AS [TALEP_ONAY1_TARIH], 
+    [VW_SIPARIS].[TALEP_ONAY2_TARIH] AS [TALEP_ONAY2_TARIH], 
+    [VW_SIPARIS].[TALEP_ONAY3_TARIH] AS [TALEP_ONAY3_TARIH], 
+    [VW_SIPARIS].[TALEP_ONAY1_KULLANICI] AS [TALEP_ONAY1_KULLANICI], 
+    [VW_SIPARIS].[TALEP_ONAY2_KULLANICI] AS [TALEP_ONAY2_KULLANICI], 
+    [VW_SIPARIS].[TALEP_ONAY3_KULLANICI] AS [TALEP_ONAY3_KULLANICI], 
+    [VW_SIPARIS].[TALEP_ONAY1_AD] AS [TALEP_ONAY1_AD], 
+    [VW_SIPARIS].[TALEP_ONAY2_AD] AS [TALEP_ONAY2_AD], 
+    [VW_SIPARIS].[TALEP_ONAY3_AD] AS [TALEP_ONAY3_AD], 
+    [VW_SIPARIS].[STOK_KODU] AS [STOK_KODU], 
+    [VW_SIPARIS].[DEPO_AD] AS [DEPO_AD]
+    FROM [dbo].[VW_SIPARIS] AS [VW_SIPARIS]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VW_STOK_HAREKET" EntityType="Self.VW_STOK_HAREKET" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [VW_STOK_HAREKET].[ID] AS [ID], 
+    [VW_STOK_HAREKET].[FISNO] AS [FISNO], 
+    [VW_STOK_HAREKET].[STOK_KODU] AS [STOK_KODU], 
+    [VW_STOK_HAREKET].[MIKTAR] AS [MIKTAR], 
+    [VW_STOK_HAREKET].[GC_KOD] AS [GC_KOD], 
+    [VW_STOK_HAREKET].[TARIH] AS [TARIH], 
+    [VW_STOK_HAREKET].[SIPARIS_NO] AS [SIPARIS_NO], 
+    [VW_STOK_HAREKET].[ALIS_MALIYET] AS [ALIS_MALIYET], 
+    [VW_STOK_HAREKET].[KULLANICI_ID] AS [KULLANICI_ID], 
+    [VW_STOK_HAREKET].[DEPO_ID] AS [DEPO_ID], 
+    [VW_STOK_HAREKET].[STOK_GRUP_ID] AS [STOK_GRUP_ID], 
+    [VW_STOK_HAREKET].[KAYIT_ZAMAN] AS [KAYIT_ZAMAN], 
+    [VW_STOK_HAREKET].[SUBE_ID] AS [SUBE_ID], 
+    [VW_STOK_HAREKET].[DEPARTMAN_ID] AS [DEPARTMAN_ID], 
+    [VW_STOK_HAREKET].[DEPARTMAN_AD] AS [DEPARTMAN_AD], 
+    [VW_STOK_HAREKET].[DEPO_AD] AS [DEPO_AD], 
+    [VW_STOK_HAREKET].[GRUP_ADI] AS [GRUP_ADI], 
+    [VW_STOK_HAREKET].[ISIM_SOYISIM] AS [ISIM_SOYISIM], 
+    [VW_STOK_HAREKET].[STOK_ADI] AS [STOK_ADI]
+    FROM [dbo].[VW_STOK_HAREKET] AS [VW_STOK_HAREKET]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VW_STOK_HAREKET_LOG" EntityType="Self.VW_STOK_HAREKET_LOG" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [VW_STOK_HAREKET_LOG].[ID] AS [ID], 
+    [VW_STOK_HAREKET_LOG].[STOK_KODU] AS [STOK_KODU], 
+    [VW_STOK_HAREKET_LOG].[MIKTAR] AS [MIKTAR], 
+    [VW_STOK_HAREKET_LOG].[TARIH] AS [TARIH], 
+    [VW_STOK_HAREKET_LOG].[KULLANICI_ID] AS [KULLANICI_ID], 
+    [VW_STOK_HAREKET_LOG].[SUBE_ID] AS [SUBE_ID], 
+    [VW_STOK_HAREKET_LOG].[KULLANILDI_MI] AS [KULLANILDI_MI], 
+    [VW_STOK_HAREKET_LOG].[STOK_GRUP_ID] AS [STOK_GRUP_ID], 
+    [VW_STOK_HAREKET_LOG].[DEPARTMAN_ID] AS [DEPARTMAN_ID], 
+    [VW_STOK_HAREKET_LOG].[DEPO_ID] AS [DEPO_ID], 
+    [VW_STOK_HAREKET_LOG].[PLAKA_BIRIM] AS [PLAKA_BIRIM], 
+    [VW_STOK_HAREKET_LOG].[H_NOT] AS [H_NOT], 
+    [VW_STOK_HAREKET_LOG].[DEPARTMAN_AD] AS [DEPARTMAN_AD], 
+    [VW_STOK_HAREKET_LOG].[DEPO_AD] AS [DEPO_AD], 
+    [VW_STOK_HAREKET_LOG].[GRUP_ADI] AS [GRUP_ADI], 
+    [VW_STOK_HAREKET_LOG].[ISIM_SOYISIM] AS [ISIM_SOYISIM], 
+    [VW_STOK_HAREKET_LOG].[STOK_ADI] AS [STOK_ADI]
+    FROM [dbo].[VW_STOK_HAREKET_LOG] AS [VW_STOK_HAREKET_LOG]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VW_TALEP" EntityType="Self.VW_TALEP" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [VW_TALEP].[ID] AS [ID], 
+    [VW_TALEP].[TALEP_NO] AS [TALEP_NO], 
+    [VW_TALEP].[TALEP_ISLEM_ACIKLAMA] AS [TALEP_ISLEM_ACIKLAMA], 
+    [VW_TALEP].[TALEP_MIKTAR] AS [TALEP_MIKTAR], 
+    [VW_TALEP].[TALEP_DEPARTMAN_ID] AS [TALEP_DEPARTMAN_ID], 
+    [VW_TALEP].[TALEP_DURUM_ID] AS [TALEP_DURUM_ID], 
+    [VW_TALEP].[TALEP_NOT] AS [TALEP_NOT], 
+    [VW_TALEP].[OLUSTURULMA_TARIH] AS [OLUSTURULMA_TARIH], 
+    [VW_TALEP].[OLUSTURAN_ID] AS [OLUSTURAN_ID], 
+    [VW_TALEP].[DEPARTMAN_AD] AS [DEPARTMAN_AD], 
+    [VW_TALEP].[DURUM_AD] AS [DURUM_AD], 
+    [VW_TALEP].[SUBE_ID] AS [SUBE_ID], 
+    [VW_TALEP].[PLAKA_BIRIM] AS [PLAKA_BIRIM], 
+    [VW_TALEP].[OLUSTURAN_ISIM] AS [OLUSTURAN_ISIM], 
+    [VW_TALEP].[STOK_KODU] AS [STOK_KODU], 
+    [VW_TALEP].[STOK_ADI] AS [STOK_ADI], 
+    [VW_TALEP].[OLCU_BR] AS [OLCU_BR], 
+    [VW_TALEP].[GRUP_KODU] AS [GRUP_KODU], 
+    [VW_TALEP].[A_FIYAT] AS [A_FIYAT], 
+    [VW_TALEP].[S_FIYAT] AS [S_FIYAT], 
+    [VW_TALEP].[KDV_ORAN] AS [KDV_ORAN], 
+    [VW_TALEP].[DEPO_KODU] AS [DEPO_KODU], 
+    [VW_TALEP].[STOK_GRUP_ID] AS [STOK_GRUP_ID], 
+    [VW_TALEP].[GRUP_ADI] AS [GRUP_ADI], 
+    [VW_TALEP].[ONAY1] AS [ONAY1], 
+    [VW_TALEP].[ONAY2] AS [ONAY2], 
+    [VW_TALEP].[ONAY3] AS [ONAY3], 
+    [VW_TALEP].[ONAY1_TARIH] AS [ONAY1_TARIH], 
+    [VW_TALEP].[ONAY2_TARIH] AS [ONAY2_TARIH], 
+    [VW_TALEP].[ONAY3_TARIH] AS [ONAY3_TARIH], 
+    [VW_TALEP].[ONAY1_KULLANICI] AS [ONAY1_KULLANICI], 
+    [VW_TALEP].[ONAY2_KULLANICI] AS [ONAY2_KULLANICI], 
+    [VW_TALEP].[ONAY3_KULLANICI] AS [ONAY3_KULLANICI], 
+    [VW_TALEP].[DEPO_AD] AS [DEPO_AD], 
+    [VW_TALEP].[ANLIK_STOK_MIKTAR] AS [ANLIK_STOK_MIKTAR], 
+    [VW_TALEP].[ONAY1_AD] AS [ONAY1_AD], 
+    [VW_TALEP].[ONAY2_AD] AS [ONAY2_AD], 
+    [VW_TALEP].[ONAY3_AD] AS [ONAY3_AD]
+    FROM [dbo].[VW_TALEP] AS [VW_TALEP]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VW_TEKLIF" EntityType="Self.VW_TEKLIF" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [VW_TEKLIF].[ID] AS [ID], 
+    [VW_TEKLIF].[TALEP_ID] AS [TALEP_ID], 
+    [VW_TEKLIF].[TEKLIF_NO] AS [TEKLIF_NO], 
+    [VW_TEKLIF].[TEKLIF_ISLEM_ACIKLAMA] AS [TEKLIF_ISLEM_ACIKLAMA], 
+    [VW_TEKLIF].[TEKLIF_FIYAT] AS [TEKLIF_FIYAT], 
+    [VW_TEKLIF].[MARKA] AS [MARKA], 
+    [VW_TEKLIF].[TEKLIF_NOT] AS [TEKLIF_NOT], 
+    [VW_TEKLIF].[OLUSTURULMA_TARIH] AS [OLUSTURULMA_TARIH], 
+    [VW_TEKLIF].[OLUSTURAN_ID] AS [OLUSTURAN_ID], 
+    [VW_TEKLIF].[TEKLIF_DURUM_ID] AS [TEKLIF_DURUM_ID], 
+    [VW_TEKLIF].[TALEP_ISLEM_ACIKLAMA] AS [TALEP_ISLEM_ACIKLAMA], 
+    [VW_TEKLIF].[DURUM_AD] AS [DURUM_AD], 
+    [VW_TEKLIF].[FIRMA_AD] AS [FIRMA_AD], 
+    [VW_TEKLIF].[SUBE_ID] AS [SUBE_ID], 
+    [VW_TEKLIF].[DEPARTMAN_AD] AS [DEPARTMAN_AD], 
+    [VW_TEKLIF].[DEPARTMAN_ID] AS [DEPARTMAN_ID], 
+    [VW_TEKLIF].[TALEP_MIKTAR] AS [TALEP_MIKTAR], 
+    [VW_TEKLIF].[PLAKA_BIRIM] AS [PLAKA_BIRIM], 
+    [VW_TEKLIF].[OLUSTURAN_ISIM] AS [OLUSTURAN_ISIM], 
+    [VW_TEKLIF].[TALEP_NO] AS [TALEP_NO], 
+    [VW_TEKLIF].[STOK_ADI] AS [STOK_ADI], 
+    [VW_TEKLIF].[STOK_KODU] AS [STOK_KODU], 
+    [VW_TEKLIF].[OLCU_BR] AS [OLCU_BR], 
+    [VW_TEKLIF].[GRUP_ADI] AS [GRUP_ADI], 
+    [VW_TEKLIF].[STOK_GRUP_ID] AS [STOK_GRUP_ID], 
+    [VW_TEKLIF].[ONAY1] AS [ONAY1], 
+    [VW_TEKLIF].[ONAY2] AS [ONAY2], 
+    [VW_TEKLIF].[ONAY3] AS [ONAY3], 
+    [VW_TEKLIF].[ONAY1_TARIH] AS [ONAY1_TARIH], 
+    [VW_TEKLIF].[ONAY2_TARIH] AS [ONAY2_TARIH], 
+    [VW_TEKLIF].[ONAY3_TARIH] AS [ONAY3_TARIH], 
+    [VW_TEKLIF].[ONAY1_KULLANICI] AS [ONAY1_KULLANICI], 
+    [VW_TEKLIF].[ONAY2_KULLANICI] AS [ONAY2_KULLANICI], 
+    [VW_TEKLIF].[ONAY3_KULLANICI] AS [ONAY3_KULLANICI], 
+    [VW_TEKLIF].[ONAY1_AD] AS [ONAY1_AD], 
+    [VW_TEKLIF].[ONAY2_AD] AS [ONAY2_AD], 
+    [VW_TEKLIF].[ONAY3_AD] AS [ONAY3_AD]
+    FROM [dbo].[VW_TEKLIF] AS [VW_TEKLIF]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_TBL_DEPO_TBL_SUBE" Association="Self.FK_TBL_DEPO_TBL_SUBE">
+      <End Role="TBL_SUBE" EntitySet="TBL_SUBE" />
+      <End Role="TBL_DEPO" EntitySet="TBL_DEPO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_PLAKA_BIRIM_TBL_DEPARTMAN" Association="Self.FK_TBL_PLAKA_BIRIM_TBL_DEPARTMAN">
+      <End Role="TBL_DEPARTMAN" EntitySet="TBL_DEPARTMAN" />
+      <End Role="TBL_PLAKA_BIRIM" EntitySet="TBL_PLAKA_BIRIM" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_PLAKA_BIRIM_TBL_SUBE" Association="Self.FK_TBL_PLAKA_BIRIM_TBL_SUBE">
+      <End Role="TBL_SUBE" EntitySet="TBL_SUBE" />
+      <End Role="TBL_PLAKA_BIRIM" EntitySet="TBL_PLAKA_BIRIM" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_SIPARIS_TBL_DURUM" Association="Self.FK_TBL_SIPARIS_TBL_DURUM">
+      <End Role="TBL_DURUM" EntitySet="TBL_DURUM" />
+      <End Role="TBL_SIPARIS" EntitySet="TBL_SIPARIS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_SIPARIS_TBL_SUBE" Association="Self.FK_TBL_SIPARIS_TBL_SUBE">
+      <End Role="TBL_SUBE" EntitySet="TBL_SUBE" />
+      <End Role="TBL_SIPARIS" EntitySet="TBL_SIPARIS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_SIPARIS_TBL_TALEP" Association="Self.FK_TBL_SIPARIS_TBL_TALEP">
+      <End Role="TBL_TALEP" EntitySet="TBL_TALEP" />
+      <End Role="TBL_SIPARIS" EntitySet="TBL_SIPARIS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_SIPARIS_TBL_TEKLIF" Association="Self.FK_TBL_SIPARIS_TBL_TEKLIF">
+      <End Role="TBL_TEKLIF" EntitySet="TBL_TEKLIF" />
+      <End Role="TBL_SIPARIS" EntitySet="TBL_SIPARIS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_STOK_HAREKET_LOG_TBL_DEPARTMAN" Association="Self.FK_TBL_STOK_HAREKET_LOG_TBL_DEPARTMAN">
+      <End Role="TBL_DEPARTMAN" EntitySet="TBL_DEPARTMAN" />
+      <End Role="TBL_STOK_HAREKET_LOG" EntitySet="TBL_STOK_HAREKET_LOG" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_STOK_HAREKET_LOG_TBL_DEPO" Association="Self.FK_TBL_STOK_HAREKET_LOG_TBL_DEPO">
+      <End Role="TBL_DEPO" EntitySet="TBL_DEPO" />
+      <End Role="TBL_STOK_HAREKET_LOG" EntitySet="TBL_STOK_HAREKET_LOG" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_STOK_HAREKET_LOG_TBL_KULLANICI" Association="Self.FK_TBL_STOK_HAREKET_LOG_TBL_KULLANICI">
+      <End Role="TBL_KULLANICI" EntitySet="TBL_KULLANICI" />
+      <End Role="TBL_STOK_HAREKET_LOG" EntitySet="TBL_STOK_HAREKET_LOG" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_STOK_HAREKET_LOG_TBL_STOK" Association="Self.FK_TBL_STOK_HAREKET_LOG_TBL_STOK">
+      <End Role="TBL_STOK" EntitySet="TBL_STOK" />
+      <End Role="TBL_STOK_HAREKET_LOG" EntitySet="TBL_STOK_HAREKET_LOG" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_STOK_HAREKET_LOG_TBL_STOK_GRUP" Association="Self.FK_TBL_STOK_HAREKET_LOG_TBL_STOK_GRUP">
+      <End Role="TBL_STOK_GRUP" EntitySet="TBL_STOK_GRUP" />
+      <End Role="TBL_STOK_HAREKET_LOG" EntitySet="TBL_STOK_HAREKET_LOG" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_STOK_HAREKET_LOG_TBL_SUBE" Association="Self.FK_TBL_STOK_HAREKET_LOG_TBL_SUBE">
+      <End Role="TBL_SUBE" EntitySet="TBL_SUBE" />
+      <End Role="TBL_STOK_HAREKET_LOG" EntitySet="TBL_STOK_HAREKET_LOG" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_STOK_HAREKET2_TBL_DEPARTMAN" Association="Self.FK_TBL_STOK_HAREKET2_TBL_DEPARTMAN">
+      <End Role="TBL_DEPARTMAN" EntitySet="TBL_DEPARTMAN" />
+      <End Role="TBL_STOK_HAREKET2" EntitySet="TBL_STOK_HAREKET2" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_STOK_HAREKET2_TBL_DEPO" Association="Self.FK_TBL_STOK_HAREKET2_TBL_DEPO">
+      <End Role="TBL_DEPO" EntitySet="TBL_DEPO" />
+      <End Role="TBL_STOK_HAREKET2" EntitySet="TBL_STOK_HAREKET2" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_STOK_HAREKET2_TBL_KULLANICI" Association="Self.FK_TBL_STOK_HAREKET2_TBL_KULLANICI">
+      <End Role="TBL_KULLANICI" EntitySet="TBL_KULLANICI" />
+      <End Role="TBL_STOK_HAREKET2" EntitySet="TBL_STOK_HAREKET2" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_STOK_HAREKET2_TBL_STOK" Association="Self.FK_TBL_STOK_HAREKET2_TBL_STOK">
+      <End Role="TBL_STOK" EntitySet="TBL_STOK" />
+      <End Role="TBL_STOK_HAREKET2" EntitySet="TBL_STOK_HAREKET2" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_STOK_HAREKET2_TBL_STOK_GRUP" Association="Self.FK_TBL_STOK_HAREKET2_TBL_STOK_GRUP">
+      <End Role="TBL_STOK_GRUP" EntitySet="TBL_STOK_GRUP" />
+      <End Role="TBL_STOK_HAREKET2" EntitySet="TBL_STOK_HAREKET2" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_STOK_HAREKET2_TBL_SUBE" Association="Self.FK_TBL_STOK_HAREKET2_TBL_SUBE">
+      <End Role="TBL_SUBE" EntitySet="TBL_SUBE" />
+      <End Role="TBL_STOK_HAREKET2" EntitySet="TBL_STOK_HAREKET2" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_STOK_TBL_DEPO" Association="Self.FK_TBL_STOK_TBL_DEPO">
+      <End Role="TBL_DEPO" EntitySet="TBL_DEPO" />
+      <End Role="TBL_STOK" EntitySet="TBL_STOK" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_STOK_TBL_STOK_GRUP" Association="Self.FK_TBL_STOK_TBL_STOK_GRUP">
+      <End Role="TBL_STOK_GRUP" EntitySet="TBL_STOK_GRUP" />
+      <End Role="TBL_STOK" EntitySet="TBL_STOK" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_STOK_TBL_SUBE" Association="Self.FK_TBL_STOK_TBL_SUBE">
+      <End Role="TBL_SUBE" EntitySet="TBL_SUBE" />
+      <End Role="TBL_STOK" EntitySet="TBL_STOK" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_TALEP_TBL_DEPARTMAN" Association="Self.FK_TBL_TALEP_TBL_DEPARTMAN">
+      <End Role="TBL_DEPARTMAN" EntitySet="TBL_DEPARTMAN" />
+      <End Role="TBL_TALEP" EntitySet="TBL_TALEP" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_TALEP_TBL_DURUM3" Association="Self.FK_TBL_TALEP_TBL_DURUM3">
+      <End Role="TBL_DURUM" EntitySet="TBL_DURUM" />
+      <End Role="TBL_TALEP" EntitySet="TBL_TALEP" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_TALEP_TBL_KULLANICI" Association="Self.FK_TBL_TALEP_TBL_KULLANICI">
+      <End Role="TBL_KULLANICI" EntitySet="TBL_KULLANICI" />
+      <End Role="TBL_TALEP" EntitySet="TBL_TALEP" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_TALEP_TBL_KULLANICI1" Association="Self.FK_TBL_TALEP_TBL_KULLANICI1">
+      <End Role="TBL_KULLANICI" EntitySet="TBL_KULLANICI" />
+      <End Role="TBL_TALEP" EntitySet="TBL_TALEP" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_TALEP_TBL_KULLANICI2" Association="Self.FK_TBL_TALEP_TBL_KULLANICI2">
+      <End Role="TBL_KULLANICI" EntitySet="TBL_KULLANICI" />
+      <End Role="TBL_TALEP" EntitySet="TBL_TALEP" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_TALEP_TBL_STOK" Association="Self.FK_TBL_TALEP_TBL_STOK">
+      <End Role="TBL_STOK" EntitySet="TBL_STOK" />
+      <End Role="TBL_TALEP" EntitySet="TBL_TALEP" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_TALEP_TBL_SUBE" Association="Self.FK_TBL_TALEP_TBL_SUBE">
+      <End Role="TBL_SUBE" EntitySet="TBL_SUBE" />
+      <End Role="TBL_TALEP" EntitySet="TBL_TALEP" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_TEKLIF_TBL_DURUM" Association="Self.FK_TBL_TEKLIF_TBL_DURUM">
+      <End Role="TBL_DURUM" EntitySet="TBL_DURUM" />
+      <End Role="TBL_TEKLIF" EntitySet="TBL_TEKLIF" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_TEKLIF_TBL_KULLANICI" Association="Self.FK_TBL_TEKLIF_TBL_KULLANICI">
+      <End Role="TBL_KULLANICI" EntitySet="TBL_KULLANICI" />
+      <End Role="TBL_TEKLIF" EntitySet="TBL_TEKLIF" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_TEKLIF_TBL_KULLANICI1" Association="Self.FK_TBL_TEKLIF_TBL_KULLANICI1">
+      <End Role="TBL_KULLANICI" EntitySet="TBL_KULLANICI" />
+      <End Role="TBL_TEKLIF" EntitySet="TBL_TEKLIF" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_TEKLIF_TBL_KULLANICI2" Association="Self.FK_TBL_TEKLIF_TBL_KULLANICI2">
+      <End Role="TBL_KULLANICI" EntitySet="TBL_KULLANICI" />
+      <End Role="TBL_TEKLIF" EntitySet="TBL_TEKLIF" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_TEKLIF_TBL_SUBE" Association="Self.FK_TBL_TEKLIF_TBL_SUBE">
+      <End Role="TBL_SUBE" EntitySet="TBL_SUBE" />
+      <End Role="TBL_TEKLIF" EntitySet="TBL_TEKLIF" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_USER_TBL_ROLE" Association="Self.FK_TBL_USER_TBL_ROLE">
+      <End Role="TBL_SUBE" EntitySet="TBL_SUBE" />
+      <End Role="TBL_KULLANICI" EntitySet="TBL_KULLANICI" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

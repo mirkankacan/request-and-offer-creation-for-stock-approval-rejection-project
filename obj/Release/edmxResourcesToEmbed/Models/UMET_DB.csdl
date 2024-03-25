@@ -1,0 +1,1398 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="UMET_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="UMET_DBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="C__MigrationHistory" EntityType="UMET_DBModel.C__MigrationHistory" />
+    <EntitySet Name="TBL_DEPARTMAN" EntityType="UMET_DBModel.TBL_DEPARTMAN" />
+    <EntitySet Name="TBL_DEPO" EntityType="UMET_DBModel.TBL_DEPO" />
+    <EntitySet Name="TBL_DURUM" EntityType="UMET_DBModel.TBL_DURUM" />
+    <EntitySet Name="TBL_FIRMA" EntityType="UMET_DBModel.TBL_FIRMA" />
+    <EntitySet Name="TBL_KULLANICI" EntityType="UMET_DBModel.TBL_KULLANICI" />
+    <EntitySet Name="TBL_PLAKA_BIRIM" EntityType="UMET_DBModel.TBL_PLAKA_BIRIM" />
+    <EntitySet Name="TBL_ROL" EntityType="UMET_DBModel.TBL_ROL" />
+    <EntitySet Name="TBL_SIPARIS" EntityType="UMET_DBModel.TBL_SIPARIS" />
+    <EntitySet Name="TBL_STOK" EntityType="UMET_DBModel.TBL_STOK" />
+    <EntitySet Name="TBL_STOK_GRUP" EntityType="UMET_DBModel.TBL_STOK_GRUP" />
+    <EntitySet Name="TBL_STOK_HAREKET_LOG" EntityType="UMET_DBModel.TBL_STOK_HAREKET_LOG" />
+    <EntitySet Name="TBL_STOK_HAREKET2" EntityType="UMET_DBModel.TBL_STOK_HAREKET2" />
+    <EntitySet Name="TBL_SUBE" EntityType="UMET_DBModel.TBL_SUBE" />
+    <EntitySet Name="TBL_TALEP" EntityType="UMET_DBModel.TBL_TALEP" />
+    <EntitySet Name="TBL_TEKLIF" EntityType="UMET_DBModel.TBL_TEKLIF" />
+    <EntitySet Name="VW_KULLANICI" EntityType="UMET_DBModel.VW_KULLANICI" />
+    <EntitySet Name="VW_SIPARIS" EntityType="UMET_DBModel.VW_SIPARIS" />
+    <EntitySet Name="VW_STOK_HAREKET" EntityType="UMET_DBModel.VW_STOK_HAREKET" />
+    <EntitySet Name="VW_STOK_HAREKET_LOG" EntityType="UMET_DBModel.VW_STOK_HAREKET_LOG" />
+    <EntitySet Name="VW_TALEP" EntityType="UMET_DBModel.VW_TALEP" />
+    <EntitySet Name="VW_TEKLIF" EntityType="UMET_DBModel.VW_TEKLIF" />
+    <AssociationSet Name="FK_TBL_PLAKA_BIRIM_TBL_DEPARTMAN" Association="UMET_DBModel.FK_TBL_PLAKA_BIRIM_TBL_DEPARTMAN">
+      <End Role="TBL_DEPARTMAN" EntitySet="TBL_DEPARTMAN" />
+      <End Role="TBL_PLAKA_BIRIM" EntitySet="TBL_PLAKA_BIRIM" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_STOK_HAREKET_LOG_TBL_DEPARTMAN" Association="UMET_DBModel.FK_TBL_STOK_HAREKET_LOG_TBL_DEPARTMAN">
+      <End Role="TBL_DEPARTMAN" EntitySet="TBL_DEPARTMAN" />
+      <End Role="TBL_STOK_HAREKET_LOG" EntitySet="TBL_STOK_HAREKET_LOG" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_STOK_HAREKET2_TBL_DEPARTMAN" Association="UMET_DBModel.FK_TBL_STOK_HAREKET2_TBL_DEPARTMAN">
+      <End Role="TBL_DEPARTMAN" EntitySet="TBL_DEPARTMAN" />
+      <End Role="TBL_STOK_HAREKET2" EntitySet="TBL_STOK_HAREKET2" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_TALEP_TBL_DEPARTMAN" Association="UMET_DBModel.FK_TBL_TALEP_TBL_DEPARTMAN">
+      <End Role="TBL_DEPARTMAN" EntitySet="TBL_DEPARTMAN" />
+      <End Role="TBL_TALEP" EntitySet="TBL_TALEP" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_DEPO_TBL_SUBE" Association="UMET_DBModel.FK_TBL_DEPO_TBL_SUBE">
+      <End Role="TBL_SUBE" EntitySet="TBL_SUBE" />
+      <End Role="TBL_DEPO" EntitySet="TBL_DEPO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_STOK_HAREKET_LOG_TBL_DEPO" Association="UMET_DBModel.FK_TBL_STOK_HAREKET_LOG_TBL_DEPO">
+      <End Role="TBL_DEPO" EntitySet="TBL_DEPO" />
+      <End Role="TBL_STOK_HAREKET_LOG" EntitySet="TBL_STOK_HAREKET_LOG" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_STOK_HAREKET2_TBL_DEPO" Association="UMET_DBModel.FK_TBL_STOK_HAREKET2_TBL_DEPO">
+      <End Role="TBL_DEPO" EntitySet="TBL_DEPO" />
+      <End Role="TBL_STOK_HAREKET2" EntitySet="TBL_STOK_HAREKET2" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_STOK_TBL_DEPO" Association="UMET_DBModel.FK_TBL_STOK_TBL_DEPO">
+      <End Role="TBL_DEPO" EntitySet="TBL_DEPO" />
+      <End Role="TBL_STOK" EntitySet="TBL_STOK" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_SIPARIS_TBL_DURUM" Association="UMET_DBModel.FK_TBL_SIPARIS_TBL_DURUM">
+      <End Role="TBL_DURUM" EntitySet="TBL_DURUM" />
+      <End Role="TBL_SIPARIS" EntitySet="TBL_SIPARIS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_TALEP_TBL_DURUM3" Association="UMET_DBModel.FK_TBL_TALEP_TBL_DURUM3">
+      <End Role="TBL_DURUM" EntitySet="TBL_DURUM" />
+      <End Role="TBL_TALEP" EntitySet="TBL_TALEP" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_TEKLIF_TBL_DURUM" Association="UMET_DBModel.FK_TBL_TEKLIF_TBL_DURUM">
+      <End Role="TBL_DURUM" EntitySet="TBL_DURUM" />
+      <End Role="TBL_TEKLIF" EntitySet="TBL_TEKLIF" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_STOK_HAREKET_LOG_TBL_KULLANICI" Association="UMET_DBModel.FK_TBL_STOK_HAREKET_LOG_TBL_KULLANICI">
+      <End Role="TBL_KULLANICI" EntitySet="TBL_KULLANICI" />
+      <End Role="TBL_STOK_HAREKET_LOG" EntitySet="TBL_STOK_HAREKET_LOG" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_STOK_HAREKET2_TBL_KULLANICI" Association="UMET_DBModel.FK_TBL_STOK_HAREKET2_TBL_KULLANICI">
+      <End Role="TBL_KULLANICI" EntitySet="TBL_KULLANICI" />
+      <End Role="TBL_STOK_HAREKET2" EntitySet="TBL_STOK_HAREKET2" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_TALEP_TBL_KULLANICI" Association="UMET_DBModel.FK_TBL_TALEP_TBL_KULLANICI">
+      <End Role="TBL_KULLANICI" EntitySet="TBL_KULLANICI" />
+      <End Role="TBL_TALEP" EntitySet="TBL_TALEP" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_TALEP_TBL_KULLANICI1" Association="UMET_DBModel.FK_TBL_TALEP_TBL_KULLANICI1">
+      <End Role="TBL_KULLANICI" EntitySet="TBL_KULLANICI" />
+      <End Role="TBL_TALEP" EntitySet="TBL_TALEP" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_TALEP_TBL_KULLANICI2" Association="UMET_DBModel.FK_TBL_TALEP_TBL_KULLANICI2">
+      <End Role="TBL_KULLANICI" EntitySet="TBL_KULLANICI" />
+      <End Role="TBL_TALEP" EntitySet="TBL_TALEP" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_TEKLIF_TBL_KULLANICI" Association="UMET_DBModel.FK_TBL_TEKLIF_TBL_KULLANICI">
+      <End Role="TBL_KULLANICI" EntitySet="TBL_KULLANICI" />
+      <End Role="TBL_TEKLIF" EntitySet="TBL_TEKLIF" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_TEKLIF_TBL_KULLANICI1" Association="UMET_DBModel.FK_TBL_TEKLIF_TBL_KULLANICI1">
+      <End Role="TBL_KULLANICI" EntitySet="TBL_KULLANICI" />
+      <End Role="TBL_TEKLIF" EntitySet="TBL_TEKLIF" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_TEKLIF_TBL_KULLANICI2" Association="UMET_DBModel.FK_TBL_TEKLIF_TBL_KULLANICI2">
+      <End Role="TBL_KULLANICI" EntitySet="TBL_KULLANICI" />
+      <End Role="TBL_TEKLIF" EntitySet="TBL_TEKLIF" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_USER_TBL_ROLE" Association="UMET_DBModel.FK_TBL_USER_TBL_ROLE">
+      <End Role="TBL_SUBE" EntitySet="TBL_SUBE" />
+      <End Role="TBL_KULLANICI" EntitySet="TBL_KULLANICI" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_PLAKA_BIRIM_TBL_SUBE" Association="UMET_DBModel.FK_TBL_PLAKA_BIRIM_TBL_SUBE">
+      <End Role="TBL_SUBE" EntitySet="TBL_SUBE" />
+      <End Role="TBL_PLAKA_BIRIM" EntitySet="TBL_PLAKA_BIRIM" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_SIPARIS_TBL_SUBE" Association="UMET_DBModel.FK_TBL_SIPARIS_TBL_SUBE">
+      <End Role="TBL_SUBE" EntitySet="TBL_SUBE" />
+      <End Role="TBL_SIPARIS" EntitySet="TBL_SIPARIS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_SIPARIS_TBL_TALEP" Association="UMET_DBModel.FK_TBL_SIPARIS_TBL_TALEP">
+      <End Role="TBL_TALEP" EntitySet="TBL_TALEP" />
+      <End Role="TBL_SIPARIS" EntitySet="TBL_SIPARIS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_SIPARIS_TBL_TEKLIF" Association="UMET_DBModel.FK_TBL_SIPARIS_TBL_TEKLIF">
+      <End Role="TBL_TEKLIF" EntitySet="TBL_TEKLIF" />
+      <End Role="TBL_SIPARIS" EntitySet="TBL_SIPARIS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_STOK_HAREKET_LOG_TBL_STOK" Association="UMET_DBModel.FK_TBL_STOK_HAREKET_LOG_TBL_STOK">
+      <End Role="TBL_STOK" EntitySet="TBL_STOK" />
+      <End Role="TBL_STOK_HAREKET_LOG" EntitySet="TBL_STOK_HAREKET_LOG" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_STOK_HAREKET2_TBL_STOK" Association="UMET_DBModel.FK_TBL_STOK_HAREKET2_TBL_STOK">
+      <End Role="TBL_STOK" EntitySet="TBL_STOK" />
+      <End Role="TBL_STOK_HAREKET2" EntitySet="TBL_STOK_HAREKET2" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_STOK_TBL_STOK_GRUP" Association="UMET_DBModel.FK_TBL_STOK_TBL_STOK_GRUP">
+      <End Role="TBL_STOK_GRUP" EntitySet="TBL_STOK_GRUP" />
+      <End Role="TBL_STOK" EntitySet="TBL_STOK" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_STOK_TBL_SUBE" Association="UMET_DBModel.FK_TBL_STOK_TBL_SUBE">
+      <End Role="TBL_SUBE" EntitySet="TBL_SUBE" />
+      <End Role="TBL_STOK" EntitySet="TBL_STOK" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_TALEP_TBL_STOK" Association="UMET_DBModel.FK_TBL_TALEP_TBL_STOK">
+      <End Role="TBL_STOK" EntitySet="TBL_STOK" />
+      <End Role="TBL_TALEP" EntitySet="TBL_TALEP" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_STOK_HAREKET_LOG_TBL_STOK_GRUP" Association="UMET_DBModel.FK_TBL_STOK_HAREKET_LOG_TBL_STOK_GRUP">
+      <End Role="TBL_STOK_GRUP" EntitySet="TBL_STOK_GRUP" />
+      <End Role="TBL_STOK_HAREKET_LOG" EntitySet="TBL_STOK_HAREKET_LOG" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_STOK_HAREKET2_TBL_STOK_GRUP" Association="UMET_DBModel.FK_TBL_STOK_HAREKET2_TBL_STOK_GRUP">
+      <End Role="TBL_STOK_GRUP" EntitySet="TBL_STOK_GRUP" />
+      <End Role="TBL_STOK_HAREKET2" EntitySet="TBL_STOK_HAREKET2" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_STOK_HAREKET_LOG_TBL_SUBE" Association="UMET_DBModel.FK_TBL_STOK_HAREKET_LOG_TBL_SUBE">
+      <End Role="TBL_SUBE" EntitySet="TBL_SUBE" />
+      <End Role="TBL_STOK_HAREKET_LOG" EntitySet="TBL_STOK_HAREKET_LOG" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_STOK_HAREKET2_TBL_SUBE" Association="UMET_DBModel.FK_TBL_STOK_HAREKET2_TBL_SUBE">
+      <End Role="TBL_SUBE" EntitySet="TBL_SUBE" />
+      <End Role="TBL_STOK_HAREKET2" EntitySet="TBL_STOK_HAREKET2" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_TALEP_TBL_SUBE" Association="UMET_DBModel.FK_TBL_TALEP_TBL_SUBE">
+      <End Role="TBL_SUBE" EntitySet="TBL_SUBE" />
+      <End Role="TBL_TALEP" EntitySet="TBL_TALEP" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_TEKLIF_TBL_SUBE" Association="UMET_DBModel.FK_TBL_TEKLIF_TBL_SUBE">
+      <End Role="TBL_SUBE" EntitySet="TBL_SUBE" />
+      <End Role="TBL_TEKLIF" EntitySet="TBL_TEKLIF" />
+    </AssociationSet>
+    <FunctionImport Name="IDP_PLAKA_BIRIM_LIST" ReturnType="Collection(UMET_DBModel.IDP_PLAKA_BIRIM_LIST_Result)">
+      <Parameter Name="KULLANICI_ID" Mode="In" Type="Int32" />
+      <Parameter Name="DEPARTMAN_ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="IDP_SIPARIS_GRID" ReturnType="Collection(UMET_DBModel.IDP_SIPARIS_GRID_Result)">
+      <Parameter Name="KULLANICI_ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="IDP_STOK_HAR_I">
+      <Parameter Name="FISNO" Mode="In" Type="String" />
+      <Parameter Name="STOK_KODU" Mode="In" Type="String" />
+      <Parameter Name="MIKTAR" Mode="In" Type="Double" />
+      <Parameter Name="GCKOD" Mode="In" Type="String" />
+      <Parameter Name="TARIH" Mode="In" Type="DateTime" />
+      <Parameter Name="KULLANICI_ID" Mode="In" Type="Int32" />
+      <Parameter Name="DEPARMTAN_ID" Mode="In" Type="Int32" />
+      <Parameter Name="SIPARIS_NO" Mode="In" Type="String" />
+      <Parameter Name="KULLANILDIMI" Mode="In" Type="Boolean" />
+      <Parameter Name="PLAKA_BIRIM" Mode="In" Type="String" />
+      <Parameter Name="H_NOT" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="IDP_STOK_HAREKET_GRID" ReturnType="Collection(UMET_DBModel.IDP_STOK_HAREKET_GRID_Result)">
+      <Parameter Name="KULLANICI_ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="IDP_STOK_HAREKET_LOG_GRID" ReturnType="Collection(UMET_DBModel.IDP_STOK_HAREKET_LOG_GRID_Result)">
+      <Parameter Name="KULLANICI_ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="IDP_TALEP_GRID" ReturnType="Collection(UMET_DBModel.IDP_TALEP_GRID_Result)">
+      <Parameter Name="KULLANICI_ID" Mode="In" Type="Int32" />
+      <Parameter Name="DURUM" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="IDP_TEKLIF_ASAMASINDAKI_TALEPLER_GRID" ReturnType="Collection(UMET_DBModel.IDP_TEKLIF_ASAMASINDAKI_TALEPLER_GRID_Result)">
+      <Parameter Name="KULLANICI_ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="IDP_TEKLIF_GRID" ReturnType="Collection(UMET_DBModel.IDP_TEKLIF_GRID_Result)">
+      <Parameter Name="KULLANICI_ID" Mode="In" Type="Int32" />
+      <Parameter Name="DURUM" Mode="In" Type="Int32" />
+      <Parameter Name="TALEPID" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <EntityType Name="C__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="ContextKey" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="Model" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+    <Property Name="ProductVersion" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TBL_DEPARTMAN">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DEPARTMAN_AD" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="TBL_PLAKA_BIRIM" Relationship="UMET_DBModel.FK_TBL_PLAKA_BIRIM_TBL_DEPARTMAN" FromRole="TBL_DEPARTMAN" ToRole="TBL_PLAKA_BIRIM" />
+    <NavigationProperty Name="TBL_STOK_HAREKET_LOG" Relationship="UMET_DBModel.FK_TBL_STOK_HAREKET_LOG_TBL_DEPARTMAN" FromRole="TBL_DEPARTMAN" ToRole="TBL_STOK_HAREKET_LOG" />
+    <NavigationProperty Name="TBL_STOK_HAREKET2" Relationship="UMET_DBModel.FK_TBL_STOK_HAREKET2_TBL_DEPARTMAN" FromRole="TBL_DEPARTMAN" ToRole="TBL_STOK_HAREKET2" />
+    <NavigationProperty Name="TBL_TALEP" Relationship="UMET_DBModel.FK_TBL_TALEP_TBL_DEPARTMAN" FromRole="TBL_DEPARTMAN" ToRole="TBL_TALEP" />
+  </EntityType>
+  <EntityType Name="TBL_DEPO">
+    <Key>
+      <PropertyRef Name="DEPO_ID" />
+    </Key>
+    <Property Name="DEPO_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DEPO_AD" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="SUBE_KODU" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="TBL_SUBE" Relationship="UMET_DBModel.FK_TBL_DEPO_TBL_SUBE" FromRole="TBL_DEPO" ToRole="TBL_SUBE" />
+    <NavigationProperty Name="TBL_STOK_HAREKET_LOG" Relationship="UMET_DBModel.FK_TBL_STOK_HAREKET_LOG_TBL_DEPO" FromRole="TBL_DEPO" ToRole="TBL_STOK_HAREKET_LOG" />
+    <NavigationProperty Name="TBL_STOK_HAREKET2" Relationship="UMET_DBModel.FK_TBL_STOK_HAREKET2_TBL_DEPO" FromRole="TBL_DEPO" ToRole="TBL_STOK_HAREKET2" />
+    <NavigationProperty Name="TBL_STOK" Relationship="UMET_DBModel.FK_TBL_STOK_TBL_DEPO" FromRole="TBL_DEPO" ToRole="TBL_STOK" />
+  </EntityType>
+  <EntityType Name="TBL_DURUM">
+    <Key>
+      <PropertyRef Name="DURUM_ID" />
+    </Key>
+    <Property Name="DURUM_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DURUM_AD" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="TBL_SIPARIS" Relationship="UMET_DBModel.FK_TBL_SIPARIS_TBL_DURUM" FromRole="TBL_DURUM" ToRole="TBL_SIPARIS" />
+    <NavigationProperty Name="TBL_TALEP" Relationship="UMET_DBModel.FK_TBL_TALEP_TBL_DURUM3" FromRole="TBL_DURUM" ToRole="TBL_TALEP" />
+    <NavigationProperty Name="TBL_TEKLIF" Relationship="UMET_DBModel.FK_TBL_TEKLIF_TBL_DURUM" FromRole="TBL_DURUM" ToRole="TBL_TEKLIF" />
+  </EntityType>
+  <EntityType Name="TBL_FIRMA">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FIRMA_AD" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TBL_KULLANICI">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KULLANICI_ADI" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SIFRE" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ISIM_SOYISIM" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ROL_ID" Type="Int32" Nullable="false" />
+    <Property Name="SUBE_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="TBL_STOK_HAREKET_LOG" Relationship="UMET_DBModel.FK_TBL_STOK_HAREKET_LOG_TBL_KULLANICI" FromRole="TBL_KULLANICI" ToRole="TBL_STOK_HAREKET_LOG" />
+    <NavigationProperty Name="TBL_STOK_HAREKET2" Relationship="UMET_DBModel.FK_TBL_STOK_HAREKET2_TBL_KULLANICI" FromRole="TBL_KULLANICI" ToRole="TBL_STOK_HAREKET2" />
+    <NavigationProperty Name="TBL_TALEP" Relationship="UMET_DBModel.FK_TBL_TALEP_TBL_KULLANICI" FromRole="TBL_KULLANICI" ToRole="TBL_TALEP" />
+    <NavigationProperty Name="TBL_TALEP1" Relationship="UMET_DBModel.FK_TBL_TALEP_TBL_KULLANICI1" FromRole="TBL_KULLANICI" ToRole="TBL_TALEP" />
+    <NavigationProperty Name="TBL_TALEP2" Relationship="UMET_DBModel.FK_TBL_TALEP_TBL_KULLANICI2" FromRole="TBL_KULLANICI" ToRole="TBL_TALEP" />
+    <NavigationProperty Name="TBL_TEKLIF" Relationship="UMET_DBModel.FK_TBL_TEKLIF_TBL_KULLANICI" FromRole="TBL_KULLANICI" ToRole="TBL_TEKLIF" />
+    <NavigationProperty Name="TBL_TEKLIF1" Relationship="UMET_DBModel.FK_TBL_TEKLIF_TBL_KULLANICI1" FromRole="TBL_KULLANICI" ToRole="TBL_TEKLIF" />
+    <NavigationProperty Name="TBL_TEKLIF2" Relationship="UMET_DBModel.FK_TBL_TEKLIF_TBL_KULLANICI2" FromRole="TBL_KULLANICI" ToRole="TBL_TEKLIF" />
+    <NavigationProperty Name="TBL_SUBE" Relationship="UMET_DBModel.FK_TBL_USER_TBL_ROLE" FromRole="TBL_KULLANICI" ToRole="TBL_SUBE" />
+  </EntityType>
+  <EntityType Name="TBL_PLAKA_BIRIM">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SUBE_ID" Type="Int32" Nullable="false" />
+    <Property Name="PLAKA_BIRIM" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DEPARTMAN_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="TBL_DEPARTMAN" Relationship="UMET_DBModel.FK_TBL_PLAKA_BIRIM_TBL_DEPARTMAN" FromRole="TBL_PLAKA_BIRIM" ToRole="TBL_DEPARTMAN" />
+    <NavigationProperty Name="TBL_SUBE" Relationship="UMET_DBModel.FK_TBL_PLAKA_BIRIM_TBL_SUBE" FromRole="TBL_PLAKA_BIRIM" ToRole="TBL_SUBE" />
+  </EntityType>
+  <EntityType Name="TBL_ROL">
+    <Key>
+      <PropertyRef Name="ROL_ID" />
+    </Key>
+    <Property Name="ROL_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ROL_AD" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TBL_SIPARIS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SIPARIS_NO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TEKLIF_ID" Type="Int32" Nullable="false" />
+    <Property Name="TALEP_ID" Type="Int32" Nullable="false" />
+    <Property Name="OLUSTURULMA_TARIH" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ONAY_TARIH" Type="DateTime" Precision="3" />
+    <Property Name="RED_TARIH" Type="DateTime" Precision="3" />
+    <Property Name="OLUSTURAN_ID" Type="Int32" Nullable="false" />
+    <Property Name="ISLEM_YAPAN_ID" Type="Int32" />
+    <Property Name="SUBE_ID" Type="Int32" Nullable="false" />
+    <Property Name="SIPARIS_DURUM_ID" Type="Int32" Nullable="false" />
+    <Property Name="DURUM_GUNCELLEME_TARIH" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="TBL_DURUM" Relationship="UMET_DBModel.FK_TBL_SIPARIS_TBL_DURUM" FromRole="TBL_SIPARIS" ToRole="TBL_DURUM" />
+    <NavigationProperty Name="TBL_SUBE" Relationship="UMET_DBModel.FK_TBL_SIPARIS_TBL_SUBE" FromRole="TBL_SIPARIS" ToRole="TBL_SUBE" />
+    <NavigationProperty Name="TBL_TALEP" Relationship="UMET_DBModel.FK_TBL_SIPARIS_TBL_TALEP" FromRole="TBL_SIPARIS" ToRole="TBL_TALEP" />
+    <NavigationProperty Name="TBL_TEKLIF" Relationship="UMET_DBModel.FK_TBL_SIPARIS_TBL_TEKLIF" FromRole="TBL_SIPARIS" ToRole="TBL_TEKLIF" />
+  </EntityType>
+  <EntityType Name="TBL_STOK">
+    <Key>
+      <PropertyRef Name="STOK_KODU" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SUBE_KODU" Type="Int32" />
+    <Property Name="STOK_KODU" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="STOK_ADI" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="OLCU_BR" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="GRUP_KODU" Type="Int32" Nullable="false" />
+    <Property Name="A_FIYAT" Type="Double" />
+    <Property Name="S_FIYAT" Type="Double" />
+    <Property Name="KDV_ORAN" Type="Int32" />
+    <Property Name="DEPO_KODU" Type="Int32" />
+    <NavigationProperty Name="TBL_DEPO" Relationship="UMET_DBModel.FK_TBL_STOK_TBL_DEPO" FromRole="TBL_STOK" ToRole="TBL_DEPO" />
+    <NavigationProperty Name="TBL_STOK_HAREKET_LOG" Relationship="UMET_DBModel.FK_TBL_STOK_HAREKET_LOG_TBL_STOK" FromRole="TBL_STOK" ToRole="TBL_STOK_HAREKET_LOG" />
+    <NavigationProperty Name="TBL_STOK_HAREKET2" Relationship="UMET_DBModel.FK_TBL_STOK_HAREKET2_TBL_STOK" FromRole="TBL_STOK" ToRole="TBL_STOK_HAREKET2" />
+    <NavigationProperty Name="TBL_STOK_GRUP" Relationship="UMET_DBModel.FK_TBL_STOK_TBL_STOK_GRUP" FromRole="TBL_STOK" ToRole="TBL_STOK_GRUP" />
+    <NavigationProperty Name="TBL_SUBE" Relationship="UMET_DBModel.FK_TBL_STOK_TBL_SUBE" FromRole="TBL_STOK" ToRole="TBL_SUBE" />
+    <NavigationProperty Name="TBL_TALEP" Relationship="UMET_DBModel.FK_TBL_TALEP_TBL_STOK" FromRole="TBL_STOK" ToRole="TBL_TALEP" />
+  </EntityType>
+  <EntityType Name="TBL_STOK_GRUP">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GRUP_ADI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="TBL_STOK" Relationship="UMET_DBModel.FK_TBL_STOK_TBL_STOK_GRUP" FromRole="TBL_STOK_GRUP" ToRole="TBL_STOK" />
+    <NavigationProperty Name="TBL_STOK_HAREKET_LOG" Relationship="UMET_DBModel.FK_TBL_STOK_HAREKET_LOG_TBL_STOK_GRUP" FromRole="TBL_STOK_GRUP" ToRole="TBL_STOK_HAREKET_LOG" />
+    <NavigationProperty Name="TBL_STOK_HAREKET2" Relationship="UMET_DBModel.FK_TBL_STOK_HAREKET2_TBL_STOK_GRUP" FromRole="TBL_STOK_GRUP" ToRole="TBL_STOK_HAREKET2" />
+  </EntityType>
+  <EntityType Name="TBL_STOK_HAREKET_LOG">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="STOK_KODU" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MIKTAR" Type="Double" Nullable="false" />
+    <Property Name="TARIH" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="KULLANICI_ID" Type="Int32" Nullable="false" />
+    <Property Name="SUBE_ID" Type="Int32" Nullable="false" />
+    <Property Name="KULLANILDI_MI" Type="Boolean" Nullable="false" />
+    <Property Name="STOK_GRUP_ID" Type="Int32" Nullable="false" />
+    <Property Name="DEPARTMAN_ID" Type="Int32" Nullable="false" />
+    <Property Name="DEPO_ID" Type="Int32" Nullable="false" />
+    <Property Name="PLAKA_BIRIM" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="H_NOT" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="TBL_DEPARTMAN" Relationship="UMET_DBModel.FK_TBL_STOK_HAREKET_LOG_TBL_DEPARTMAN" FromRole="TBL_STOK_HAREKET_LOG" ToRole="TBL_DEPARTMAN" />
+    <NavigationProperty Name="TBL_DEPO" Relationship="UMET_DBModel.FK_TBL_STOK_HAREKET_LOG_TBL_DEPO" FromRole="TBL_STOK_HAREKET_LOG" ToRole="TBL_DEPO" />
+    <NavigationProperty Name="TBL_KULLANICI" Relationship="UMET_DBModel.FK_TBL_STOK_HAREKET_LOG_TBL_KULLANICI" FromRole="TBL_STOK_HAREKET_LOG" ToRole="TBL_KULLANICI" />
+    <NavigationProperty Name="TBL_STOK" Relationship="UMET_DBModel.FK_TBL_STOK_HAREKET_LOG_TBL_STOK" FromRole="TBL_STOK_HAREKET_LOG" ToRole="TBL_STOK" />
+    <NavigationProperty Name="TBL_STOK_GRUP" Relationship="UMET_DBModel.FK_TBL_STOK_HAREKET_LOG_TBL_STOK_GRUP" FromRole="TBL_STOK_HAREKET_LOG" ToRole="TBL_STOK_GRUP" />
+    <NavigationProperty Name="TBL_SUBE" Relationship="UMET_DBModel.FK_TBL_STOK_HAREKET_LOG_TBL_SUBE" FromRole="TBL_STOK_HAREKET_LOG" ToRole="TBL_SUBE" />
+  </EntityType>
+  <EntityType Name="TBL_STOK_HAREKET2">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FISNO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="STOK_KODU" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MIKTAR" Type="Double" Nullable="false" />
+    <Property Name="GC_KOD" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="TARIH" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="SIPARIS_NO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ALIS_MALIYET" Type="Double" />
+    <Property Name="KULLANICI_ID" Type="Int32" />
+    <Property Name="DEPO_ID" Type="Int32" />
+    <Property Name="STOK_GRUP_ID" Type="Int32" />
+    <Property Name="KAYIT_ZAMAN" Type="DateTime" Precision="3" />
+    <Property Name="SUBE_ID" Type="Int32" />
+    <Property Name="DEPARTMAN_ID" Type="Int32" />
+    <NavigationProperty Name="TBL_DEPARTMAN" Relationship="UMET_DBModel.FK_TBL_STOK_HAREKET2_TBL_DEPARTMAN" FromRole="TBL_STOK_HAREKET2" ToRole="TBL_DEPARTMAN" />
+    <NavigationProperty Name="TBL_DEPO" Relationship="UMET_DBModel.FK_TBL_STOK_HAREKET2_TBL_DEPO" FromRole="TBL_STOK_HAREKET2" ToRole="TBL_DEPO" />
+    <NavigationProperty Name="TBL_KULLANICI" Relationship="UMET_DBModel.FK_TBL_STOK_HAREKET2_TBL_KULLANICI" FromRole="TBL_STOK_HAREKET2" ToRole="TBL_KULLANICI" />
+    <NavigationProperty Name="TBL_STOK" Relationship="UMET_DBModel.FK_TBL_STOK_HAREKET2_TBL_STOK" FromRole="TBL_STOK_HAREKET2" ToRole="TBL_STOK" />
+    <NavigationProperty Name="TBL_STOK_GRUP" Relationship="UMET_DBModel.FK_TBL_STOK_HAREKET2_TBL_STOK_GRUP" FromRole="TBL_STOK_HAREKET2" ToRole="TBL_STOK_GRUP" />
+    <NavigationProperty Name="TBL_SUBE" Relationship="UMET_DBModel.FK_TBL_STOK_HAREKET2_TBL_SUBE" FromRole="TBL_STOK_HAREKET2" ToRole="TBL_SUBE" />
+  </EntityType>
+  <EntityType Name="TBL_SUBE">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SUBE_ADI" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="TBL_DEPO" Relationship="UMET_DBModel.FK_TBL_DEPO_TBL_SUBE" FromRole="TBL_SUBE" ToRole="TBL_DEPO" />
+    <NavigationProperty Name="TBL_KULLANICI" Relationship="UMET_DBModel.FK_TBL_USER_TBL_ROLE" FromRole="TBL_SUBE" ToRole="TBL_KULLANICI" />
+    <NavigationProperty Name="TBL_PLAKA_BIRIM" Relationship="UMET_DBModel.FK_TBL_PLAKA_BIRIM_TBL_SUBE" FromRole="TBL_SUBE" ToRole="TBL_PLAKA_BIRIM" />
+    <NavigationProperty Name="TBL_SIPARIS" Relationship="UMET_DBModel.FK_TBL_SIPARIS_TBL_SUBE" FromRole="TBL_SUBE" ToRole="TBL_SIPARIS" />
+    <NavigationProperty Name="TBL_STOK" Relationship="UMET_DBModel.FK_TBL_STOK_TBL_SUBE" FromRole="TBL_SUBE" ToRole="TBL_STOK" />
+    <NavigationProperty Name="TBL_STOK_HAREKET_LOG" Relationship="UMET_DBModel.FK_TBL_STOK_HAREKET_LOG_TBL_SUBE" FromRole="TBL_SUBE" ToRole="TBL_STOK_HAREKET_LOG" />
+    <NavigationProperty Name="TBL_STOK_HAREKET2" Relationship="UMET_DBModel.FK_TBL_STOK_HAREKET2_TBL_SUBE" FromRole="TBL_SUBE" ToRole="TBL_STOK_HAREKET2" />
+    <NavigationProperty Name="TBL_TALEP" Relationship="UMET_DBModel.FK_TBL_TALEP_TBL_SUBE" FromRole="TBL_SUBE" ToRole="TBL_TALEP" />
+    <NavigationProperty Name="TBL_TEKLIF" Relationship="UMET_DBModel.FK_TBL_TEKLIF_TBL_SUBE" FromRole="TBL_SUBE" ToRole="TBL_TEKLIF" />
+  </EntityType>
+  <EntityType Name="TBL_TALEP">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TALEP_NO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TALEP_MIKTAR" Type="Int32" Nullable="false" />
+    <Property Name="TALEP_DEPARTMAN_ID" Type="Int32" Nullable="false" />
+    <Property Name="TALEP_NOT" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="PLAKA_BIRIM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="OLUSTURULMA_TARIH" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="OLUSTURAN_ID" Type="Int32" Nullable="false" />
+    <Property Name="STOK_KODU" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SUBE_ID" Type="Int32" Nullable="false" />
+    <Property Name="TALEP_ISLEM_ACIKLAMA" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="ONAY1" Type="Boolean" />
+    <Property Name="ONAY2" Type="Boolean" />
+    <Property Name="ONAY3" Type="Boolean" />
+    <Property Name="ONAY1_TARIH" Type="DateTime" Precision="3" />
+    <Property Name="ONAY2_TARIH" Type="DateTime" Precision="3" />
+    <Property Name="ONAY3_TARIH" Type="DateTime" Precision="3" />
+    <Property Name="ONAY1_KULLANICI" Type="Int32" />
+    <Property Name="ONAY2_KULLANICI" Type="Int32" />
+    <Property Name="ONAY3_KULLANICI" Type="Int32" />
+    <Property Name="TALEP_DURUM_ID" Type="Int32" />
+    <NavigationProperty Name="TBL_DEPARTMAN" Relationship="UMET_DBModel.FK_TBL_TALEP_TBL_DEPARTMAN" FromRole="TBL_TALEP" ToRole="TBL_DEPARTMAN" />
+    <NavigationProperty Name="TBL_DURUM" Relationship="UMET_DBModel.FK_TBL_TALEP_TBL_DURUM3" FromRole="TBL_TALEP" ToRole="TBL_DURUM" />
+    <NavigationProperty Name="TBL_KULLANICI" Relationship="UMET_DBModel.FK_TBL_TALEP_TBL_KULLANICI" FromRole="TBL_TALEP" ToRole="TBL_KULLANICI" />
+    <NavigationProperty Name="TBL_KULLANICI1" Relationship="UMET_DBModel.FK_TBL_TALEP_TBL_KULLANICI1" FromRole="TBL_TALEP" ToRole="TBL_KULLANICI" />
+    <NavigationProperty Name="TBL_KULLANICI2" Relationship="UMET_DBModel.FK_TBL_TALEP_TBL_KULLANICI2" FromRole="TBL_TALEP" ToRole="TBL_KULLANICI" />
+    <NavigationProperty Name="TBL_SIPARIS" Relationship="UMET_DBModel.FK_TBL_SIPARIS_TBL_TALEP" FromRole="TBL_TALEP" ToRole="TBL_SIPARIS" />
+    <NavigationProperty Name="TBL_STOK" Relationship="UMET_DBModel.FK_TBL_TALEP_TBL_STOK" FromRole="TBL_TALEP" ToRole="TBL_STOK" />
+    <NavigationProperty Name="TBL_SUBE" Relationship="UMET_DBModel.FK_TBL_TALEP_TBL_SUBE" FromRole="TBL_TALEP" ToRole="TBL_SUBE" />
+  </EntityType>
+  <EntityType Name="TBL_TEKLIF">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TALEP_ID" Type="Int32" Nullable="false" />
+    <Property Name="FIRMA_ID" Type="Int32" Nullable="false" />
+    <Property Name="TEKLIF_NO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TEKLIF_FIYAT" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="TEKLIF_NOT" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="MARKA" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="OLUSTURULMA_TARIH" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="OLUSTURAN_ID" Type="Int32" Nullable="false" />
+    <Property Name="SUBE_ID" Type="Int32" Nullable="false" />
+    <Property Name="TEKLIF_ISLEM_ACIKLAMA" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="ONAY1" Type="Boolean" />
+    <Property Name="ONAY2" Type="Boolean" />
+    <Property Name="ONAY3" Type="Boolean" />
+    <Property Name="ONAY1_KULLANICI" Type="Int32" />
+    <Property Name="ONAY2_KULLANICI" Type="Int32" />
+    <Property Name="ONAY3_KULLANICI" Type="Int32" />
+    <Property Name="ONAY1_TARIH" Type="DateTime" Precision="3" />
+    <Property Name="ONAY2_TARIH" Type="DateTime" Precision="3" />
+    <Property Name="ONAY3_TARIH" Type="DateTime" Precision="3" />
+    <Property Name="TEKLIF_DURUM_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="TBL_DURUM" Relationship="UMET_DBModel.FK_TBL_TEKLIF_TBL_DURUM" FromRole="TBL_TEKLIF" ToRole="TBL_DURUM" />
+    <NavigationProperty Name="TBL_KULLANICI" Relationship="UMET_DBModel.FK_TBL_TEKLIF_TBL_KULLANICI" FromRole="TBL_TEKLIF" ToRole="TBL_KULLANICI" />
+    <NavigationProperty Name="TBL_KULLANICI1" Relationship="UMET_DBModel.FK_TBL_TEKLIF_TBL_KULLANICI1" FromRole="TBL_TEKLIF" ToRole="TBL_KULLANICI" />
+    <NavigationProperty Name="TBL_KULLANICI2" Relationship="UMET_DBModel.FK_TBL_TEKLIF_TBL_KULLANICI2" FromRole="TBL_TEKLIF" ToRole="TBL_KULLANICI" />
+    <NavigationProperty Name="TBL_SIPARIS" Relationship="UMET_DBModel.FK_TBL_SIPARIS_TBL_TEKLIF" FromRole="TBL_TEKLIF" ToRole="TBL_SIPARIS" />
+    <NavigationProperty Name="TBL_SUBE" Relationship="UMET_DBModel.FK_TBL_TEKLIF_TBL_SUBE" FromRole="TBL_TEKLIF" ToRole="TBL_SUBE" />
+  </EntityType>
+  <EntityType Name="VW_KULLANICI">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="KULLANICI_ADI" />
+      <PropertyRef Name="SIFRE" />
+      <PropertyRef Name="ISIM_SOYISIM" />
+      <PropertyRef Name="ROL_AD" />
+      <PropertyRef Name="ROL_ID" />
+      <PropertyRef Name="SUBE_ID" />
+      <PropertyRef Name="SUBE_ADI" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="KULLANICI_ADI" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SIFRE" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ISIM_SOYISIM" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ROL_AD" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ROL_ID" Type="Int32" Nullable="false" />
+    <Property Name="SUBE_ID" Type="Int32" Nullable="false" />
+    <Property Name="SUBE_ADI" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="VW_SIPARIS">
+    <Key>
+      <PropertyRef Name="SIPARIS_ID" />
+      <PropertyRef Name="SIPARIS_NO" />
+      <PropertyRef Name="TEKLIF_ID" />
+      <PropertyRef Name="TALEP_ID" />
+      <PropertyRef Name="SIPARIS_OLUSTURULMA_TARIH" />
+      <PropertyRef Name="SUBE_ID" />
+      <PropertyRef Name="SIPARIS_DURUM_ID" />
+      <PropertyRef Name="TEKLIF_FIYAT" />
+      <PropertyRef Name="TEKLIF_OLUSTURULMA_TARIH" />
+      <PropertyRef Name="TEKLIF_OLUSTURAN_ID" />
+      <PropertyRef Name="DURUM_AD" />
+      <PropertyRef Name="FIRMA_AD" />
+      <PropertyRef Name="DEPARTMAN_AD" />
+      <PropertyRef Name="DEPARTMAN_ID" />
+      <PropertyRef Name="TALEP_MIKTAR" />
+      <PropertyRef Name="TALEP_OLUSTURULMA_TARIH" />
+      <PropertyRef Name="TALEP_NO" />
+      <PropertyRef Name="STOK_ADI" />
+      <PropertyRef Name="STOK_GRUP_ID" />
+      <PropertyRef Name="STOK_KODU" />
+      <PropertyRef Name="DEPO_AD" />
+    </Key>
+    <Property Name="SIPARIS_ID" Type="Int32" Nullable="false" />
+    <Property Name="SIPARIS_NO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TEKLIF_ID" Type="Int32" Nullable="false" />
+    <Property Name="TALEP_ID" Type="Int32" Nullable="false" />
+    <Property Name="SIPARIS_OLUSTURULMA_TARIH" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ONAY_TARIH" Type="DateTime" Precision="3" />
+    <Property Name="RED_TARIH" Type="DateTime" Precision="3" />
+    <Property Name="SIPARIS_OLUSTURAN_ISIM" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="SIPARIS_ISLEM_YAPAN_ISIM" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="SUBE_ID" Type="Int32" Nullable="false" />
+    <Property Name="SIPARIS_DURUM_ID" Type="Int32" Nullable="false" />
+    <Property Name="DURUM_GUNCELLEME_TARIH" Type="DateTime" Precision="3" />
+    <Property Name="TEKLIF_ISLEM_ACIKLAMA" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="TEKLIF_FIYAT" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="TEKLIF_NOT" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="TEKLIF_OLUSTURULMA_TARIH" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="TEKLIF_OLUSTURAN_ID" Type="Int32" Nullable="false" />
+    <Property Name="TALEP_ISLEM_ACIKLAMA" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="DURUM_AD" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FIRMA_AD" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DEPARTMAN_AD" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DEPARTMAN_ID" Type="Int32" Nullable="false" />
+    <Property Name="TALEP_MIKTAR" Type="Int32" Nullable="false" />
+    <Property Name="TALEP_OLUSTURULMA_TARIH" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="PLAKA_BIRIM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TEKLIF_OLUSTURAN_ISIM" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="TALEP_NO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="STOK_ADI" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="OLCU_BR" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="GRUP_ADI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="STOK_GRUP_ID" Type="Int32" Nullable="false" />
+    <Property Name="TEKLIF_ONAY1" Type="Boolean" />
+    <Property Name="TEKLIF_ONAY2" Type="Boolean" />
+    <Property Name="TEKLIF_ONAY3" Type="Boolean" />
+    <Property Name="TEKLIF_ONAY1_TARIH" Type="DateTime" Precision="3" />
+    <Property Name="TEKLIF_ONAY2_TARIH" Type="DateTime" Precision="3" />
+    <Property Name="TEKLIF_ONAY3_TARIH" Type="DateTime" Precision="3" />
+    <Property Name="TEKLIF_ONAY1_KULLANICI" Type="Int32" />
+    <Property Name="TEKLIF_ONAY2_KULLANICI" Type="Int32" />
+    <Property Name="TEKLIF_ONAY3_KULLANICI" Type="Int32" />
+    <Property Name="TEKLIF_ONAY1_AD" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="TEKLIF_ONAY2_AD" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="TEKLIF_ONAY3_AD" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="TALEP_OLUSTURAN_ISIM" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="TALEP_ONAY1" Type="Boolean" />
+    <Property Name="TALEP_ONAY2" Type="Boolean" />
+    <Property Name="TALEP_ONAY3" Type="Boolean" />
+    <Property Name="TALEP_ONAY1_TARIH" Type="DateTime" Precision="3" />
+    <Property Name="TALEP_ONAY2_TARIH" Type="DateTime" Precision="3" />
+    <Property Name="TALEP_ONAY3_TARIH" Type="DateTime" Precision="3" />
+    <Property Name="TALEP_ONAY1_KULLANICI" Type="Int32" />
+    <Property Name="TALEP_ONAY2_KULLANICI" Type="Int32" />
+    <Property Name="TALEP_ONAY3_KULLANICI" Type="Int32" />
+    <Property Name="TALEP_ONAY1_AD" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="TALEP_ONAY2_AD" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="TALEP_ONAY3_AD" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="STOK_KODU" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DEPO_AD" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="VW_STOK_HAREKET">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="STOK_KODU" />
+      <PropertyRef Name="MIKTAR" />
+      <PropertyRef Name="GC_KOD" />
+      <PropertyRef Name="TARIH" />
+      <PropertyRef Name="DEPARTMAN_AD" />
+      <PropertyRef Name="DEPO_AD" />
+      <PropertyRef Name="ISIM_SOYISIM" />
+      <PropertyRef Name="STOK_ADI" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="FISNO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="STOK_KODU" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MIKTAR" Type="Double" Nullable="false" />
+    <Property Name="GC_KOD" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="TARIH" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="SIPARIS_NO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ALIS_MALIYET" Type="Double" />
+    <Property Name="KULLANICI_ID" Type="Int32" />
+    <Property Name="DEPO_ID" Type="Int32" />
+    <Property Name="STOK_GRUP_ID" Type="Int32" />
+    <Property Name="KAYIT_ZAMAN" Type="DateTime" Precision="3" />
+    <Property Name="SUBE_ID" Type="Int32" />
+    <Property Name="DEPARTMAN_ID" Type="Int32" />
+    <Property Name="DEPARTMAN_AD" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DEPO_AD" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="GRUP_ADI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ISIM_SOYISIM" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="STOK_ADI" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="VW_STOK_HAREKET_LOG">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="STOK_KODU" />
+      <PropertyRef Name="MIKTAR" />
+      <PropertyRef Name="TARIH" />
+      <PropertyRef Name="KULLANICI_ID" />
+      <PropertyRef Name="SUBE_ID" />
+      <PropertyRef Name="KULLANILDI_MI" />
+      <PropertyRef Name="STOK_GRUP_ID" />
+      <PropertyRef Name="DEPARTMAN_ID" />
+      <PropertyRef Name="DEPO_ID" />
+      <PropertyRef Name="PLAKA_BIRIM" />
+      <PropertyRef Name="DEPARTMAN_AD" />
+      <PropertyRef Name="DEPO_AD" />
+      <PropertyRef Name="ISIM_SOYISIM" />
+      <PropertyRef Name="STOK_ADI" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="STOK_KODU" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MIKTAR" Type="Double" Nullable="false" />
+    <Property Name="TARIH" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="KULLANICI_ID" Type="Int32" Nullable="false" />
+    <Property Name="SUBE_ID" Type="Int32" Nullable="false" />
+    <Property Name="KULLANILDI_MI" Type="Boolean" Nullable="false" />
+    <Property Name="STOK_GRUP_ID" Type="Int32" Nullable="false" />
+    <Property Name="DEPARTMAN_ID" Type="Int32" Nullable="false" />
+    <Property Name="DEPO_ID" Type="Int32" Nullable="false" />
+    <Property Name="PLAKA_BIRIM" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="H_NOT" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="DEPARTMAN_AD" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DEPO_AD" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="GRUP_ADI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ISIM_SOYISIM" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="STOK_ADI" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="VW_TALEP">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="TALEP_NO" />
+      <PropertyRef Name="TALEP_MIKTAR" />
+      <PropertyRef Name="TALEP_DEPARTMAN_ID" />
+      <PropertyRef Name="OLUSTURULMA_TARIH" />
+      <PropertyRef Name="OLUSTURAN_ID" />
+      <PropertyRef Name="SUBE_ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="TALEP_NO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TALEP_ISLEM_ACIKLAMA" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="TALEP_MIKTAR" Type="Int32" Nullable="false" />
+    <Property Name="TALEP_DEPARTMAN_ID" Type="Int32" Nullable="false" />
+    <Property Name="TALEP_DURUM_ID" Type="Int32" />
+    <Property Name="TALEP_NOT" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="OLUSTURULMA_TARIH" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="OLUSTURAN_ID" Type="Int32" Nullable="false" />
+    <Property Name="DEPARTMAN_AD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DURUM_AD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SUBE_ID" Type="Int32" Nullable="false" />
+    <Property Name="PLAKA_BIRIM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="OLUSTURAN_ISIM" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="STOK_KODU" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="STOK_ADI" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="OLCU_BR" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="GRUP_KODU" Type="Int32" />
+    <Property Name="A_FIYAT" Type="Double" />
+    <Property Name="S_FIYAT" Type="Double" />
+    <Property Name="KDV_ORAN" Type="Int32" />
+    <Property Name="DEPO_KODU" Type="Int32" />
+    <Property Name="STOK_GRUP_ID" Type="Int32" />
+    <Property Name="GRUP_ADI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ONAY1" Type="Boolean" />
+    <Property Name="ONAY2" Type="Boolean" />
+    <Property Name="ONAY3" Type="Boolean" />
+    <Property Name="ONAY1_TARIH" Type="DateTime" Precision="3" />
+    <Property Name="ONAY2_TARIH" Type="DateTime" Precision="3" />
+    <Property Name="ONAY3_TARIH" Type="DateTime" Precision="3" />
+    <Property Name="ONAY1_KULLANICI" Type="Int32" />
+    <Property Name="ONAY2_KULLANICI" Type="Int32" />
+    <Property Name="ONAY3_KULLANICI" Type="Int32" />
+    <Property Name="DEPO_AD" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="ANLIK_STOK_MIKTAR" Type="Double" />
+    <Property Name="ONAY1_AD" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ONAY2_AD" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ONAY3_AD" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="VW_TEKLIF">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="TALEP_ID" />
+      <PropertyRef Name="TEKLIF_NO" />
+      <PropertyRef Name="TEKLIF_FIYAT" />
+      <PropertyRef Name="OLUSTURULMA_TARIH" />
+      <PropertyRef Name="OLUSTURAN_ID" />
+      <PropertyRef Name="TEKLIF_DURUM_ID" />
+      <PropertyRef Name="DURUM_AD" />
+      <PropertyRef Name="FIRMA_AD" />
+      <PropertyRef Name="SUBE_ID" />
+      <PropertyRef Name="DEPARTMAN_AD" />
+      <PropertyRef Name="DEPARTMAN_ID" />
+      <PropertyRef Name="TALEP_MIKTAR" />
+      <PropertyRef Name="TALEP_NO" />
+      <PropertyRef Name="STOK_ADI" />
+      <PropertyRef Name="STOK_KODU" />
+      <PropertyRef Name="STOK_GRUP_ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="TALEP_ID" Type="Int32" Nullable="false" />
+    <Property Name="TEKLIF_NO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TEKLIF_ISLEM_ACIKLAMA" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="TEKLIF_FIYAT" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="MARKA" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="TEKLIF_NOT" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="OLUSTURULMA_TARIH" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="OLUSTURAN_ID" Type="Int32" Nullable="false" />
+    <Property Name="TEKLIF_DURUM_ID" Type="Int32" Nullable="false" />
+    <Property Name="TALEP_ISLEM_ACIKLAMA" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="DURUM_AD" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FIRMA_AD" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="SUBE_ID" Type="Int32" Nullable="false" />
+    <Property Name="DEPARTMAN_AD" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DEPARTMAN_ID" Type="Int32" Nullable="false" />
+    <Property Name="TALEP_MIKTAR" Type="Int32" Nullable="false" />
+    <Property Name="PLAKA_BIRIM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="OLUSTURAN_ISIM" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="TALEP_NO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="STOK_ADI" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="STOK_KODU" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="OLCU_BR" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="GRUP_ADI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="STOK_GRUP_ID" Type="Int32" Nullable="false" />
+    <Property Name="ONAY1" Type="Boolean" />
+    <Property Name="ONAY2" Type="Boolean" />
+    <Property Name="ONAY3" Type="Boolean" />
+    <Property Name="ONAY1_TARIH" Type="DateTime" Precision="3" />
+    <Property Name="ONAY2_TARIH" Type="DateTime" Precision="3" />
+    <Property Name="ONAY3_TARIH" Type="DateTime" Precision="3" />
+    <Property Name="ONAY1_KULLANICI" Type="Int32" />
+    <Property Name="ONAY2_KULLANICI" Type="Int32" />
+    <Property Name="ONAY3_KULLANICI" Type="Int32" />
+    <Property Name="ONAY1_AD" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ONAY2_AD" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ONAY3_AD" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK_TBL_PLAKA_BIRIM_TBL_DEPARTMAN">
+    <End Type="UMET_DBModel.TBL_DEPARTMAN" Role="TBL_DEPARTMAN" Multiplicity="1" />
+    <End Type="UMET_DBModel.TBL_PLAKA_BIRIM" Role="TBL_PLAKA_BIRIM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_DEPARTMAN">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBL_PLAKA_BIRIM">
+        <PropertyRef Name="DEPARTMAN_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_STOK_HAREKET_LOG_TBL_DEPARTMAN">
+    <End Type="UMET_DBModel.TBL_DEPARTMAN" Role="TBL_DEPARTMAN" Multiplicity="1" />
+    <End Type="UMET_DBModel.TBL_STOK_HAREKET_LOG" Role="TBL_STOK_HAREKET_LOG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_DEPARTMAN">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBL_STOK_HAREKET_LOG">
+        <PropertyRef Name="DEPARTMAN_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_STOK_HAREKET2_TBL_DEPARTMAN">
+    <End Type="UMET_DBModel.TBL_DEPARTMAN" Role="TBL_DEPARTMAN" Multiplicity="0..1" />
+    <End Type="UMET_DBModel.TBL_STOK_HAREKET2" Role="TBL_STOK_HAREKET2" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_DEPARTMAN">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBL_STOK_HAREKET2">
+        <PropertyRef Name="DEPARTMAN_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_TALEP_TBL_DEPARTMAN">
+    <End Type="UMET_DBModel.TBL_DEPARTMAN" Role="TBL_DEPARTMAN" Multiplicity="1" />
+    <End Type="UMET_DBModel.TBL_TALEP" Role="TBL_TALEP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_DEPARTMAN">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBL_TALEP">
+        <PropertyRef Name="TALEP_DEPARTMAN_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_DEPO_TBL_SUBE">
+    <End Type="UMET_DBModel.TBL_SUBE" Role="TBL_SUBE" Multiplicity="1" />
+    <End Type="UMET_DBModel.TBL_DEPO" Role="TBL_DEPO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_SUBE">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBL_DEPO">
+        <PropertyRef Name="SUBE_KODU" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_STOK_HAREKET_LOG_TBL_DEPO">
+    <End Type="UMET_DBModel.TBL_DEPO" Role="TBL_DEPO" Multiplicity="1" />
+    <End Type="UMET_DBModel.TBL_STOK_HAREKET_LOG" Role="TBL_STOK_HAREKET_LOG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_DEPO">
+        <PropertyRef Name="DEPO_ID" />
+      </Principal>
+      <Dependent Role="TBL_STOK_HAREKET_LOG">
+        <PropertyRef Name="DEPO_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_STOK_HAREKET2_TBL_DEPO">
+    <End Type="UMET_DBModel.TBL_DEPO" Role="TBL_DEPO" Multiplicity="0..1" />
+    <End Type="UMET_DBModel.TBL_STOK_HAREKET2" Role="TBL_STOK_HAREKET2" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_DEPO">
+        <PropertyRef Name="DEPO_ID" />
+      </Principal>
+      <Dependent Role="TBL_STOK_HAREKET2">
+        <PropertyRef Name="DEPO_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_STOK_TBL_DEPO">
+    <End Type="UMET_DBModel.TBL_DEPO" Role="TBL_DEPO" Multiplicity="0..1" />
+    <End Type="UMET_DBModel.TBL_STOK" Role="TBL_STOK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_DEPO">
+        <PropertyRef Name="DEPO_ID" />
+      </Principal>
+      <Dependent Role="TBL_STOK">
+        <PropertyRef Name="DEPO_KODU" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_SIPARIS_TBL_DURUM">
+    <End Type="UMET_DBModel.TBL_DURUM" Role="TBL_DURUM" Multiplicity="1" />
+    <End Type="UMET_DBModel.TBL_SIPARIS" Role="TBL_SIPARIS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_DURUM">
+        <PropertyRef Name="DURUM_ID" />
+      </Principal>
+      <Dependent Role="TBL_SIPARIS">
+        <PropertyRef Name="SIPARIS_DURUM_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_TALEP_TBL_DURUM3">
+    <End Type="UMET_DBModel.TBL_DURUM" Role="TBL_DURUM" Multiplicity="0..1" />
+    <End Type="UMET_DBModel.TBL_TALEP" Role="TBL_TALEP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_DURUM">
+        <PropertyRef Name="DURUM_ID" />
+      </Principal>
+      <Dependent Role="TBL_TALEP">
+        <PropertyRef Name="TALEP_DURUM_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_TEKLIF_TBL_DURUM">
+    <End Type="UMET_DBModel.TBL_DURUM" Role="TBL_DURUM" Multiplicity="1" />
+    <End Type="UMET_DBModel.TBL_TEKLIF" Role="TBL_TEKLIF" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_DURUM">
+        <PropertyRef Name="DURUM_ID" />
+      </Principal>
+      <Dependent Role="TBL_TEKLIF">
+        <PropertyRef Name="TEKLIF_DURUM_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_STOK_HAREKET_LOG_TBL_KULLANICI">
+    <End Type="UMET_DBModel.TBL_KULLANICI" Role="TBL_KULLANICI" Multiplicity="1" />
+    <End Type="UMET_DBModel.TBL_STOK_HAREKET_LOG" Role="TBL_STOK_HAREKET_LOG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_KULLANICI">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBL_STOK_HAREKET_LOG">
+        <PropertyRef Name="KULLANICI_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_STOK_HAREKET2_TBL_KULLANICI">
+    <End Type="UMET_DBModel.TBL_KULLANICI" Role="TBL_KULLANICI" Multiplicity="0..1" />
+    <End Type="UMET_DBModel.TBL_STOK_HAREKET2" Role="TBL_STOK_HAREKET2" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_KULLANICI">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBL_STOK_HAREKET2">
+        <PropertyRef Name="KULLANICI_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_TALEP_TBL_KULLANICI">
+    <End Type="UMET_DBModel.TBL_KULLANICI" Role="TBL_KULLANICI" Multiplicity="0..1" />
+    <End Type="UMET_DBModel.TBL_TALEP" Role="TBL_TALEP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_KULLANICI">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBL_TALEP">
+        <PropertyRef Name="ONAY1_KULLANICI" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_TALEP_TBL_KULLANICI1">
+    <End Type="UMET_DBModel.TBL_KULLANICI" Role="TBL_KULLANICI" Multiplicity="0..1" />
+    <End Type="UMET_DBModel.TBL_TALEP" Role="TBL_TALEP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_KULLANICI">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBL_TALEP">
+        <PropertyRef Name="ONAY2_KULLANICI" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_TALEP_TBL_KULLANICI2">
+    <End Type="UMET_DBModel.TBL_KULLANICI" Role="TBL_KULLANICI" Multiplicity="0..1" />
+    <End Type="UMET_DBModel.TBL_TALEP" Role="TBL_TALEP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_KULLANICI">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBL_TALEP">
+        <PropertyRef Name="ONAY3_KULLANICI" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_TEKLIF_TBL_KULLANICI">
+    <End Type="UMET_DBModel.TBL_KULLANICI" Role="TBL_KULLANICI" Multiplicity="0..1" />
+    <End Type="UMET_DBModel.TBL_TEKLIF" Role="TBL_TEKLIF" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_KULLANICI">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBL_TEKLIF">
+        <PropertyRef Name="ONAY1_KULLANICI" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_TEKLIF_TBL_KULLANICI1">
+    <End Type="UMET_DBModel.TBL_KULLANICI" Role="TBL_KULLANICI" Multiplicity="0..1" />
+    <End Type="UMET_DBModel.TBL_TEKLIF" Role="TBL_TEKLIF" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_KULLANICI">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBL_TEKLIF">
+        <PropertyRef Name="ONAY2_KULLANICI" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_TEKLIF_TBL_KULLANICI2">
+    <End Type="UMET_DBModel.TBL_KULLANICI" Role="TBL_KULLANICI" Multiplicity="0..1" />
+    <End Type="UMET_DBModel.TBL_TEKLIF" Role="TBL_TEKLIF" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_KULLANICI">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBL_TEKLIF">
+        <PropertyRef Name="ONAY3_KULLANICI" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_USER_TBL_ROLE">
+    <End Type="UMET_DBModel.TBL_SUBE" Role="TBL_SUBE" Multiplicity="1" />
+    <End Type="UMET_DBModel.TBL_KULLANICI" Role="TBL_KULLANICI" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_SUBE">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBL_KULLANICI">
+        <PropertyRef Name="SUBE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_PLAKA_BIRIM_TBL_SUBE">
+    <End Type="UMET_DBModel.TBL_SUBE" Role="TBL_SUBE" Multiplicity="1" />
+    <End Type="UMET_DBModel.TBL_PLAKA_BIRIM" Role="TBL_PLAKA_BIRIM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_SUBE">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBL_PLAKA_BIRIM">
+        <PropertyRef Name="SUBE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_SIPARIS_TBL_SUBE">
+    <End Type="UMET_DBModel.TBL_SUBE" Role="TBL_SUBE" Multiplicity="1" />
+    <End Type="UMET_DBModel.TBL_SIPARIS" Role="TBL_SIPARIS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_SUBE">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBL_SIPARIS">
+        <PropertyRef Name="SUBE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_SIPARIS_TBL_TALEP">
+    <End Type="UMET_DBModel.TBL_TALEP" Role="TBL_TALEP" Multiplicity="1" />
+    <End Type="UMET_DBModel.TBL_SIPARIS" Role="TBL_SIPARIS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_TALEP">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBL_SIPARIS">
+        <PropertyRef Name="TALEP_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_SIPARIS_TBL_TEKLIF">
+    <End Type="UMET_DBModel.TBL_TEKLIF" Role="TBL_TEKLIF" Multiplicity="1" />
+    <End Type="UMET_DBModel.TBL_SIPARIS" Role="TBL_SIPARIS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_TEKLIF">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBL_SIPARIS">
+        <PropertyRef Name="TEKLIF_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_STOK_HAREKET_LOG_TBL_STOK">
+    <End Type="UMET_DBModel.TBL_STOK" Role="TBL_STOK" Multiplicity="1" />
+    <End Type="UMET_DBModel.TBL_STOK_HAREKET_LOG" Role="TBL_STOK_HAREKET_LOG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_STOK">
+        <PropertyRef Name="STOK_KODU" />
+      </Principal>
+      <Dependent Role="TBL_STOK_HAREKET_LOG">
+        <PropertyRef Name="STOK_KODU" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_STOK_HAREKET2_TBL_STOK">
+    <End Type="UMET_DBModel.TBL_STOK" Role="TBL_STOK" Multiplicity="1" />
+    <End Type="UMET_DBModel.TBL_STOK_HAREKET2" Role="TBL_STOK_HAREKET2" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_STOK">
+        <PropertyRef Name="STOK_KODU" />
+      </Principal>
+      <Dependent Role="TBL_STOK_HAREKET2">
+        <PropertyRef Name="STOK_KODU" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_STOK_TBL_STOK_GRUP">
+    <End Type="UMET_DBModel.TBL_STOK_GRUP" Role="TBL_STOK_GRUP" Multiplicity="1" />
+    <End Type="UMET_DBModel.TBL_STOK" Role="TBL_STOK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_STOK_GRUP">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBL_STOK">
+        <PropertyRef Name="GRUP_KODU" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_STOK_TBL_SUBE">
+    <End Type="UMET_DBModel.TBL_SUBE" Role="TBL_SUBE" Multiplicity="0..1" />
+    <End Type="UMET_DBModel.TBL_STOK" Role="TBL_STOK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_SUBE">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBL_STOK">
+        <PropertyRef Name="SUBE_KODU" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_TALEP_TBL_STOK">
+    <End Type="UMET_DBModel.TBL_STOK" Role="TBL_STOK" Multiplicity="1" />
+    <End Type="UMET_DBModel.TBL_TALEP" Role="TBL_TALEP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_STOK">
+        <PropertyRef Name="STOK_KODU" />
+      </Principal>
+      <Dependent Role="TBL_TALEP">
+        <PropertyRef Name="STOK_KODU" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_STOK_HAREKET_LOG_TBL_STOK_GRUP">
+    <End Type="UMET_DBModel.TBL_STOK_GRUP" Role="TBL_STOK_GRUP" Multiplicity="1" />
+    <End Type="UMET_DBModel.TBL_STOK_HAREKET_LOG" Role="TBL_STOK_HAREKET_LOG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_STOK_GRUP">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBL_STOK_HAREKET_LOG">
+        <PropertyRef Name="STOK_GRUP_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_STOK_HAREKET2_TBL_STOK_GRUP">
+    <End Type="UMET_DBModel.TBL_STOK_GRUP" Role="TBL_STOK_GRUP" Multiplicity="0..1" />
+    <End Type="UMET_DBModel.TBL_STOK_HAREKET2" Role="TBL_STOK_HAREKET2" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_STOK_GRUP">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBL_STOK_HAREKET2">
+        <PropertyRef Name="STOK_GRUP_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_STOK_HAREKET_LOG_TBL_SUBE">
+    <End Type="UMET_DBModel.TBL_SUBE" Role="TBL_SUBE" Multiplicity="1" />
+    <End Type="UMET_DBModel.TBL_STOK_HAREKET_LOG" Role="TBL_STOK_HAREKET_LOG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_SUBE">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBL_STOK_HAREKET_LOG">
+        <PropertyRef Name="SUBE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_STOK_HAREKET2_TBL_SUBE">
+    <End Type="UMET_DBModel.TBL_SUBE" Role="TBL_SUBE" Multiplicity="0..1" />
+    <End Type="UMET_DBModel.TBL_STOK_HAREKET2" Role="TBL_STOK_HAREKET2" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_SUBE">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBL_STOK_HAREKET2">
+        <PropertyRef Name="SUBE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_TALEP_TBL_SUBE">
+    <End Type="UMET_DBModel.TBL_SUBE" Role="TBL_SUBE" Multiplicity="1" />
+    <End Type="UMET_DBModel.TBL_TALEP" Role="TBL_TALEP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_SUBE">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBL_TALEP">
+        <PropertyRef Name="SUBE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_TEKLIF_TBL_SUBE">
+    <End Type="UMET_DBModel.TBL_SUBE" Role="TBL_SUBE" Multiplicity="1" />
+    <End Type="UMET_DBModel.TBL_TEKLIF" Role="TBL_TEKLIF" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_SUBE">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBL_TEKLIF">
+        <PropertyRef Name="SUBE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="IDP_PLAKA_BIRIM_LIST_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="Int32" Name="SUBE_ID" Nullable="false" />
+    <Property Type="String" Name="PLAKA_BIRIM" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="DEPARTMAN_ID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="IDP_SIPARIS_GRID_Result">
+    <Property Type="Int32" Name="SIPARIS_ID" Nullable="false" />
+    <Property Type="String" Name="SIPARIS_NO" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="TEKLIF_ID" Nullable="false" />
+    <Property Type="Int32" Name="TALEP_ID" Nullable="false" />
+    <Property Type="DateTime" Name="SIPARIS_OLUSTURULMA_TARIH" Nullable="false" Precision="23" />
+    <Property Type="DateTime" Name="ONAY_TARIH" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="RED_TARIH" Nullable="true" Precision="23" />
+    <Property Type="String" Name="SIPARIS_OLUSTURAN_ISIM" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="SIPARIS_ISLEM_YAPAN_ISIM" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="SUBE_ID" Nullable="false" />
+    <Property Type="Int32" Name="SIPARIS_DURUM_ID" Nullable="false" />
+    <Property Type="DateTime" Name="DURUM_GUNCELLEME_TARIH" Nullable="true" Precision="23" />
+    <Property Type="String" Name="TEKLIF_ISLEM_ACIKLAMA" Nullable="true" MaxLength="300" />
+    <Property Type="Decimal" Name="TEKLIF_FIYAT" Nullable="false" Precision="19" />
+    <Property Type="String" Name="TEKLIF_NOT" Nullable="true" MaxLength="300" />
+    <Property Type="DateTime" Name="TEKLIF_OLUSTURULMA_TARIH" Nullable="false" Precision="23" />
+    <Property Type="Int32" Name="TEKLIF_OLUSTURAN_ID" Nullable="false" />
+    <Property Type="String" Name="TALEP_ISLEM_ACIKLAMA" Nullable="true" MaxLength="300" />
+    <Property Type="String" Name="DURUM_AD" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="FIRMA_AD" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="DEPARTMAN_AD" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="DEPARTMAN_ID" Nullable="false" />
+    <Property Type="Int32" Name="TALEP_MIKTAR" Nullable="false" />
+    <Property Type="DateTime" Name="TALEP_OLUSTURULMA_TARIH" Nullable="false" Precision="23" />
+    <Property Type="String" Name="PLAKA_BIRIM" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="TEKLIF_OLUSTURAN_ISIM" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="TALEP_NO" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="STOK_ADI" Nullable="false" MaxLength="150" />
+    <Property Type="String" Name="OLCU_BR" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="GRUP_ADI" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="STOK_GRUP_ID" Nullable="false" />
+    <Property Type="Boolean" Name="TEKLIF_ONAY1" Nullable="true" />
+    <Property Type="Boolean" Name="TEKLIF_ONAY2" Nullable="true" />
+    <Property Type="Boolean" Name="TEKLIF_ONAY3" Nullable="true" />
+    <Property Type="DateTime" Name="TEKLIF_ONAY1_TARIH" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="TEKLIF_ONAY2_TARIH" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="TEKLIF_ONAY3_TARIH" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="TEKLIF_ONAY1_KULLANICI" Nullable="true" />
+    <Property Type="Int32" Name="TEKLIF_ONAY2_KULLANICI" Nullable="true" />
+    <Property Type="Int32" Name="TEKLIF_ONAY3_KULLANICI" Nullable="true" />
+    <Property Type="String" Name="TEKLIF_ONAY1_AD" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="TEKLIF_ONAY2_AD" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="TEKLIF_ONAY3_AD" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="TALEP_OLUSTURAN_ISIM" Nullable="true" MaxLength="100" />
+    <Property Type="Boolean" Name="TALEP_ONAY1" Nullable="true" />
+    <Property Type="Boolean" Name="TALEP_ONAY2" Nullable="true" />
+    <Property Type="Boolean" Name="TALEP_ONAY3" Nullable="true" />
+    <Property Type="DateTime" Name="TALEP_ONAY1_TARIH" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="TALEP_ONAY2_TARIH" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="TALEP_ONAY3_TARIH" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="TALEP_ONAY1_KULLANICI" Nullable="true" />
+    <Property Type="Int32" Name="TALEP_ONAY2_KULLANICI" Nullable="true" />
+    <Property Type="Int32" Name="TALEP_ONAY3_KULLANICI" Nullable="true" />
+    <Property Type="String" Name="TALEP_ONAY1_AD" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="TALEP_ONAY2_AD" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="TALEP_ONAY3_AD" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="STOK_KODU" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="DEPO_AD" Nullable="false" MaxLength="250" />
+  </ComplexType>
+  <ComplexType Name="IDP_STOK_HAREKET_GRID_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="FISNO" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="STOK_KODU" Nullable="false" MaxLength="50" />
+    <Property Type="Double" Name="MIKTAR" Nullable="false" />
+    <Property Type="String" Name="GC_KOD" Nullable="false" MaxLength="1" />
+    <Property Type="DateTime" Name="TARIH" Nullable="false" Precision="23" />
+    <Property Type="String" Name="SIPARIS_NO" Nullable="true" MaxLength="50" />
+    <Property Type="Double" Name="ALIS_MALIYET" Nullable="true" />
+    <Property Type="Int32" Name="KULLANICI_ID" Nullable="true" />
+    <Property Type="Int32" Name="DEPO_ID" Nullable="true" />
+    <Property Type="Int32" Name="STOK_GRUP_ID" Nullable="true" />
+    <Property Type="DateTime" Name="KAYIT_ZAMAN" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="SUBE_ID" Nullable="true" />
+    <Property Type="Int32" Name="DEPARTMAN_ID" Nullable="true" />
+    <Property Type="String" Name="DEPARTMAN_AD" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="DEPO_AD" Nullable="false" MaxLength="250" />
+    <Property Type="String" Name="GRUP_ADI" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ISIM_SOYISIM" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="STOK_ADI" Nullable="false" MaxLength="150" />
+  </ComplexType>
+  <ComplexType Name="IDP_STOK_HAREKET_LOG_GRID_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="STOK_KODU" Nullable="false" MaxLength="50" />
+    <Property Type="Double" Name="MIKTAR" Nullable="false" />
+    <Property Type="DateTime" Name="TARIH" Nullable="false" Precision="23" />
+    <Property Type="Int32" Name="KULLANICI_ID" Nullable="false" />
+    <Property Type="Int32" Name="SUBE_ID" Nullable="false" />
+    <Property Type="Boolean" Name="KULLANILDI_MI" Nullable="false" />
+    <Property Type="Int32" Name="STOK_GRUP_ID" Nullable="false" />
+    <Property Type="Int32" Name="DEPARTMAN_ID" Nullable="false" />
+    <Property Type="Int32" Name="DEPO_ID" Nullable="false" />
+    <Property Type="String" Name="PLAKA_BIRIM" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="H_NOT" Nullable="true" MaxLength="350" />
+    <Property Type="String" Name="DEPARTMAN_AD" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="DEPO_AD" Nullable="false" MaxLength="250" />
+    <Property Type="String" Name="GRUP_ADI" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ISIM_SOYISIM" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="STOK_ADI" Nullable="false" MaxLength="150" />
+  </ComplexType>
+  <ComplexType Name="IDP_TALEP_GRID_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="TALEP_NO" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="TALEP_ISLEM_ACIKLAMA" Nullable="true" MaxLength="300" />
+    <Property Type="Int32" Name="TALEP_MIKTAR" Nullable="false" />
+    <Property Type="Int32" Name="TALEP_DEPARTMAN_ID" Nullable="false" />
+    <Property Type="Int32" Name="TALEP_DURUM_ID" Nullable="true" />
+    <Property Type="String" Name="TALEP_NOT" Nullable="true" MaxLength="300" />
+    <Property Type="DateTime" Name="OLUSTURULMA_TARIH" Nullable="false" Precision="23" />
+    <Property Type="Int32" Name="OLUSTURAN_ID" Nullable="false" />
+    <Property Type="String" Name="DEPARTMAN_AD" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="DURUM_AD" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="SUBE_ID" Nullable="false" />
+    <Property Type="String" Name="PLAKA_BIRIM" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="OLUSTURAN_ISIM" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="STOK_KODU" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="STOK_ADI" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="OLCU_BR" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="GRUP_KODU" Nullable="true" />
+    <Property Type="Double" Name="A_FIYAT" Nullable="true" />
+    <Property Type="Double" Name="S_FIYAT" Nullable="true" />
+    <Property Type="Int32" Name="KDV_ORAN" Nullable="true" />
+    <Property Type="Int32" Name="DEPO_KODU" Nullable="true" />
+    <Property Type="Int32" Name="STOK_GRUP_ID" Nullable="true" />
+    <Property Type="String" Name="GRUP_ADI" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="ONAY1" Nullable="true" />
+    <Property Type="Boolean" Name="ONAY2" Nullable="true" />
+    <Property Type="Boolean" Name="ONAY3" Nullable="true" />
+    <Property Type="DateTime" Name="ONAY1_TARIH" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="ONAY2_TARIH" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="ONAY3_TARIH" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="ONAY1_KULLANICI" Nullable="true" />
+    <Property Type="Int32" Name="ONAY2_KULLANICI" Nullable="true" />
+    <Property Type="Int32" Name="ONAY3_KULLANICI" Nullable="true" />
+    <Property Type="String" Name="DEPO_AD" Nullable="true" MaxLength="250" />
+    <Property Type="Double" Name="ANLIK_STOK_MIKTAR" Nullable="true" />
+    <Property Type="String" Name="ONAY1_AD" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="ONAY2_AD" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="ONAY3_AD" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="IDP_TEKLIF_ASAMASINDAKI_TALEPLER_GRID_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="TALEP_NO" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="TALEP_ISLEM_ACIKLAMA" Nullable="true" MaxLength="300" />
+    <Property Type="Int32" Name="TALEP_MIKTAR" Nullable="false" />
+    <Property Type="Int32" Name="TALEP_DEPARTMAN_ID" Nullable="false" />
+    <Property Type="Int32" Name="TALEP_DURUM_ID" Nullable="true" />
+    <Property Type="String" Name="TALEP_NOT" Nullable="true" MaxLength="300" />
+    <Property Type="DateTime" Name="OLUSTURULMA_TARIH" Nullable="false" Precision="23" />
+    <Property Type="Int32" Name="OLUSTURAN_ID" Nullable="false" />
+    <Property Type="String" Name="DEPARTMAN_AD" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="DURUM_AD" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="SUBE_ID" Nullable="false" />
+    <Property Type="String" Name="PLAKA_BIRIM" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="OLUSTURAN_ISIM" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="STOK_KODU" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="STOK_ADI" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="OLCU_BR" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="GRUP_KODU" Nullable="true" />
+    <Property Type="Double" Name="A_FIYAT" Nullable="true" />
+    <Property Type="Double" Name="S_FIYAT" Nullable="true" />
+    <Property Type="Int32" Name="KDV_ORAN" Nullable="true" />
+    <Property Type="Int32" Name="DEPO_KODU" Nullable="true" />
+    <Property Type="Int32" Name="STOK_GRUP_ID" Nullable="true" />
+    <Property Type="String" Name="GRUP_ADI" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="ONAY1" Nullable="true" />
+    <Property Type="Boolean" Name="ONAY2" Nullable="true" />
+    <Property Type="Boolean" Name="ONAY3" Nullable="true" />
+    <Property Type="DateTime" Name="ONAY1_TARIH" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="ONAY2_TARIH" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="ONAY3_TARIH" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="ONAY1_KULLANICI" Nullable="true" />
+    <Property Type="Int32" Name="ONAY2_KULLANICI" Nullable="true" />
+    <Property Type="Int32" Name="ONAY3_KULLANICI" Nullable="true" />
+    <Property Type="String" Name="DEPO_AD" Nullable="true" MaxLength="250" />
+    <Property Type="Double" Name="ANLIK_STOK_MIKTAR" Nullable="true" />
+    <Property Type="String" Name="ONAY1_AD" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="ONAY2_AD" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="ONAY3_AD" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="IDP_TEKLIF_GRID_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="Int32" Name="TALEP_ID" Nullable="false" />
+    <Property Type="String" Name="TEKLIF_NO" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="TEKLIF_ISLEM_ACIKLAMA" Nullable="true" MaxLength="300" />
+    <Property Type="Decimal" Name="TEKLIF_FIYAT" Nullable="false" Precision="19" />
+    <Property Type="String" Name="MARKA" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="TEKLIF_NOT" Nullable="true" MaxLength="300" />
+    <Property Type="DateTime" Name="OLUSTURULMA_TARIH" Nullable="false" Precision="23" />
+    <Property Type="Int32" Name="OLUSTURAN_ID" Nullable="false" />
+    <Property Type="Int32" Name="TEKLIF_DURUM_ID" Nullable="false" />
+    <Property Type="String" Name="TALEP_ISLEM_ACIKLAMA" Nullable="true" MaxLength="300" />
+    <Property Type="String" Name="DURUM_AD" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="FIRMA_AD" Nullable="false" MaxLength="100" />
+    <Property Type="Int32" Name="SUBE_ID" Nullable="false" />
+    <Property Type="String" Name="DEPARTMAN_AD" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="DEPARTMAN_ID" Nullable="false" />
+    <Property Type="Int32" Name="TALEP_MIKTAR" Nullable="false" />
+    <Property Type="String" Name="PLAKA_BIRIM" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="OLUSTURAN_ISIM" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="TALEP_NO" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="STOK_ADI" Nullable="false" MaxLength="150" />
+    <Property Type="String" Name="STOK_KODU" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="OLCU_BR" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="GRUP_ADI" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="STOK_GRUP_ID" Nullable="false" />
+    <Property Type="Boolean" Name="ONAY1" Nullable="true" />
+    <Property Type="Boolean" Name="ONAY2" Nullable="true" />
+    <Property Type="Boolean" Name="ONAY3" Nullable="true" />
+    <Property Type="DateTime" Name="ONAY1_TARIH" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="ONAY2_TARIH" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="ONAY3_TARIH" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="ONAY1_KULLANICI" Nullable="true" />
+    <Property Type="Int32" Name="ONAY2_KULLANICI" Nullable="true" />
+    <Property Type="Int32" Name="ONAY3_KULLANICI" Nullable="true" />
+    <Property Type="String" Name="ONAY1_AD" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="ONAY2_AD" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="ONAY3_AD" Nullable="true" MaxLength="100" />
+  </ComplexType>
+</Schema>

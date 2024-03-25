@@ -1,0 +1,876 @@
+﻿@{
+    ViewBag.Title = "BeklemedeOnaylananTalepler";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+<link href="https://cdn.datatables.net/buttons/2.3.6/css/buttons.bootstrap5.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.10.1/sweetalert2.css" integrity="sha512-pxzljms2XK/DmQU3S58LhGyvttZBPNSw1/zoVZiYmYBvjDQW+0K7/DVzWHNz/LeiDs+uiPMtfQpgDeETwqL+1Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<style>
+    .select2-container {
+        z-index: 2050 !important;
+    }
+</style>
+<div class="conatiner-fluid content-inner mt-5 py-0">
+    <div class="row">
+        <div class="col-md-12 col-lg-12">
+            <div class="card" data-aos="fade-up" data-aos-delay="800">
+                <div class="text-center card-body justify-content-center">
+                    <table id="talepler-tbl" class="table table-striped" style="width:100% !important">
+                        <thead>
+                            <tr>
+                                <th>TALEP NO</th>
+                                <th>MİKTAR</th>
+                                <th>DEPARTMAN</th>
+                                <th>PLAKA/BİRİM</th>
+                                <th>DURUM</th>
+                                <th>TALEBİ<br /> OLUŞTURAN</th>
+                                <th>OLUŞTURULMA<br /> TARİHİ</th>
+
+                                @if (User.IsInRole("1") || User.IsInRole("2") || User.IsInRole("3") || User.IsInRole("4"))
+                                {
+                                    <th></th>
+                                }
+                                @if (User.IsInRole("4"))
+                                {
+                                    <th></th>
+                                }
+                                <th></th>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                @if (User.IsInRole("1") || User.IsInRole("2") || User.IsInRole("3") || User.IsInRole("4"))
+                                {
+                                    <td></td>
+                                }
+                                    
+                                @if (User.IsInRole("4"))
+                                {
+                                    <td></td>
+                                }
+                                
+                                <td></td>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="talepDetayModal" aria-hidden="true" aria-labelledby="talepDetayModal" data-bs-backdrop="static" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" style="max-width:600px">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 id="detayNo" class="modal-title"></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label" for="detayDepartman">Departman Adı</label>
+                        <input type="text" class="form-control" id="detayDepartman" disabled>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label" for="detayStokAdi">Stok Adı</label>
+                        <input type="text" class="form-control" id="detayStokAdi" disabled>
+                    </div>
+
+                    <div class="col-md-12 mb-3">
+                        <label class="form-label" for="detayStokKodu">Stok Kodu</label>
+                        <input type="text" class="form-control" id="detayStokKodu" disabled>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label" for="detayGrupAdi">Stok Grup Adı</label>
+                        <input type="text" class="form-control" id="detayGrupAdi" disabled>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label" for="detayStokBirim">Stok Ölçü Birimi</label>
+                        <input type="text" class="form-control" id="detayStokBirim" disabled>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label" for="detayMiktar">Miktar</label>
+                        <input type="text" class="form-control" id="detayMiktar" disabled>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label" for="detayDurum">Durum</label>
+                        <input type="text" class="form-control" id="detayDurum" disabled>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label" for="detayAnlikStok">Anlık Stok Miktarı</label>
+                        <input type="text" class="form-control" id="detayAnlikStok" disabled>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label" for="detayDepoAd">Stok Depo Adı</label>
+                        <input type="text" class="form-control" id="detayDepoAd" disabled>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label" for="detayOlusturan">Talebi Oluşturan</label>
+                        <input type="text" class="form-control" id="detayOlusturan" disabled>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label" for="detayOlusturmaTarih">Talep Oluşturulma Tarihi</label>
+                        <input type="text" class="form-control" id="detayOlusturmaTarih" disabled>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label" for="detayOnay1">Onay 1</label>
+                        <input type="text" class="form-control" id="detayOnay1" disabled>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label" for="detayOnay1Tarihi">Onay 1 Tarihi</label>
+                        <input type="text" class="form-control" id="detayOnay1Tarihi" disabled>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <label class="form-label" for="detayOnay1Kullanici">Onay 1 Kullanıcı</label>
+                        <input type="text" class="form-control" id="detayOnay1Kullanici" disabled>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label" for="detayOnay2">Onay 2</label>
+                        <input type="text" class="form-control" id="detayOnay2" disabled>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label" for="detayOnay2Tarihi">Onay 2 Tarihi</label>
+                        <input type="text" class="form-control" id="detayOnay2Tarihi" disabled>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <label class="form-label" for="detayOnay2Kullanici">Onay 2 Kullanıcı</label>
+                        <input type="text" class="form-control" id="detayOnay2Kullanici" disabled>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label" for="detayOnay3">Onay 3</label>
+                        <input type="text" class="form-control" id="detayOnay3" disabled>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label" for="detayOnay3Tarihi">Onay 3 Tarihi</label>
+                        <input type="text" class="form-control" id="detayOnay3Tarihi" disabled>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <label class="form-label" for="detayOnay3Kullanici">Onay 3 Kullanıcı</label>
+                        <input type="text" class="form-control" id="detayOnay3Kullanici" disabled>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label" for="detayNot">Talep Not</label>
+                        <textarea class="form-control" id="detayNot" disabled></textarea>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label" for="detayIslemNot">İşlem Yapan Not</label>
+                        <textarea class="form-control" id="detayIslemNot" disabled></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="row mt-3">
+                    <input type="hidden" disabled id="talepIdForGuncelleme">
+                    <div class="col-md-6 mb-2">
+                        <button type="button" class="btn btn-danger btn-block w-100 btn-islem" onclick="onaylaFunc('red')"><i class="fa-solid fa-xmark"></i> REDDET</button>
+                    </div>
+                    <div class="col-md-6">
+                        <button type="button" class="btn btn-success btn-block w-100 btn-islem" onclick="onaylaFunc('onay')"><i class="fa-solid fa-check"></i> ONAYLA</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="teklifOlusturModal" aria-hidden="true" aria-labelledby="teklifOlusturModal" data-bs-backdrop="static">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Teklif Oluşturma Sayfası</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+
+                    <div class="col-md-12 mb-3">
+                        <label class="form-label" for="drpFirma">Firma</label>
+                        <select id="drpFirma" class="form-select js-example-basic-single"></select>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label" for="txtAd">Teklif Adı</label>
+                        <input type="text" class="form-control" id="txtAd" required="">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label" for="txtMarka">Marka</label>
+                        <input type="text" class="form-control" id="txtMarka" required="">
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <label class="form-label" for="txtFiyat">Fiyat</label>
+                        <input type="number" class="form-control" id="txtFiyat" required="">
+                    </div>
+
+                    <div class="col-md-12 mb-3">
+                        <label class="form-label" for="txtNot">Notlar</label>
+                        <textarea class="form-control" id="txtNot" maxlength="300"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="row">
+                    <input type="hidden" disabled id="talepIdForTeklif">
+                    <div class="col-md-6 mb-2">
+                        <button type="button" class="btn btn-gray btn-block w-100 " data-bs-dismiss="modal"><i class="fa-solid fa-xmark"></i> KAPAT</button>
+                    </div>
+                    <div class="col-md-6">
+                        <button type="button" class="btn btn-success btn-block w-100 " onclick="teklifOlusturFunc()"><i class="fa-solid fa-paper-plane"></i> OLUŞTUR</button>
+                    </div>
+                    <div class="col-md-12">
+                        <button type="button" class="btn btn-info btn-block w-100 " onclick="teklifKapatFunc()"><i class="fa-solid fa-store-slash"></i> TEKLİF İŞLEMİNİ BİTİR</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="firmaEkleModal" aria-hidden="true" aria-labelledby="firmaEkleModal" data-bs-backdrop="static" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Yeni Firma Oluşturma Sayfası</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+
+                    <div class="col-md-12 mb-2">
+                        <label class="form-label" for="txtYeniFirma">Firma Adı</label>
+                        <input type="text" class="form-control" id="txtYeniFirma">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="row">
+                    <div class="col-md-6 mb-2">
+                        <button type="button" class="btn btn-gray btn-block w-100" data-bs-dismiss="modal"><i class="fa-solid fa-xmark"></i> KAPAT</button>
+                    </div>
+                    <div class="col-md-6">
+                        <button class="btn btn-success btn-block w-100" data-bs-target="#teklifOlusturModal" data-bs-toggle="modal" onclick="firmaOlustur()"><i class="fa-solid fa-plus"></i> OLUŞTUR</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/Scripts/jquery-3.7.0.min.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.3.6/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.bootstrap5.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.print.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.colVis.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.10.1/sweetalert2.min.js" integrity="sha512-lhtxV2wFeGInLAF3yN3WN/2wobmk+HuoWjyr3xgft42IY0xv4YN7Ao8VnYOwEjJH1F7I+fadwFQkVcZ6ege6kA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+<script>
+
+    $(document).ready(function () {
+        var bugun = new Date();
+        var tarihSaat = bugun.toLocaleString();
+
+        $('#drpFirma').select2({
+            theme: 'bootstrap-5',
+            dropdownParent: $("#teklifOlusturModal"),
+            width: '100%',
+            language: {
+                "noResults": function () {
+                    return `Firma bulunamadı <br><br><button type="button" style="font-size: 20px" data-bs-target="#firmaEkleModal" data-bs-toggle="modal" class="btn btn-outline-success w-100 btn-rounded">Firma Ekle <i class="fa-solid fa-plus"></i></button>`;
+                }
+            },
+            escapeMarkup: function (markup) {
+                return markup;
+            }
+        });
+
+        var table = $('#talepler-tbl').DataTable({
+            dom: 'Bfrtip',
+            orderCellsTop: true,
+
+            buttons: ['copy', 'excel', 'pdf', 'colvis'],
+            ajax: {
+                url: "/umetapi/onay-talep-liste",
+                dataType: "json",
+                type: "GET",
+                dataSrc: ""
+            },
+
+            columns: [
+                {
+                    data: "TALEP_NO", render: function (data, type, row) {
+                        if (data || data != null) {
+                            return (data);
+                        }
+                        return "-";
+                    }
+                },
+                {
+                    data: "TALEP_MIKTAR", render: function (data, type, row) {
+                        if (data || data != null) {
+                            return (data);
+                        }
+                        return "-";
+                    }
+                },
+                {
+                    data: "DEPARTMAN_AD", render: function (data, type, row) {
+                        if (data || data != null) {
+                            return (data);
+                        }
+                        return "-";
+                    }
+                },
+                {
+                    data: "PLAKA_BIRIM", render: function (data, type, row) {
+                        if (data || data != null) {
+                            return (data);
+                        }
+                        return "-";
+                    }
+                },
+                {
+                    data: "DURUM_AD", render: function (data, type, row) {
+                        if (data || data != null) {
+                            return (data);
+                        }
+                        return "-";
+                    }
+                },
+                {
+                    data: "OLUSTURAN_ISIM", render: function (data, type, row) {
+                        if (data || data != null) {
+                            return (data);
+                        }
+                        return "-";
+                    }
+                },
+                {
+                    data: "OLUSTURULMA_TARIH", render: function (data, type, row) {
+                        if (data || data != null) {
+                            var formattedDate = moment(data).format('DD.MM.YYYY HH:mm');
+                            return (formattedDate);
+                        }
+                        return "-";
+                    }
+                },
+                @if (User.IsInRole("1") || User.IsInRole("2") || User.IsInRole("3") || User.IsInRole("4"))
+                {
+                    <text>
+                        {
+                            data: "ID", "orderable": false,
+                            render: function (data, type, row) {
+                                if (data || data != null) {
+
+                                    return (`<a class="btn btn-warning" data-bs-toggle="modal" href="#talepDetayModal" data-bs-target="#talepDetayModal"  onclick="talepDetay(${data})" role="button"><i class="fa-solid fa-magnifying-glass"></i></a>`);
+
+                                }
+                                return "";
+                            }
+                        },
+                     </text>
+                }
+                @if (User.IsInRole("4"))
+                {
+                    <text>
+                        {
+                            data: "ID", "orderable": false,
+                            render: function (data, type, row) {
+                                if (data || data != null) {
+                                    if (row.TALEP_DURUM_ID == 4) {
+                                        return (`<a id="teklifBtn" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#teklifOlusturModal" onclick="$('#talepIdForTeklif').val(${data}); firmaGetir()" href="#teklifOlusturModal" role="button"><i class="fa-solid fa-cart-plus"></i></a>`);
+                                    }
+                                }
+                                return "";
+                            }
+                        },
+                     </text>
+                 }
+                 {
+                     data: "ID", "orderable": false,
+                     render: function (data, type, row) {
+                        if (data || data != null) {
+
+                            return (`<button type='button' class='btn btn-danger btn-block w-100' onclick='talepSil(${data})'><i class='fa-solid fa-x'></i></button>`);
+                        }
+                        return "-";
+                    }
+                 }
+
+            ],
+            columnDefs: [
+                { targets: "_all", className: "dt-center" },
+
+            ],
+            order: [[6, 'desc']],
+            language: {
+                info: "_TOTAL_ kayıttan _START_ - _END_ kayıt gösteriliyor.",
+                infoEmpty: "Gösterilecek hiç kayıt yok.",
+                loadingRecords: "Kayıtlar yükleniyor.",
+                lengthMenu: "Sayfada _MENU_ kayıt göster",
+                zeroRecords: "Tablo boş",
+                search: "Arama:",
+                infoFiltered: "(toplam _MAX_ kayıttan filtrelenenler)",
+                buttons: {
+                    copy: "Kopyala",
+                    print: "Yazdır",
+                    pdf: "PDF",
+                    excel: "Excel"
+                },
+                paginate: {
+                    first: "İlk",
+                    previous: "Önceki",
+                    next: "Sonraki",
+                    last: "Son"
+                },
+
+            },
+            initComplete: function () {
+             
+                let columnIdx = 4;
+
+                let select = $('<select class="form-select"><option value=""></option></select>')
+                    .appendTo($('#talepler-tbl thead tr:eq(1) td').eq(columnIdx))
+                    .on('click', function (e) {
+                        e.stopPropagation();
+                    })
+                    .on('change', function () {
+                        let val = $.fn.dataTable.util.escapeRegex($(this).val());
+
+                        table
+                            .column(columnIdx)
+                            .search(val ? '^' + val + '$' : '', true, false)
+                            .draw();
+                    });
+
+                table
+                    .column(columnIdx)
+                    .data()
+                    .unique()
+                    .sort()
+                    .each(function (d) {
+                        select.append($('<option>' + (d !== null ? d : '-') + '</option>'));
+                    });
+
+            }
+
+        });
+      
+    });
+    function talepSil(id) {
+        if (id == "") {
+            toastr["error"]("Talep ID'si alınamadı.");
+        }
+        else {
+            Swal.fire({
+                title: 'Emin misiniz?',
+                html: 'Silme işlemini gerçekleştirmek istediğinizden emin misiniz? <br><small>Talep ve varsa talebe ait teklifler de silinecektir.</small>',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonText: 'Evet, Sil',
+                cancelButtonText: 'Hayır, İptal',
+            }).then((result) => {
+                // Kullanıcı Evet'e tıklarsa
+                if (result.isConfirmed) {
+                    const formdata = new FormData();
+                    formdata.append("id", id);
+                    formdata.append("tablo", "talep");
+                    try {
+                        $.ajax({
+                            url: "/umetapi/silme-islemi",
+                            data: formdata,
+                            processData: false,
+                            contentType: false,
+                            dataSrc: "",
+                            type: "POST",
+                            success: function (data, textStatus, xhr) {
+                                if (xhr.status === 200) {
+                                    toastr["success"]("Talep ve varsa talebe ait teklifler başarıyla silindi.");
+                                    $('#talepler-tbl').DataTable().ajax.reload();
+                                }
+                            }
+
+                        });
+                    } catch (error) {
+                        toastr["error"]("Talep silinemedi. " + error.responseJSON.Message);
+                    }
+                }
+            });
+
+        }
+    }
+
+    async function firmaOlustur() {
+        const firma_ad = $("#txtYeniFirma").val();
+
+        if (firma_ad == "") {
+            toastr["error"]("Boş alanları kontrol ediniz.");
+        }
+        else {
+            const formdata = new FormData();
+            formdata.append("firma_ad", firma_ad);
+
+            try {
+
+                await $.ajax({
+                    url: "/umetapi/firma-olustur",
+                    data: formdata,
+                    processData: false,
+                    contentType: false,
+                    dataSrc: "",
+                    type: "POST",
+                    success: function (data, textStatus, xhr) {
+                        if (xhr.status === 200) {
+
+                            $("#txtYeniFirma").val("");
+                            toastr["success"]("Firma oluşturuldu.");
+                            $('.modal').modal('hide');
+                            $('#teklifOlusturModal').modal('show').addClass("show");
+                            $("body").addClass('modal-open').append('<div class="modal-backdrop fade show"></div>').append('<div class="modal-backdrop fade show"></div>');
+
+                            firmaGetir();
+                        }
+                    }
+
+                });
+            } catch (error) {
+                toastr["error"]("Firma oluşturulamadı. " + error.responseJSON.Message);
+            }
+        }
+    };
+    async function firmaGetir() {
+
+        try {
+            await $.ajax({
+                url: "/umetapi/firmalar",
+                dataType: "json",
+                dataSrc: "",
+                processData: false,
+                contentType: false,
+                type: "GET",
+                success: function (data, textStatus, xhr) {
+                    $('#drpFirma').empty();
+                    $('#drpFirma').append(`<option selected disabled="" value="0">Seçim yapınız  ...</option>`);
+                    $.each(data, function () {
+                        $('#drpFirma').append(`<option value="${this['ID']}">${this['FIRMA_AD']}</option>`);
+                    });
+                }
+            });
+        } catch (error) {
+            toastr["error"]("Firmalar listelenemedi. " + error.responseJSON.Message);
+
+        }
+    };
+
+    async function talepDetay(id) {
+        $('#talepIdForGuncelleme').val(id);
+        let formdata = new FormData();
+
+        formdata.append("id", id);
+
+        try {
+            await $.ajax({
+                url: "/umetapi/talep-detay",
+                dataType: "json",
+                dataSrc: "",
+                data: formdata,
+                processData: false,
+                contentType: false,
+                type: "POST",
+                success: function (response, textStatus, xhr) {
+                    if (xhr.status === 200) {
+
+                        let userRole = '@User.Identity.Name';
+
+                        if (response.TALEP_DURUM_ID == 4 || response.TALEP_DURUM_ID == 7 || response.TALEP_DURUM_ID == 20) {
+                            $('#detayIslemNot').attr('disabled', 'disabled');
+                            $('.btn-islem').attr('disabled', 'disabled').attr('hidden', true);
+
+                        }
+                        else {
+                            $('#detayIslemNot').removeAttr('disabled');
+                            $('.btn-islem').removeAttr('hidden').removeAttr('disabled');
+
+                        }
+                        $('#detayNo').html(response.TALEP_NO + " Talep Detay Sayfası");
+                        $('#detayGrupAdi').val(response.GRUP_ADI);
+                        $('#detayStokAdi').val(response.STOK_ADI);
+                        $('#detayDepartman').val(response.DEPARTMAN_AD);
+                        $('#detayStokKodu').val(response.STOK_KODU);
+                        $('#detayStokBirim').val(response.OLCU_BR);
+                        $('#detayMiktar').val(response.TALEP_MIKTAR);
+                        $('#detayOlusturan').val(response.OLUSTURAN_ISIM);
+                        $('#detayDurum').val(response.DURUM_AD);
+                        $('#detayNot').val(response.TALEP_NOT);
+                        if (response.OLUSTURULMA_TARIH != null) {
+                            var formattedOnay = moment(response.OLUSTURULMA_TARIH).format('DD.MM.YYYY HH:mm');
+                            $('#detayOlusturmaTarih').val(formattedOnay);
+                        }
+                        $('#detayIslemNot').val(response.TALEP_ISLEM_ACIKLAMA);
+                        $('#detayDepoAd').val(response.DEPO_AD);
+                        if (response.ANLIK_STOK_MIKTAR != null) {
+                            $('#detayAnlikStok').val(response.ANLIK_STOK_MIKTAR);
+                        }
+                        else {
+                            $('#detayAnlikStok').val("0");
+
+                        }
+                        if (response.ONAY1_TARIH != null) {
+                            var formattedOnay = moment(response.ONAY1_TARIH).format('DD.MM.YYYY HH:mm');
+                            $('#detayOnay1Tarihi').val(formattedOnay);
+                        }
+                        $('#detayOnay2Kullanici').val(response.ONAY2_AD);
+                        if (response.ONAY2_TARIH != null) {
+                            var formattedOnay = moment(response.ONAY2_TARIH).format('DD.MM.YYYY HH:mm');
+                            $('#detayOnay2Tarihi').val(formattedOnay);
+                        }
+                        $('#detayOnay3Kullanici').val(response.ONAY3_AD);
+                        if (response.ONAY3_TARIH != null) {
+                            var formattedOnay = moment(response.ONAY3_TARIH).format('DD.MM.YYYY HH:mm');
+                            $('#detayOnay3Tarihi').val(formattedOnay);
+                        }
+
+                        if (response.ONAY1 != null && response.ONAY2 == null && response.ONAY3 == null) {
+                            console.log("1")
+
+                            if (userRole != "1" && userRole != "3") {
+                                $('#detayIslemNot').attr('disabled', 'disabled');
+                                $('.btn-islem').attr('disabled', 'disabled').attr('hidden', true);
+                            }
+                            $('#detayOnay1Kullanici').val(response.ONAY1_AD);
+
+                        }
+                        else if (response.ONAY1 == null && response.ONAY2 == null && response.ONAY3 == null) {
+                            console.log("2")
+
+                            if (userRole != "1" && userRole != "2" && userRole != "3") {
+
+                                $('#detayIslemNot').attr('disabled', 'disabled');
+                                $('.btn-islem').attr('disabled', 'disabled').attr('hidden', true);
+                            }
+                        }
+
+                        if (response.ONAY2 != null && response.ONAY1 != null && response.ONAY3 == null) {
+                            console.log("3")
+
+                            if (userRole != "1") {
+                                $('#detayIslemNot').attr('disabled', 'disabled');
+                                $('.btn-islem').attr('disabled', 'disabled').attr('hidden', true);
+                            }
+
+                        }
+                        else if (response.ONAY2 == null && response.ONAY1 != null && response.ONAY3 == null) {
+                            console.log("4")
+
+                            if (userRole != "1" && userRole != "3") {
+                                $('#detayIslemNot').attr('disabled', 'disabled');
+                                $('.btn-islem').attr('disabled', 'disabled').attr('hidden', true);
+                            }
+                        }
+
+                        if (response.ONAY3 != null && response.ONAY2 != null && response.ONAY3 != null) {
+                            console.log("5")
+
+                            if (userRole != "1") {
+                                $('#detayIslemNot').attr('disabled', 'disabled');
+                                $('.btn-islem').attr('disabled', 'disabled').attr('hidden', true);
+                            }
+
+                        }
+                        else if (response.ONAY3 == null && response.ONAY2 != null && response.ONAY3 != null) {
+                            console.log("6")
+
+                            if (userRole != "1" && userRole != "3") {
+                                $('#detayIslemNot').attr('disabled', 'disabled');
+                                $('.btn-islem').attr('disabled', 'disabled').attr('hidden', true);
+                            }
+                        }
+
+                        if (response.ONAY1 == 1) {
+                            $('#detayOnay1').val("Talep Aşama 1 Onaylandı");
+                        }
+                        else if (response.ONAY1 == 0) {
+                            $('#detayOnay1').val("Talep Aşama 1 Reddedildi");
+                        }
+                        else {
+                            $('#detayOnay1').val("Talep Aşama 1 Beklemede");
+                        }
+
+                        if (response.ONAY2 == 1) {
+                            $('#detayOnay2').val("Talep Aşama 2 Onaylandı");
+
+                        }
+                        else if (response.ONAY2 == 0) {
+                            $('#detayOnay2').val("Talep Aşama 2 Reddedildi");
+                        }
+                        else {
+                            $('#detayOnay2').val("Talep Aşama 2 Beklemede");
+                        }
+
+                        if (response.ONAY3 == 1) {
+                            $('#detayOnay3').val("Talep Aşama 3 Onaylandı");
+                        }
+                        else if (response.ONAY3 == 0) {
+                            $('#detayOnay3').val("Talep Aşama 3 Reddedildi");
+                        }
+                        else {
+                            $('#detayOnay3').val("Talep Aşama 3 Beklemede");
+                        }
+
+                        toastr["success"]("Talep detayı getirildi. ");
+                    }
+
+                }
+            });
+        } catch (error) {
+            toastr["error"]("Talep detayı getirilemedi. " + error.responseJSON.Message);
+
+        }
+    };
+
+    async function onaylaFunc(durum) {
+        let id = $("#talepIdForGuncelleme").val();
+        let aciklama = $("#detayIslemNot").val();
+
+        let formdata = new FormData();
+        formdata.append("durum", durum);
+        formdata.append("id", id);
+        formdata.append("aciklama", aciklama);
+
+        try {
+            await $.ajax({
+                url: "/umetapi/talep-onayla",
+                data: formdata,
+                dataSrc: "",
+                processData: false,
+                contentType: false,
+                type: "POST",
+                success: function (data, textStatus, xhr) {
+                    if (xhr.status === 200) {
+                        toastr["success"]("Talep durumu " + durum.toUpperCase() + " olarak güncellendi.");
+                        $('#talepDetayModal').modal('hide');
+                        $('#talepler-tbl').DataTable().ajax.reload();
+                    } else {
+                        toastr["error"]("Talep güncellenemedi!");
+                    }
+                }
+            });
+
+        } catch (error) {
+            toastr["error"]("Hata! " + error.responseJSON.Message);
+        }
+    }
+
+    async function teklifOlusturFunc() {
+        let id = $("#talepIdForTeklif").val();
+        let teklif_ad = $("#txtAd").val();
+        let teklif_fiyat = $("#txtFiyat").val();
+        let teklif_not = $("#txtNot").val();
+        let firma = $("#drpFirma :selected").val();
+        let marka = $("#txtMarka").val();
+        if (id == "" || teklif_ad == "" || teklif_fiyat == "" ||  firma == 0) {
+            toastr["error"]("Boş alanları kontrol ediniz.");
+        }
+        else {
+            let formdata = new FormData();
+            formdata.append("id", id);
+            formdata.append("teklif_ad", teklif_ad);
+            formdata.append("teklif_fiyat", teklif_fiyat);
+            formdata.append("teklif_not", teklif_not);
+            formdata.append("firma", firma);
+            formdata.append("marka", marka);
+            try {
+                await $.ajax({
+                    url: "/umetapi/teklif-ekle",
+                    data: formdata,
+                    processData: false,
+                    contentType: false,
+                    dataSrc: "",
+                    type: "POST",
+                    success: function (data, textStatus, xhr) {
+                        if (xhr.status === 200) {
+                            toastr["success"]("Teklif oluşturuldu.");
+                            toastr["info"]("Teklif oluşturma işleminiz bitince <button type='button' class='btn btn-info btn-block w-100' onclick='teklifKapatFunc()'><i class='fa-solid fa-store-slash'></i> TEKLİF İŞLEMİNİ BİTİR</button> butonuna tıklayınız!");
+
+                            $("#txtAd").val("");
+                            $("#txtFiyat").val("");
+                            $("#txtNot").val("");
+                            $("#txtMarka").val("");
+                            $('#talepler-tbl').DataTable().ajax.reload();
+                        } else {
+                            toastr["error"]("Teklif oluşturulamadı!");
+                        }
+                    }
+                });
+            } catch (error) {
+                toastr["error"]("Hata! " + error.responseJSON.Message);
+            }
+        }
+
+    };
+    async function teklifKapatFunc() {
+        let id = $("#talepIdForTeklif").val();
+
+        if (id == "") {
+            toastr["error"]("Talep id alınamadı.");
+        }
+        else {
+
+            let formdata = new FormData();
+            formdata.append("id", id);
+
+            try {
+                await $.ajax({
+                    url: "/umetapi/teklif-kapat",
+                    data: formdata,
+                    processData: false,
+                    contentType: false,
+                    dataSrc: "",
+
+                    type: "POST",
+                    success: function (data, textStatus, xhr) {
+                        if (xhr.status === 200) {
+                            toastr["success"]("Teklif kapatıldı.");
+                            $("#txtAd").val("");
+                            $("#txtFiyat").val("");
+                            $("#txtNot").val("");
+                            $("#txtMarka").val("");
+                            $('#talepler-tbl').DataTable().ajax.reload();
+                            $('#teklifOlusturModal').modal('hide');
+                        } else {
+                            toastr["error"]("Teklif kapatılamadı!");
+                        }
+                    }
+                });
+            } catch (error) {
+                toastr["error"]("Hata! " + error.responseJSON.Message);
+            }
+        }
+
+    }
+</script>

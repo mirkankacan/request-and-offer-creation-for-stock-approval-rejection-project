@@ -1,0 +1,122 @@
+﻿@{
+    ViewBag.Title = "AnaSayfa";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="conatiner-fluid content-inner mt-n5 py-0">
+    <div class="row">
+        <div class="col-md-12 col-lg-12 dashboard">
+            <div class="row row-cols-1">
+                <div class="overflow-hidden d-slider1 ">
+                    <ul class="p-0 m-0 mb-2 swiper-wrapper list-inline">
+                        <li class="swiper-slide card card-slide" data-aos="fade-up" data-aos-delay="700">
+                            <div class="card-body">
+                                <div class="progress-widget">
+                                    <div id="circle-progress-01" class="text-center circle-progress-01 circle-progress circle-progress-primary" data-min-value="0" data-max-value="100" data-value="@ViewBag.BEKLEMEDE_TALEP" data-type="percent">
+                                    </div>
+                                    <div class="progress-detail">
+                                        <p class="mb-2">Beklemede Talepler</p>
+                                        <h4 class="counter">@ViewBag.BEKLEMEDE_TALEP</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="swiper-slide card card-slide" data-aos="fade-up" data-aos-delay="800">
+                            <div class="card-body">
+                                <div class="progress-widget">
+                                    <div id="circle-progress-02" class="text-center circle-progress-01 circle-progress circle-progress-info" data-min-value="0" data-max-value="100" data-value="@ViewBag.BEKLEMEDE_TEKLIF" data-type="percent">
+                                    </div>
+                                    <div class="progress-detail">
+                                        <p class="mb-2">Beklemede Teklifler</p>
+                                        <h4 class="counter">@ViewBag.BEKLEMEDE_TEKLIF</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="swiper-slide card card-slide" data-aos="fade-up" data-aos-delay="900">
+                            <div class="card-body">
+                                <div class="progress-widget">
+                                    <div id="circle-progress-03" class="text-center circle-progress-01 circle-progress circle-progress-warning" data-min-value="0" data-max-value="100" data-value="@ViewBag.BEKLEMEDE_SIPARIS" data-type="percent">
+                                    </div>
+                                    <div class="progress-detail">
+                                        <p class="mb-2">Beklemede Siparişler</p>
+                                        <h4 class="counter">@ViewBag.BEKLEMEDE_SIPARIS</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="swiper-slide card card-slide" data-aos="fade-up" data-aos-delay="1100">
+                            <div class="card-body">
+                                <div class="progress-widget">
+                                    <div id="circle-progress-04" class="text-center circle-progress-01 circle-progress circle-progress-danger" data-min-value="0" data-max-value="100" data-value="@ViewBag.ONAYLANAN_TALEP" data-type="percent">
+                                    </div>
+                                    <div class="progress-detail">
+                                        <p class="mb-2">Onaylanan Talepler</p>
+                                        <h4 class="counter">@ViewBag.ONAYLANAN_TALEP</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="swiper-slide card card-slide" data-aos="fade-up" data-aos-delay="1200">
+                            <div class="card-body">
+                                <div class="progress-widget">
+                                    <div id="circle-progress-05" class="text-center circle-progress-01 circle-progress circle-progress-success" data-min-value="0" data-max-value="100" data-value="@ViewBag.ONAYLANAN_TEKLIF" data-type="percent">
+                                    </div>
+                                    <div class="progress-detail">
+                                        <p class="mb-2">Onaylanan Teklifler</p>
+                                        <h4 class="counter">@ViewBag.ONAYLANAN_TEKLIF</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="swiper-slide card card-slide" data-aos="fade-up" data-aos-delay="1000">
+                            <div class="card-body">
+                                <div class="progress-widget">
+                                    <div id="circle-progress-06" class="text-center circle-progress-01 circle-progress circle-progress-secondary" data-min-value="0" data-max-value="100" data-value="@ViewBag.TAMAMLANAN_SIPARIS" data-type="percent">
+                                    </div>
+                                    <div class="progress-detail">
+                                        <p class="mb-2">Tamamlanan Siparişler</p>
+                                        <h4 class="counter">@ViewBag.TAMAMLANAN_SIPARIS</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    @if (User.IsInRole("1") || User.IsInRole("5") || User.IsInRole("2") || User.IsInRole("4"))
+    {
+        <div class="row">
+            <div class="col-md-12 col-lg-12">
+                <div class="row row-cols-1">
+                    <div class="overflow-hidden d-slider1 ">
+                        <ul class="p-0 m-0 mb-2 swiper-wrapper list-inline">
+                            <li class="swiper-slide card card-slide" data-aos="fade-up" data-aos-delay="700">
+                                <div class="card-body">
+                                    <div class="progress-widget">
+                                        <a href="../talep-olustur" class="btn btn-outline-success btn-block w-100 h-100">Talep Oluştur</a>
+                                    </div>
+
+                                </div>
+
+                            </li>
+                            <li class="swiper-slide card card-slide" data-aos="fade-up" data-aos-delay="800">
+                                <div class="card-body">
+                                    <div class="progress-widget">
+                                        <a href="../stok-kullan" class="btn btn-outline-info btn-block w-100 h-100">Stok Kullan</a>
+                                    </div>
+
+                                </div>
+
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    </div>

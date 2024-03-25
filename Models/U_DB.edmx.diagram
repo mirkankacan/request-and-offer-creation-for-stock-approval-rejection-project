@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4abc5ea0ebb54573aca1eed9baa69c9f" Name="Diagram1" ZoomLevel="86">
+        <EntityTypeShape EntityType="U_DBModel.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="U_DBModel.TBL_DEPARTMAN" Width="1.5" PointX="5.75" PointY="8.75" />
+        <EntityTypeShape EntityType="U_DBModel.TBL_DEPO" Width="1.5" PointX="3" PointY="17" />
+        <EntityTypeShape EntityType="U_DBModel.TBL_DURUM" Width="1.5" PointX="3" PointY="8.875" />
+        <EntityTypeShape EntityType="U_DBModel.TBL_FIRMA" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="U_DBModel.TBL_KULLANICI" Width="1.5" PointX="3" PointY="12.375" />
+        <EntityTypeShape EntityType="U_DBModel.TBL_PLAKA_BIRIM" Width="1.5" PointX="8" PointY="9.75" />
+        <EntityTypeShape EntityType="U_DBModel.TBL_ROL" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="U_DBModel.TBL_SIPARIS" Width="1.5" PointX="12.75" PointY="14.5" />
+        <EntityTypeShape EntityType="U_DBModel.TBL_STOK" Width="1.5" PointX="8.25" PointY="19.75" />
+        <EntityTypeShape EntityType="U_DBModel.TBL_STOK_GRUP" Width="1.5" PointX="6" PointY="25.875" />
+        <EntityTypeShape EntityType="U_DBModel.TBL_STOK_HAREKET_LOG" Width="1.5" PointX="5.25" PointY="19.625" />
+        <EntityTypeShape EntityType="U_DBModel.TBL_STOK_HAREKET2" Width="1.5" PointX="8.25" PointY="13.375" />
+        <EntityTypeShape EntityType="U_DBModel.TBL_SUBE" Width="1.5" PointX="0.75" PointY="14.25" />
+        <EntityTypeShape EntityType="U_DBModel.TBL_TALEP" Width="1.5" PointX="10.5" PointY="14.75" />
+        <EntityTypeShape EntityType="U_DBModel.TBL_TEKLIF" Width="1.5" PointX="5.25" PointY="11.75" />
+        <EntityTypeShape EntityType="U_DBModel.VW_KULLANICI" Width="1.5" PointX="2.75" PointY="3.75" />
+        <EntityTypeShape EntityType="U_DBModel.VW_SIPARIS" Width="1.5" PointX="10.75" PointY="0.75" />
+        <EntityTypeShape EntityType="U_DBModel.VW_STOK_HAREKET" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="U_DBModel.VW_STOK_HAREKET_LOG" Width="1.5" PointX="6.75" PointY="0.75" />
+        <EntityTypeShape EntityType="U_DBModel.VW_TALEP" Width="1.5" PointX="12.75" PointY="0.75" />
+        <EntityTypeShape EntityType="U_DBModel.VW_TEKLIF" Width="1.5" PointX="14.75" PointY="0.75" />
+        <AssociationConnector Association="U_DBModel.FK_TBL_PLAKA_BIRIM_TBL_DEPARTMAN" />
+        <AssociationConnector Association="U_DBModel.FK_TBL_STOK_HAREKET_LOG_TBL_DEPARTMAN" />
+        <AssociationConnector Association="U_DBModel.FK_TBL_STOK_HAREKET2_TBL_DEPARTMAN" />
+        <AssociationConnector Association="U_DBModel.FK_TBL_TALEP_TBL_DEPARTMAN" />
+        <AssociationConnector Association="U_DBModel.FK_TBL_DEPO_TBL_SUBE" />
+        <AssociationConnector Association="U_DBModel.FK_TBL_STOK_HAREKET_LOG_TBL_DEPO" />
+        <AssociationConnector Association="U_DBModel.FK_TBL_STOK_HAREKET2_TBL_DEPO" />
+        <AssociationConnector Association="U_DBModel.FK_TBL_STOK_TBL_DEPO" />
+        <AssociationConnector Association="U_DBModel.FK_TBL_SIPARIS_TBL_DURUM" />
+        <AssociationConnector Association="U_DBModel.FK_TBL_TALEP_TBL_DURUM3" />
+        <AssociationConnector Association="U_DBModel.FK_TBL_TEKLIF_TBL_DURUM" />
+        <AssociationConnector Association="U_DBModel.FK_TBL_STOK_HAREKET_LOG_TBL_KULLANICI" />
+        <AssociationConnector Association="U_DBModel.FK_TBL_STOK_HAREKET2_TBL_KULLANICI" />
+        <AssociationConnector Association="U_DBModel.FK_TBL_TALEP_TBL_KULLANICI" />
+        <AssociationConnector Association="U_DBModel.FK_TBL_TALEP_TBL_KULLANICI1" />
+        <AssociationConnector Association="U_DBModel.FK_TBL_TALEP_TBL_KULLANICI2" />
+        <AssociationConnector Association="U_DBModel.FK_TBL_TEKLIF_TBL_KULLANICI" />
+        <AssociationConnector Association="U_DBModel.FK_TBL_TEKLIF_TBL_KULLANICI1" />
+        <AssociationConnector Association="U_DBModel.FK_TBL_TEKLIF_TBL_KULLANICI2" />
+        <AssociationConnector Association="U_DBModel.FK_TBL_USER_TBL_ROLE" />
+        <AssociationConnector Association="U_DBModel.FK_TBL_PLAKA_BIRIM_TBL_SUBE" />
+        <AssociationConnector Association="U_DBModel.FK_TBL_SIPARIS_TBL_SUBE" />
+        <AssociationConnector Association="U_DBModel.FK_TBL_SIPARIS_TBL_TALEP" />
+        <AssociationConnector Association="U_DBModel.FK_TBL_SIPARIS_TBL_TEKLIF" />
+        <AssociationConnector Association="U_DBModel.FK_TBL_STOK_HAREKET_LOG_TBL_STOK" />
+        <AssociationConnector Association="U_DBModel.FK_TBL_STOK_HAREKET2_TBL_STOK" />
+        <AssociationConnector Association="U_DBModel.FK_TBL_STOK_TBL_STOK_GRUP" />
+        <AssociationConnector Association="U_DBModel.FK_TBL_STOK_TBL_SUBE" />
+        <AssociationConnector Association="U_DBModel.FK_TBL_TALEP_TBL_STOK" />
+        <AssociationConnector Association="U_DBModel.FK_TBL_STOK_HAREKET_LOG_TBL_STOK_GRUP" />
+        <AssociationConnector Association="U_DBModel.FK_TBL_STOK_HAREKET2_TBL_STOK_GRUP" />
+        <AssociationConnector Association="U_DBModel.FK_TBL_STOK_HAREKET_LOG_TBL_SUBE" />
+        <AssociationConnector Association="U_DBModel.FK_TBL_STOK_HAREKET2_TBL_SUBE" />
+        <AssociationConnector Association="U_DBModel.FK_TBL_TALEP_TBL_SUBE" />
+        <AssociationConnector Association="U_DBModel.FK_TBL_TEKLIF_TBL_SUBE" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

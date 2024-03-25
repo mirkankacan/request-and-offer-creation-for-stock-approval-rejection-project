@@ -1,0 +1,418 @@
+﻿
+@{
+    ViewBag.Title = "MalzemeCikis";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+<link href="https://cdn.datatables.net/buttons/2.3.6/css/buttons.bootstrap5.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
+<style>
+    .select2-container {
+        z-index: 2050 !important;
+    }
+    #tbl-baslik{
+        margin-left:50px;
+        margin-top:50px;
+    }
+</style>
+<div class="conatiner-fluid content-inner mt-5 py-0">
+    <div class="row">
+        <div class="col-md-12 col-lg-12">
+            <div class="card" data-aos="fade-up" data-aos-delay="800">
+                    <div id="tbl-baslik"></div>
+                <div class="text-center card-body justify-content-center">
+
+
+                    <table id="malzeme-cikis-tbl" class="table table-striped" style="width:100% !important">
+
+                        <thead>
+                            <tr>
+                                <th>STOK KODU</th>
+                                <th>STOK ADI</th>
+                                <th>KULLANILAN/EKLENEN <br />MİKTAR</th>
+                                <th>KULLANIM <br />YERİ/PLAKA</th>
+                                <th>KULLANILMA<br />TARİHİ</th>
+                                <th>DEPO ADI</th>
+                                <th>STOK GRUP ADI</th>
+                                <th>DEPARTMAN ADI</th>
+                                <th>KULLANAN<br />KULLANICI<br /> ADI</th>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<script src="~/Scripts/jquery-3.7.0.min.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.3.6/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.bootstrap5.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.print.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.colVis.min.js"></script>
+
+<script>
+
+    $(document).ready(function () {
+        var bugun = new Date();
+        var tarihSaat = bugun.toLocaleString();
+
+        var table = $('#malzeme-cikis-tbl').DataTable({
+            orderCellsTop: true,
+            dom: 'Bfrtip',
+            lengthChange: false,
+            buttons: ['copy', 'excel', 'pdf', 'colvis'],
+            ajax: {
+                url: "/api/malzeme-cikis-liste",
+                dataType: "json",
+                type: "GET",
+                dataSrc: ""
+            },
+
+            columns: [
+                {
+                    data: "STOK_KODU", render: function (data, type, row) {
+                        if (data || data != null) {
+                            return (data);
+                        }
+                        return "-";
+                    }
+                },
+
+                {
+                    data: "STOK_ADI", render: function (data, type, row) {
+                        if (data || data != null) {
+                            return (data);
+                        }
+                        return "-";
+                    }
+                },
+
+                {
+                    data: "MIKTAR", render: function (data, type, row) {
+                        if (data || data != null) {
+                            return (data);
+                        }
+                        return "0";
+                    }
+                },
+
+                {
+                    data: "PLAKA_BIRIM", render: function (data, type, row) {
+                        if (data || data != null) {
+                            return (data);
+                        }
+                        return "-";
+                    }
+                },
+                {
+                    data: "TARIH", render: function (data, type, row) {
+                        if (data || data != null) {
+                            var formattedDate = moment(data).format('DD.MM.YYYY HH:mm');
+                        
+                            return (formattedDate);
+                        }
+                        return "-";
+                    }
+                },
+
+                {
+                    data: "DEPO_AD", render: function (data, type, row) {
+                        if (data || data != null) {
+                            return (data);
+                        }
+                        return "-";
+                    }
+                },
+
+                {
+                    data: "GRUP_ADI", render: function (data, type, row) {
+                        if (data || data != null) {
+                            return (data);
+                        }
+                        return "-";
+                    }
+                },
+
+                {
+                    data: "DEPARTMAN_AD", render: function (data, type, row) {
+                        if (data || data != null) {
+                            return (data);
+                        }
+                        return "-";
+                    }
+                },
+                {
+                    data: "ISIM_SOYISIM", render: function (data, type, row) {
+                        if (data || data != null) {
+                            return (data);
+                        }
+                        return "-";
+                    }
+                },
+            ],
+            columnDefs: [
+                { targets: "_all", className: "dt-center" },
+
+            ],
+            order: [[4, 'desc']],
+            language: {
+                info: "_TOTAL_ kayıttan _START_ - _END_ kayıt gösteriliyor.",
+                infoEmpty: "Gösterilecek hiç kayıt yok.",
+                loadingRecords: "Kayıtlar yükleniyor.",
+                lengthMenu: "Sayfada _MENU_ kayıt göster",
+                zeroRecords: "Tablo boş",
+                search: "Arama:",
+                infoFiltered: "(toplam _MAX_ kayıttan filtrelenenler)",
+                buttons: {
+                    copy: "Kopyala",
+                    print: "Yazdır",
+                    pdf: "PDF",
+                    excel: "Excel"
+                },
+                paginate: {
+                    first: "İlk",
+                    previous: "Önceki",
+                    next: "Sonraki",
+                    last: "Son"
+                },
+
+            },
+            initComplete: function () {
+           
+                $("#tbl-baslik").append('<div style="width: 15px; height: 15px; border: 1px solid rgba(0, 255, 0, 0.2); background: rgba(0, 255, 0, 0.2); display: inline-block; margin-right: 10px"></div><small style="display: inline-block;">Eklenmiş stokları belirtir.</small><br><div style="width: 15px; height: 15px; border: 1px solid rgba(255, 0, 0, 0.2); background: rgba(255, 0, 0, 0.2); display: inline-block; margin-right: 10px"></div><small style="display: inline-block;">Kullanılan stokları belirtir.</small>');
+                createDropdowns(this.api());
+                this.api().rows().every(function (rowIdx, tableLoop, rowLoop) {
+                    
+                    var data = this.data(); 
+                    var backgroundColor;
+                    if (data.KULLANILDI_MI === true) {
+                        backgroundColor = 'rgba(255, 0, 0, 0.2)';
+                    } else {
+                        backgroundColor = 'rgba(0, 255, 0, 0.2)'; 
+                    }
+                    $(this.node()).css('background-color', backgroundColor);
+
+                });
+            }
+
+        });
+
+    });
+    function createDropdowns(api) {
+        api.columns(4).every(function () {
+            let columnIdx = 4;
+
+            let select = $('<select class="form-select"><option value=""></option></select>')
+                .appendTo($('#malzeme-cikis-tbl thead tr:eq(1) td').eq(columnIdx))
+                .on('click', function (e) {
+                    e.stopPropagation();
+                })
+                .on('change', function () {
+                    let val = $.fn.dataTable.util.escapeRegex($(this).val());
+                    let regexVal = '^' + val.substr(0, 10) + '.*$'; // Sadece tarih kısmını dikkate al
+
+                    $('#malzeme-cikis-tbl').DataTable()
+                        .column(columnIdx)
+                        .search(val ? regexVal : '', true, false)
+                        .draw();
+                });
+
+            $('#malzeme-cikis-tbl').DataTable()
+                .column(columnIdx)
+                .data()
+                .unique()
+                .sort()
+                .each(function (data) {
+                    if (data) {
+                        var parts = data.split("T")[0].split("-");
+                        var formattedDate = parts[2] + "." + parts[1] + "." + parts[0];
+                        select.append($('<option>' + formattedDate + '</option>'));
+                    }
+                });
+        });
+        api.columns(0).every(function () {
+            let columnIdx = 0;
+
+            let select = $('<select class="form-select"><option value=""></option></select>')
+                .appendTo($('#malzeme-cikis-tbl thead tr:eq(1) td').eq(columnIdx))
+                .on('click', function (e) {
+                    e.stopPropagation();
+                })
+                .on('change', function () {
+                    let val = $.fn.dataTable.util.escapeRegex($(this).val());
+
+                    $('#malzeme-cikis-tbl').DataTable()
+                        .column(columnIdx)
+                        .search(val ? '^' + val + '$' : '', true, false)
+                        .draw();
+                });
+
+            $('#malzeme-cikis-tbl').DataTable()
+                .column(columnIdx)
+                .data()
+                .unique()
+                .sort()
+                .each(function (d) {
+                    select.append($('<option>' + d + '</option>'));
+                });
+        });
+        api.columns(1).every(function () {
+            let columnIdx = 1;
+
+            let select = $('<select class="form-select"><option value=""></option></select>')
+                .appendTo($('#malzeme-cikis-tbl thead tr:eq(1) td').eq(columnIdx))
+                .on('click', function (e) {
+                    e.stopPropagation();
+                })
+                .on('change', function () {
+                    let val = $.fn.dataTable.util.escapeRegex($(this).val());
+
+                    $('#malzeme-cikis-tbl').DataTable()
+                        .column(columnIdx)
+                        .search(val ? '^' + val + '$' : '', true, false)
+                        .draw();
+                });
+
+            $('#malzeme-cikis-tbl').DataTable()
+                .column(columnIdx)
+                .data()
+                .unique()
+                .sort()
+                .each(function (d) {
+                    select.append($('<option>' + d + '</option>'));
+                });
+        });
+        api.columns(5).every(function () {
+            let columnIdx = 5;
+
+            let select = $('<select class="form-select"><option value=""></option></select>')
+                .appendTo($('#malzeme-cikis-tbl thead tr:eq(1) td').eq(columnIdx))
+                .on('click', function (e) {
+                    e.stopPropagation();
+                })
+                .on('change', function () {
+                    let val = $.fn.dataTable.util.escapeRegex($(this).val());
+
+                    $('#malzeme-cikis-tbl').DataTable()
+                        .column(columnIdx)
+                        .search(val ? '^' + val + '$' : '', true, false)
+                        .draw();
+                });
+
+            $('#malzeme-cikis-tbl').DataTable()
+                .column(columnIdx)
+                .data()
+                .unique()
+                .sort()
+                .each(function (d) {
+                    select.append($('<option>' + d + '</option>'));
+                });
+        });
+        api.columns(6).every(function () {
+            let columnIdx = 6;
+
+            let select = $('<select class="form-select"><option value=""></option></select>')
+                .appendTo($('#malzeme-cikis-tbl thead tr:eq(1) td').eq(columnIdx))
+                .on('click', function (e) {
+                    e.stopPropagation();
+                })
+                .on('change', function () {
+                    let val = $.fn.dataTable.util.escapeRegex($(this).val());
+
+                    $('#malzeme-cikis-tbl').DataTable()
+                        .column(columnIdx)
+                        .search(val ? '^' + val + '$' : '', true, false)
+                        .draw();
+                });
+
+            $('#malzeme-cikis-tbl').DataTable()
+                .column(columnIdx)
+                .data()
+                .unique()
+                .sort()
+                .each(function (d) {
+                    select.append($('<option>' + d + '</option>'));
+                });
+        });
+        api.columns(7).every(function () {
+            let columnIdx = 7;
+
+            let select = $('<select class="form-select"><option value=""></option></select>')
+                .appendTo($('#malzeme-cikis-tbl thead tr:eq(1) td').eq(columnIdx))
+                .on('click', function (e) {
+                    e.stopPropagation();
+                })
+                .on('change', function () {
+                    let val = $.fn.dataTable.util.escapeRegex($(this).val());
+
+                    $('#malzeme-cikis-tbl').DataTable()
+                        .column(columnIdx)
+                        .search(val ? '^' + val + '$' : '', true, false)
+                        .draw();
+                });
+
+            $('#malzeme-cikis-tbl').DataTable()
+                .column(columnIdx)
+                .data()
+                .unique()
+                .sort()
+                .each(function (d) {
+                    select.append($('<option>' + d + '</option>'));
+                });
+        });
+        api.columns(8).every(function () {
+            let columnIdx = 8;
+
+            let select = $('<select class="form-select"><option value=""></option></select>')
+                .appendTo($('#malzeme-cikis-tbl thead tr:eq(1) td').eq(columnIdx))
+                .on('click', function (e) {
+                    e.stopPropagation();
+                })
+                .on('change', function () {
+                    let val = $.fn.dataTable.util.escapeRegex($(this).val());
+
+                    $('#malzeme-cikis-tbl').DataTable()
+                        .column(columnIdx)
+                        .search(val ? '^' + val + '$' : '', true, false)
+                        .draw();
+                });
+
+            $('#malzeme-cikis-tbl').DataTable()
+                .column(columnIdx)
+                .data()
+                .unique()
+                .sort()
+                .each(function (d) {
+                    select.append($('<option>' + d + '</option>'));
+                });
+        });
+        };
+
+</script>

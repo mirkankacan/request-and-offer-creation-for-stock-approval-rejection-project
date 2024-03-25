@@ -1,0 +1,687 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="UMET_DBModelStoreContainer" CdmEntityContainer="UMET_DBEntities">
+    <EntitySetMapping Name="C__MigrationHistory">
+      <EntityTypeMapping TypeName="UMET_DBModel.C__MigrationHistory">
+        <MappingFragment StoreEntitySet="__MigrationHistory">
+          <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+          <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_DEPARTMAN">
+      <EntityTypeMapping TypeName="UMET_DBModel.TBL_DEPARTMAN">
+        <MappingFragment StoreEntitySet="TBL_DEPARTMAN">
+          <ScalarProperty Name="DEPARTMAN_AD" ColumnName="DEPARTMAN_AD" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_DEPO">
+      <EntityTypeMapping TypeName="UMET_DBModel.TBL_DEPO">
+        <MappingFragment StoreEntitySet="TBL_DEPO">
+          <ScalarProperty Name="SUBE_KODU" ColumnName="SUBE_KODU" />
+          <ScalarProperty Name="DEPO_AD" ColumnName="DEPO_AD" />
+          <ScalarProperty Name="DEPO_ID" ColumnName="DEPO_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_DURUM">
+      <EntityTypeMapping TypeName="UMET_DBModel.TBL_DURUM">
+        <MappingFragment StoreEntitySet="TBL_DURUM">
+          <ScalarProperty Name="DURUM_AD" ColumnName="DURUM_AD" />
+          <ScalarProperty Name="DURUM_ID" ColumnName="DURUM_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_FIRMA">
+      <EntityTypeMapping TypeName="UMET_DBModel.TBL_FIRMA">
+        <MappingFragment StoreEntitySet="TBL_FIRMA">
+          <ScalarProperty Name="FIRMA_AD" ColumnName="FIRMA_AD" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_KULLANICI">
+      <EntityTypeMapping TypeName="UMET_DBModel.TBL_KULLANICI">
+        <MappingFragment StoreEntitySet="TBL_KULLANICI">
+          <ScalarProperty Name="SUBE_ID" ColumnName="SUBE_ID" />
+          <ScalarProperty Name="ROL_ID" ColumnName="ROL_ID" />
+          <ScalarProperty Name="ISIM_SOYISIM" ColumnName="ISIM_SOYISIM" />
+          <ScalarProperty Name="SIFRE" ColumnName="SIFRE" />
+          <ScalarProperty Name="KULLANICI_ADI" ColumnName="KULLANICI_ADI" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_PLAKA_BIRIM">
+      <EntityTypeMapping TypeName="UMET_DBModel.TBL_PLAKA_BIRIM">
+        <MappingFragment StoreEntitySet="TBL_PLAKA_BIRIM">
+          <ScalarProperty Name="DEPARTMAN_ID" ColumnName="DEPARTMAN_ID" />
+          <ScalarProperty Name="PLAKA_BIRIM" ColumnName="PLAKA_BIRIM" />
+          <ScalarProperty Name="SUBE_ID" ColumnName="SUBE_ID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_ROL">
+      <EntityTypeMapping TypeName="UMET_DBModel.TBL_ROL">
+        <MappingFragment StoreEntitySet="TBL_ROL">
+          <ScalarProperty Name="ROL_AD" ColumnName="ROL_AD" />
+          <ScalarProperty Name="ROL_ID" ColumnName="ROL_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_SIPARIS">
+      <EntityTypeMapping TypeName="UMET_DBModel.TBL_SIPARIS">
+        <MappingFragment StoreEntitySet="TBL_SIPARIS">
+          <ScalarProperty Name="DURUM_GUNCELLEME_TARIH" ColumnName="DURUM_GUNCELLEME_TARIH" />
+          <ScalarProperty Name="SIPARIS_DURUM_ID" ColumnName="SIPARIS_DURUM_ID" />
+          <ScalarProperty Name="SUBE_ID" ColumnName="SUBE_ID" />
+          <ScalarProperty Name="ISLEM_YAPAN_ID" ColumnName="ISLEM_YAPAN_ID" />
+          <ScalarProperty Name="OLUSTURAN_ID" ColumnName="OLUSTURAN_ID" />
+          <ScalarProperty Name="RED_TARIH" ColumnName="RED_TARIH" />
+          <ScalarProperty Name="ONAY_TARIH" ColumnName="ONAY_TARIH" />
+          <ScalarProperty Name="OLUSTURULMA_TARIH" ColumnName="OLUSTURULMA_TARIH" />
+          <ScalarProperty Name="TALEP_ID" ColumnName="TALEP_ID" />
+          <ScalarProperty Name="TEKLIF_ID" ColumnName="TEKLIF_ID" />
+          <ScalarProperty Name="SIPARIS_NO" ColumnName="SIPARIS_NO" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_STOK">
+      <EntityTypeMapping TypeName="UMET_DBModel.TBL_STOK">
+        <MappingFragment StoreEntitySet="TBL_STOK">
+          <ScalarProperty Name="DEPO_KODU" ColumnName="DEPO_KODU" />
+          <ScalarProperty Name="KDV_ORAN" ColumnName="KDV_ORAN" />
+          <ScalarProperty Name="S_FIYAT" ColumnName="S_FIYAT" />
+          <ScalarProperty Name="A_FIYAT" ColumnName="A_FIYAT" />
+          <ScalarProperty Name="GRUP_KODU" ColumnName="GRUP_KODU" />
+          <ScalarProperty Name="OLCU_BR" ColumnName="OLCU_BR" />
+          <ScalarProperty Name="STOK_ADI" ColumnName="STOK_ADI" />
+          <ScalarProperty Name="STOK_KODU" ColumnName="STOK_KODU" />
+          <ScalarProperty Name="SUBE_KODU" ColumnName="SUBE_KODU" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_STOK_GRUP">
+      <EntityTypeMapping TypeName="UMET_DBModel.TBL_STOK_GRUP">
+        <MappingFragment StoreEntitySet="TBL_STOK_GRUP">
+          <ScalarProperty Name="GRUP_ADI" ColumnName="GRUP_ADI" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_STOK_HAREKET_LOG">
+      <EntityTypeMapping TypeName="UMET_DBModel.TBL_STOK_HAREKET_LOG">
+        <MappingFragment StoreEntitySet="TBL_STOK_HAREKET_LOG">
+          <ScalarProperty Name="H_NOT" ColumnName="H_NOT" />
+          <ScalarProperty Name="PLAKA_BIRIM" ColumnName="PLAKA_BIRIM" />
+          <ScalarProperty Name="DEPO_ID" ColumnName="DEPO_ID" />
+          <ScalarProperty Name="DEPARTMAN_ID" ColumnName="DEPARTMAN_ID" />
+          <ScalarProperty Name="STOK_GRUP_ID" ColumnName="STOK_GRUP_ID" />
+          <ScalarProperty Name="KULLANILDI_MI" ColumnName="KULLANILDI_MI" />
+          <ScalarProperty Name="SUBE_ID" ColumnName="SUBE_ID" />
+          <ScalarProperty Name="KULLANICI_ID" ColumnName="KULLANICI_ID" />
+          <ScalarProperty Name="TARIH" ColumnName="TARIH" />
+          <ScalarProperty Name="MIKTAR" ColumnName="MIKTAR" />
+          <ScalarProperty Name="STOK_KODU" ColumnName="STOK_KODU" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_STOK_HAREKET2">
+      <EntityTypeMapping TypeName="UMET_DBModel.TBL_STOK_HAREKET2">
+        <MappingFragment StoreEntitySet="TBL_STOK_HAREKET2">
+          <ScalarProperty Name="DEPARTMAN_ID" ColumnName="DEPARTMAN_ID" />
+          <ScalarProperty Name="SUBE_ID" ColumnName="SUBE_ID" />
+          <ScalarProperty Name="KAYIT_ZAMAN" ColumnName="KAYIT_ZAMAN" />
+          <ScalarProperty Name="STOK_GRUP_ID" ColumnName="STOK_GRUP_ID" />
+          <ScalarProperty Name="DEPO_ID" ColumnName="DEPO_ID" />
+          <ScalarProperty Name="KULLANICI_ID" ColumnName="KULLANICI_ID" />
+          <ScalarProperty Name="ALIS_MALIYET" ColumnName="ALIS_MALIYET" />
+          <ScalarProperty Name="SIPARIS_NO" ColumnName="SIPARIS_NO" />
+          <ScalarProperty Name="TARIH" ColumnName="TARIH" />
+          <ScalarProperty Name="GC_KOD" ColumnName="GC_KOD" />
+          <ScalarProperty Name="MIKTAR" ColumnName="MIKTAR" />
+          <ScalarProperty Name="STOK_KODU" ColumnName="STOK_KODU" />
+          <ScalarProperty Name="FISNO" ColumnName="FISNO" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_SUBE">
+      <EntityTypeMapping TypeName="UMET_DBModel.TBL_SUBE">
+        <MappingFragment StoreEntitySet="TBL_SUBE">
+          <ScalarProperty Name="SUBE_ADI" ColumnName="SUBE_ADI" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_TALEP">
+      <EntityTypeMapping TypeName="UMET_DBModel.TBL_TALEP">
+        <MappingFragment StoreEntitySet="TBL_TALEP">
+          <ScalarProperty Name="TALEP_DURUM_ID" ColumnName="TALEP_DURUM_ID" />
+          <ScalarProperty Name="ONAY3_KULLANICI" ColumnName="ONAY3_KULLANICI" />
+          <ScalarProperty Name="ONAY2_KULLANICI" ColumnName="ONAY2_KULLANICI" />
+          <ScalarProperty Name="ONAY1_KULLANICI" ColumnName="ONAY1_KULLANICI" />
+          <ScalarProperty Name="ONAY3_TARIH" ColumnName="ONAY3_TARIH" />
+          <ScalarProperty Name="ONAY2_TARIH" ColumnName="ONAY2_TARIH" />
+          <ScalarProperty Name="ONAY1_TARIH" ColumnName="ONAY1_TARIH" />
+          <ScalarProperty Name="ONAY3" ColumnName="ONAY3" />
+          <ScalarProperty Name="ONAY2" ColumnName="ONAY2" />
+          <ScalarProperty Name="ONAY1" ColumnName="ONAY1" />
+          <ScalarProperty Name="TALEP_ISLEM_ACIKLAMA" ColumnName="TALEP_ISLEM_ACIKLAMA" />
+          <ScalarProperty Name="SUBE_ID" ColumnName="SUBE_ID" />
+          <ScalarProperty Name="STOK_KODU" ColumnName="STOK_KODU" />
+          <ScalarProperty Name="OLUSTURAN_ID" ColumnName="OLUSTURAN_ID" />
+          <ScalarProperty Name="OLUSTURULMA_TARIH" ColumnName="OLUSTURULMA_TARIH" />
+          <ScalarProperty Name="PLAKA_BIRIM" ColumnName="PLAKA_BIRIM" />
+          <ScalarProperty Name="TALEP_NOT" ColumnName="TALEP_NOT" />
+          <ScalarProperty Name="TALEP_DEPARTMAN_ID" ColumnName="TALEP_DEPARTMAN_ID" />
+          <ScalarProperty Name="TALEP_MIKTAR" ColumnName="TALEP_MIKTAR" />
+          <ScalarProperty Name="TALEP_NO" ColumnName="TALEP_NO" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_TEKLIF">
+      <EntityTypeMapping TypeName="UMET_DBModel.TBL_TEKLIF">
+        <MappingFragment StoreEntitySet="TBL_TEKLIF">
+          <ScalarProperty Name="TEKLIF_DURUM_ID" ColumnName="TEKLIF_DURUM_ID" />
+          <ScalarProperty Name="ONAY3_TARIH" ColumnName="ONAY3_TARIH" />
+          <ScalarProperty Name="ONAY2_TARIH" ColumnName="ONAY2_TARIH" />
+          <ScalarProperty Name="ONAY1_TARIH" ColumnName="ONAY1_TARIH" />
+          <ScalarProperty Name="ONAY3_KULLANICI" ColumnName="ONAY3_KULLANICI" />
+          <ScalarProperty Name="ONAY2_KULLANICI" ColumnName="ONAY2_KULLANICI" />
+          <ScalarProperty Name="ONAY1_KULLANICI" ColumnName="ONAY1_KULLANICI" />
+          <ScalarProperty Name="ONAY3" ColumnName="ONAY3" />
+          <ScalarProperty Name="ONAY2" ColumnName="ONAY2" />
+          <ScalarProperty Name="ONAY1" ColumnName="ONAY1" />
+          <ScalarProperty Name="TEKLIF_ISLEM_ACIKLAMA" ColumnName="TEKLIF_ISLEM_ACIKLAMA" />
+          <ScalarProperty Name="SUBE_ID" ColumnName="SUBE_ID" />
+          <ScalarProperty Name="OLUSTURAN_ID" ColumnName="OLUSTURAN_ID" />
+          <ScalarProperty Name="OLUSTURULMA_TARIH" ColumnName="OLUSTURULMA_TARIH" />
+          <ScalarProperty Name="MARKA" ColumnName="MARKA" />
+          <ScalarProperty Name="TEKLIF_NOT" ColumnName="TEKLIF_NOT" />
+          <ScalarProperty Name="TEKLIF_FIYAT" ColumnName="TEKLIF_FIYAT" />
+          <ScalarProperty Name="TEKLIF_NO" ColumnName="TEKLIF_NO" />
+          <ScalarProperty Name="FIRMA_ID" ColumnName="FIRMA_ID" />
+          <ScalarProperty Name="TALEP_ID" ColumnName="TALEP_ID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VW_KULLANICI">
+      <EntityTypeMapping TypeName="UMET_DBModel.VW_KULLANICI">
+        <MappingFragment StoreEntitySet="VW_KULLANICI">
+          <ScalarProperty Name="SUBE_ADI" ColumnName="SUBE_ADI" />
+          <ScalarProperty Name="SUBE_ID" ColumnName="SUBE_ID" />
+          <ScalarProperty Name="ROL_ID" ColumnName="ROL_ID" />
+          <ScalarProperty Name="ROL_AD" ColumnName="ROL_AD" />
+          <ScalarProperty Name="ISIM_SOYISIM" ColumnName="ISIM_SOYISIM" />
+          <ScalarProperty Name="SIFRE" ColumnName="SIFRE" />
+          <ScalarProperty Name="KULLANICI_ADI" ColumnName="KULLANICI_ADI" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VW_SIPARIS">
+      <EntityTypeMapping TypeName="UMET_DBModel.VW_SIPARIS">
+        <MappingFragment StoreEntitySet="VW_SIPARIS">
+          <ScalarProperty Name="DEPO_AD" ColumnName="DEPO_AD" />
+          <ScalarProperty Name="STOK_KODU" ColumnName="STOK_KODU" />
+          <ScalarProperty Name="TALEP_ONAY3_AD" ColumnName="TALEP_ONAY3_AD" />
+          <ScalarProperty Name="TALEP_ONAY2_AD" ColumnName="TALEP_ONAY2_AD" />
+          <ScalarProperty Name="TALEP_ONAY1_AD" ColumnName="TALEP_ONAY1_AD" />
+          <ScalarProperty Name="TALEP_ONAY3_KULLANICI" ColumnName="TALEP_ONAY3_KULLANICI" />
+          <ScalarProperty Name="TALEP_ONAY2_KULLANICI" ColumnName="TALEP_ONAY2_KULLANICI" />
+          <ScalarProperty Name="TALEP_ONAY1_KULLANICI" ColumnName="TALEP_ONAY1_KULLANICI" />
+          <ScalarProperty Name="TALEP_ONAY3_TARIH" ColumnName="TALEP_ONAY3_TARIH" />
+          <ScalarProperty Name="TALEP_ONAY2_TARIH" ColumnName="TALEP_ONAY2_TARIH" />
+          <ScalarProperty Name="TALEP_ONAY1_TARIH" ColumnName="TALEP_ONAY1_TARIH" />
+          <ScalarProperty Name="TALEP_ONAY3" ColumnName="TALEP_ONAY3" />
+          <ScalarProperty Name="TALEP_ONAY2" ColumnName="TALEP_ONAY2" />
+          <ScalarProperty Name="TALEP_ONAY1" ColumnName="TALEP_ONAY1" />
+          <ScalarProperty Name="TALEP_OLUSTURAN_ISIM" ColumnName="TALEP_OLUSTURAN_ISIM" />
+          <ScalarProperty Name="TEKLIF_ONAY3_AD" ColumnName="TEKLIF_ONAY3_AD" />
+          <ScalarProperty Name="TEKLIF_ONAY2_AD" ColumnName="TEKLIF_ONAY2_AD" />
+          <ScalarProperty Name="TEKLIF_ONAY1_AD" ColumnName="TEKLIF_ONAY1_AD" />
+          <ScalarProperty Name="TEKLIF_ONAY3_KULLANICI" ColumnName="TEKLIF_ONAY3_KULLANICI" />
+          <ScalarProperty Name="TEKLIF_ONAY2_KULLANICI" ColumnName="TEKLIF_ONAY2_KULLANICI" />
+          <ScalarProperty Name="TEKLIF_ONAY1_KULLANICI" ColumnName="TEKLIF_ONAY1_KULLANICI" />
+          <ScalarProperty Name="TEKLIF_ONAY3_TARIH" ColumnName="TEKLIF_ONAY3_TARIH" />
+          <ScalarProperty Name="TEKLIF_ONAY2_TARIH" ColumnName="TEKLIF_ONAY2_TARIH" />
+          <ScalarProperty Name="TEKLIF_ONAY1_TARIH" ColumnName="TEKLIF_ONAY1_TARIH" />
+          <ScalarProperty Name="TEKLIF_ONAY3" ColumnName="TEKLIF_ONAY3" />
+          <ScalarProperty Name="TEKLIF_ONAY2" ColumnName="TEKLIF_ONAY2" />
+          <ScalarProperty Name="TEKLIF_ONAY1" ColumnName="TEKLIF_ONAY1" />
+          <ScalarProperty Name="STOK_GRUP_ID" ColumnName="STOK_GRUP_ID" />
+          <ScalarProperty Name="GRUP_ADI" ColumnName="GRUP_ADI" />
+          <ScalarProperty Name="OLCU_BR" ColumnName="OLCU_BR" />
+          <ScalarProperty Name="STOK_ADI" ColumnName="STOK_ADI" />
+          <ScalarProperty Name="TALEP_NO" ColumnName="TALEP_NO" />
+          <ScalarProperty Name="TEKLIF_OLUSTURAN_ISIM" ColumnName="TEKLIF_OLUSTURAN_ISIM" />
+          <ScalarProperty Name="PLAKA_BIRIM" ColumnName="PLAKA_BIRIM" />
+          <ScalarProperty Name="TALEP_OLUSTURULMA_TARIH" ColumnName="TALEP_OLUSTURULMA_TARIH" />
+          <ScalarProperty Name="TALEP_MIKTAR" ColumnName="TALEP_MIKTAR" />
+          <ScalarProperty Name="DEPARTMAN_ID" ColumnName="DEPARTMAN_ID" />
+          <ScalarProperty Name="DEPARTMAN_AD" ColumnName="DEPARTMAN_AD" />
+          <ScalarProperty Name="FIRMA_AD" ColumnName="FIRMA_AD" />
+          <ScalarProperty Name="DURUM_AD" ColumnName="DURUM_AD" />
+          <ScalarProperty Name="TALEP_ISLEM_ACIKLAMA" ColumnName="TALEP_ISLEM_ACIKLAMA" />
+          <ScalarProperty Name="TEKLIF_OLUSTURAN_ID" ColumnName="TEKLIF_OLUSTURAN_ID" />
+          <ScalarProperty Name="TEKLIF_OLUSTURULMA_TARIH" ColumnName="TEKLIF_OLUSTURULMA_TARIH" />
+          <ScalarProperty Name="TEKLIF_NOT" ColumnName="TEKLIF_NOT" />
+          <ScalarProperty Name="TEKLIF_FIYAT" ColumnName="TEKLIF_FIYAT" />
+          <ScalarProperty Name="TEKLIF_ISLEM_ACIKLAMA" ColumnName="TEKLIF_ISLEM_ACIKLAMA" />
+          <ScalarProperty Name="DURUM_GUNCELLEME_TARIH" ColumnName="DURUM_GUNCELLEME_TARIH" />
+          <ScalarProperty Name="SIPARIS_DURUM_ID" ColumnName="SIPARIS_DURUM_ID" />
+          <ScalarProperty Name="SUBE_ID" ColumnName="SUBE_ID" />
+          <ScalarProperty Name="SIPARIS_ISLEM_YAPAN_ISIM" ColumnName="SIPARIS_ISLEM_YAPAN_ISIM" />
+          <ScalarProperty Name="SIPARIS_OLUSTURAN_ISIM" ColumnName="SIPARIS_OLUSTURAN_ISIM" />
+          <ScalarProperty Name="RED_TARIH" ColumnName="RED_TARIH" />
+          <ScalarProperty Name="ONAY_TARIH" ColumnName="ONAY_TARIH" />
+          <ScalarProperty Name="SIPARIS_OLUSTURULMA_TARIH" ColumnName="SIPARIS_OLUSTURULMA_TARIH" />
+          <ScalarProperty Name="TALEP_ID" ColumnName="TALEP_ID" />
+          <ScalarProperty Name="TEKLIF_ID" ColumnName="TEKLIF_ID" />
+          <ScalarProperty Name="SIPARIS_NO" ColumnName="SIPARIS_NO" />
+          <ScalarProperty Name="SIPARIS_ID" ColumnName="SIPARIS_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VW_STOK_HAREKET">
+      <EntityTypeMapping TypeName="UMET_DBModel.VW_STOK_HAREKET">
+        <MappingFragment StoreEntitySet="VW_STOK_HAREKET">
+          <ScalarProperty Name="STOK_ADI" ColumnName="STOK_ADI" />
+          <ScalarProperty Name="ISIM_SOYISIM" ColumnName="ISIM_SOYISIM" />
+          <ScalarProperty Name="GRUP_ADI" ColumnName="GRUP_ADI" />
+          <ScalarProperty Name="DEPO_AD" ColumnName="DEPO_AD" />
+          <ScalarProperty Name="DEPARTMAN_AD" ColumnName="DEPARTMAN_AD" />
+          <ScalarProperty Name="DEPARTMAN_ID" ColumnName="DEPARTMAN_ID" />
+          <ScalarProperty Name="SUBE_ID" ColumnName="SUBE_ID" />
+          <ScalarProperty Name="KAYIT_ZAMAN" ColumnName="KAYIT_ZAMAN" />
+          <ScalarProperty Name="STOK_GRUP_ID" ColumnName="STOK_GRUP_ID" />
+          <ScalarProperty Name="DEPO_ID" ColumnName="DEPO_ID" />
+          <ScalarProperty Name="KULLANICI_ID" ColumnName="KULLANICI_ID" />
+          <ScalarProperty Name="ALIS_MALIYET" ColumnName="ALIS_MALIYET" />
+          <ScalarProperty Name="SIPARIS_NO" ColumnName="SIPARIS_NO" />
+          <ScalarProperty Name="TARIH" ColumnName="TARIH" />
+          <ScalarProperty Name="GC_KOD" ColumnName="GC_KOD" />
+          <ScalarProperty Name="MIKTAR" ColumnName="MIKTAR" />
+          <ScalarProperty Name="STOK_KODU" ColumnName="STOK_KODU" />
+          <ScalarProperty Name="FISNO" ColumnName="FISNO" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VW_STOK_HAREKET_LOG">
+      <EntityTypeMapping TypeName="UMET_DBModel.VW_STOK_HAREKET_LOG">
+        <MappingFragment StoreEntitySet="VW_STOK_HAREKET_LOG">
+          <ScalarProperty Name="STOK_ADI" ColumnName="STOK_ADI" />
+          <ScalarProperty Name="ISIM_SOYISIM" ColumnName="ISIM_SOYISIM" />
+          <ScalarProperty Name="GRUP_ADI" ColumnName="GRUP_ADI" />
+          <ScalarProperty Name="DEPO_AD" ColumnName="DEPO_AD" />
+          <ScalarProperty Name="DEPARTMAN_AD" ColumnName="DEPARTMAN_AD" />
+          <ScalarProperty Name="H_NOT" ColumnName="H_NOT" />
+          <ScalarProperty Name="PLAKA_BIRIM" ColumnName="PLAKA_BIRIM" />
+          <ScalarProperty Name="DEPO_ID" ColumnName="DEPO_ID" />
+          <ScalarProperty Name="DEPARTMAN_ID" ColumnName="DEPARTMAN_ID" />
+          <ScalarProperty Name="STOK_GRUP_ID" ColumnName="STOK_GRUP_ID" />
+          <ScalarProperty Name="KULLANILDI_MI" ColumnName="KULLANILDI_MI" />
+          <ScalarProperty Name="SUBE_ID" ColumnName="SUBE_ID" />
+          <ScalarProperty Name="KULLANICI_ID" ColumnName="KULLANICI_ID" />
+          <ScalarProperty Name="TARIH" ColumnName="TARIH" />
+          <ScalarProperty Name="MIKTAR" ColumnName="MIKTAR" />
+          <ScalarProperty Name="STOK_KODU" ColumnName="STOK_KODU" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VW_TALEP">
+      <EntityTypeMapping TypeName="UMET_DBModel.VW_TALEP">
+        <MappingFragment StoreEntitySet="VW_TALEP">
+          <ScalarProperty Name="ONAY3_AD" ColumnName="ONAY3_AD" />
+          <ScalarProperty Name="ONAY2_AD" ColumnName="ONAY2_AD" />
+          <ScalarProperty Name="ONAY1_AD" ColumnName="ONAY1_AD" />
+          <ScalarProperty Name="ANLIK_STOK_MIKTAR" ColumnName="ANLIK_STOK_MIKTAR" />
+          <ScalarProperty Name="DEPO_AD" ColumnName="DEPO_AD" />
+          <ScalarProperty Name="ONAY3_KULLANICI" ColumnName="ONAY3_KULLANICI" />
+          <ScalarProperty Name="ONAY2_KULLANICI" ColumnName="ONAY2_KULLANICI" />
+          <ScalarProperty Name="ONAY1_KULLANICI" ColumnName="ONAY1_KULLANICI" />
+          <ScalarProperty Name="ONAY3_TARIH" ColumnName="ONAY3_TARIH" />
+          <ScalarProperty Name="ONAY2_TARIH" ColumnName="ONAY2_TARIH" />
+          <ScalarProperty Name="ONAY1_TARIH" ColumnName="ONAY1_TARIH" />
+          <ScalarProperty Name="ONAY3" ColumnName="ONAY3" />
+          <ScalarProperty Name="ONAY2" ColumnName="ONAY2" />
+          <ScalarProperty Name="ONAY1" ColumnName="ONAY1" />
+          <ScalarProperty Name="GRUP_ADI" ColumnName="GRUP_ADI" />
+          <ScalarProperty Name="STOK_GRUP_ID" ColumnName="STOK_GRUP_ID" />
+          <ScalarProperty Name="DEPO_KODU" ColumnName="DEPO_KODU" />
+          <ScalarProperty Name="KDV_ORAN" ColumnName="KDV_ORAN" />
+          <ScalarProperty Name="S_FIYAT" ColumnName="S_FIYAT" />
+          <ScalarProperty Name="A_FIYAT" ColumnName="A_FIYAT" />
+          <ScalarProperty Name="GRUP_KODU" ColumnName="GRUP_KODU" />
+          <ScalarProperty Name="OLCU_BR" ColumnName="OLCU_BR" />
+          <ScalarProperty Name="STOK_ADI" ColumnName="STOK_ADI" />
+          <ScalarProperty Name="STOK_KODU" ColumnName="STOK_KODU" />
+          <ScalarProperty Name="OLUSTURAN_ISIM" ColumnName="OLUSTURAN_ISIM" />
+          <ScalarProperty Name="PLAKA_BIRIM" ColumnName="PLAKA_BIRIM" />
+          <ScalarProperty Name="SUBE_ID" ColumnName="SUBE_ID" />
+          <ScalarProperty Name="DURUM_AD" ColumnName="DURUM_AD" />
+          <ScalarProperty Name="DEPARTMAN_AD" ColumnName="DEPARTMAN_AD" />
+          <ScalarProperty Name="OLUSTURAN_ID" ColumnName="OLUSTURAN_ID" />
+          <ScalarProperty Name="OLUSTURULMA_TARIH" ColumnName="OLUSTURULMA_TARIH" />
+          <ScalarProperty Name="TALEP_NOT" ColumnName="TALEP_NOT" />
+          <ScalarProperty Name="TALEP_DURUM_ID" ColumnName="TALEP_DURUM_ID" />
+          <ScalarProperty Name="TALEP_DEPARTMAN_ID" ColumnName="TALEP_DEPARTMAN_ID" />
+          <ScalarProperty Name="TALEP_MIKTAR" ColumnName="TALEP_MIKTAR" />
+          <ScalarProperty Name="TALEP_ISLEM_ACIKLAMA" ColumnName="TALEP_ISLEM_ACIKLAMA" />
+          <ScalarProperty Name="TALEP_NO" ColumnName="TALEP_NO" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VW_TEKLIF">
+      <EntityTypeMapping TypeName="UMET_DBModel.VW_TEKLIF">
+        <MappingFragment StoreEntitySet="VW_TEKLIF">
+          <ScalarProperty Name="ONAY3_AD" ColumnName="ONAY3_AD" />
+          <ScalarProperty Name="ONAY2_AD" ColumnName="ONAY2_AD" />
+          <ScalarProperty Name="ONAY1_AD" ColumnName="ONAY1_AD" />
+          <ScalarProperty Name="ONAY3_KULLANICI" ColumnName="ONAY3_KULLANICI" />
+          <ScalarProperty Name="ONAY2_KULLANICI" ColumnName="ONAY2_KULLANICI" />
+          <ScalarProperty Name="ONAY1_KULLANICI" ColumnName="ONAY1_KULLANICI" />
+          <ScalarProperty Name="ONAY3_TARIH" ColumnName="ONAY3_TARIH" />
+          <ScalarProperty Name="ONAY2_TARIH" ColumnName="ONAY2_TARIH" />
+          <ScalarProperty Name="ONAY1_TARIH" ColumnName="ONAY1_TARIH" />
+          <ScalarProperty Name="ONAY3" ColumnName="ONAY3" />
+          <ScalarProperty Name="ONAY2" ColumnName="ONAY2" />
+          <ScalarProperty Name="ONAY1" ColumnName="ONAY1" />
+          <ScalarProperty Name="STOK_GRUP_ID" ColumnName="STOK_GRUP_ID" />
+          <ScalarProperty Name="GRUP_ADI" ColumnName="GRUP_ADI" />
+          <ScalarProperty Name="OLCU_BR" ColumnName="OLCU_BR" />
+          <ScalarProperty Name="STOK_KODU" ColumnName="STOK_KODU" />
+          <ScalarProperty Name="STOK_ADI" ColumnName="STOK_ADI" />
+          <ScalarProperty Name="TALEP_NO" ColumnName="TALEP_NO" />
+          <ScalarProperty Name="OLUSTURAN_ISIM" ColumnName="OLUSTURAN_ISIM" />
+          <ScalarProperty Name="PLAKA_BIRIM" ColumnName="PLAKA_BIRIM" />
+          <ScalarProperty Name="TALEP_MIKTAR" ColumnName="TALEP_MIKTAR" />
+          <ScalarProperty Name="DEPARTMAN_ID" ColumnName="DEPARTMAN_ID" />
+          <ScalarProperty Name="DEPARTMAN_AD" ColumnName="DEPARTMAN_AD" />
+          <ScalarProperty Name="SUBE_ID" ColumnName="SUBE_ID" />
+          <ScalarProperty Name="FIRMA_AD" ColumnName="FIRMA_AD" />
+          <ScalarProperty Name="DURUM_AD" ColumnName="DURUM_AD" />
+          <ScalarProperty Name="TALEP_ISLEM_ACIKLAMA" ColumnName="TALEP_ISLEM_ACIKLAMA" />
+          <ScalarProperty Name="TEKLIF_DURUM_ID" ColumnName="TEKLIF_DURUM_ID" />
+          <ScalarProperty Name="OLUSTURAN_ID" ColumnName="OLUSTURAN_ID" />
+          <ScalarProperty Name="OLUSTURULMA_TARIH" ColumnName="OLUSTURULMA_TARIH" />
+          <ScalarProperty Name="TEKLIF_NOT" ColumnName="TEKLIF_NOT" />
+          <ScalarProperty Name="MARKA" ColumnName="MARKA" />
+          <ScalarProperty Name="TEKLIF_FIYAT" ColumnName="TEKLIF_FIYAT" />
+          <ScalarProperty Name="TEKLIF_ISLEM_ACIKLAMA" ColumnName="TEKLIF_ISLEM_ACIKLAMA" />
+          <ScalarProperty Name="TEKLIF_NO" ColumnName="TEKLIF_NO" />
+          <ScalarProperty Name="TALEP_ID" ColumnName="TALEP_ID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="IDP_PLAKA_BIRIM_LIST" FunctionName="UMET_DBModel.Store.IDP_PLAKA_BIRIM_LIST">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="UMET_DBModel.IDP_PLAKA_BIRIM_LIST_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="SUBE_ID" ColumnName="SUBE_ID" />
+          <ScalarProperty Name="PLAKA_BIRIM" ColumnName="PLAKA_BIRIM" />
+          <ScalarProperty Name="DEPARTMAN_ID" ColumnName="DEPARTMAN_ID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="IDP_SIPARIS_GRID" FunctionName="UMET_DBModel.Store.IDP_SIPARIS_GRID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="UMET_DBModel.IDP_SIPARIS_GRID_Result">
+          <ScalarProperty Name="SIPARIS_ID" ColumnName="SIPARIS_ID" />
+          <ScalarProperty Name="SIPARIS_NO" ColumnName="SIPARIS_NO" />
+          <ScalarProperty Name="TEKLIF_ID" ColumnName="TEKLIF_ID" />
+          <ScalarProperty Name="TALEP_ID" ColumnName="TALEP_ID" />
+          <ScalarProperty Name="SIPARIS_OLUSTURULMA_TARIH" ColumnName="SIPARIS_OLUSTURULMA_TARIH" />
+          <ScalarProperty Name="ONAY_TARIH" ColumnName="ONAY_TARIH" />
+          <ScalarProperty Name="RED_TARIH" ColumnName="RED_TARIH" />
+          <ScalarProperty Name="SIPARIS_OLUSTURAN_ISIM" ColumnName="SIPARIS_OLUSTURAN_ISIM" />
+          <ScalarProperty Name="SIPARIS_ISLEM_YAPAN_ISIM" ColumnName="SIPARIS_ISLEM_YAPAN_ISIM" />
+          <ScalarProperty Name="SUBE_ID" ColumnName="SUBE_ID" />
+          <ScalarProperty Name="SIPARIS_DURUM_ID" ColumnName="SIPARIS_DURUM_ID" />
+          <ScalarProperty Name="DURUM_GUNCELLEME_TARIH" ColumnName="DURUM_GUNCELLEME_TARIH" />
+          <ScalarProperty Name="TEKLIF_ISLEM_ACIKLAMA" ColumnName="TEKLIF_ISLEM_ACIKLAMA" />
+          <ScalarProperty Name="TEKLIF_FIYAT" ColumnName="TEKLIF_FIYAT" />
+          <ScalarProperty Name="TEKLIF_NOT" ColumnName="TEKLIF_NOT" />
+          <ScalarProperty Name="TEKLIF_OLUSTURULMA_TARIH" ColumnName="TEKLIF_OLUSTURULMA_TARIH" />
+          <ScalarProperty Name="TEKLIF_OLUSTURAN_ID" ColumnName="TEKLIF_OLUSTURAN_ID" />
+          <ScalarProperty Name="TALEP_ISLEM_ACIKLAMA" ColumnName="TALEP_ISLEM_ACIKLAMA" />
+          <ScalarProperty Name="DURUM_AD" ColumnName="DURUM_AD" />
+          <ScalarProperty Name="FIRMA_AD" ColumnName="FIRMA_AD" />
+          <ScalarProperty Name="DEPARTMAN_AD" ColumnName="DEPARTMAN_AD" />
+          <ScalarProperty Name="DEPARTMAN_ID" ColumnName="DEPARTMAN_ID" />
+          <ScalarProperty Name="TALEP_MIKTAR" ColumnName="TALEP_MIKTAR" />
+          <ScalarProperty Name="TALEP_OLUSTURULMA_TARIH" ColumnName="TALEP_OLUSTURULMA_TARIH" />
+          <ScalarProperty Name="PLAKA_BIRIM" ColumnName="PLAKA_BIRIM" />
+          <ScalarProperty Name="TEKLIF_OLUSTURAN_ISIM" ColumnName="TEKLIF_OLUSTURAN_ISIM" />
+          <ScalarProperty Name="TALEP_NO" ColumnName="TALEP_NO" />
+          <ScalarProperty Name="STOK_ADI" ColumnName="STOK_ADI" />
+          <ScalarProperty Name="OLCU_BR" ColumnName="OLCU_BR" />
+          <ScalarProperty Name="GRUP_ADI" ColumnName="GRUP_ADI" />
+          <ScalarProperty Name="STOK_GRUP_ID" ColumnName="STOK_GRUP_ID" />
+          <ScalarProperty Name="TEKLIF_ONAY1" ColumnName="TEKLIF_ONAY1" />
+          <ScalarProperty Name="TEKLIF_ONAY2" ColumnName="TEKLIF_ONAY2" />
+          <ScalarProperty Name="TEKLIF_ONAY3" ColumnName="TEKLIF_ONAY3" />
+          <ScalarProperty Name="TEKLIF_ONAY1_TARIH" ColumnName="TEKLIF_ONAY1_TARIH" />
+          <ScalarProperty Name="TEKLIF_ONAY2_TARIH" ColumnName="TEKLIF_ONAY2_TARIH" />
+          <ScalarProperty Name="TEKLIF_ONAY3_TARIH" ColumnName="TEKLIF_ONAY3_TARIH" />
+          <ScalarProperty Name="TEKLIF_ONAY1_KULLANICI" ColumnName="TEKLIF_ONAY1_KULLANICI" />
+          <ScalarProperty Name="TEKLIF_ONAY2_KULLANICI" ColumnName="TEKLIF_ONAY2_KULLANICI" />
+          <ScalarProperty Name="TEKLIF_ONAY3_KULLANICI" ColumnName="TEKLIF_ONAY3_KULLANICI" />
+          <ScalarProperty Name="TEKLIF_ONAY1_AD" ColumnName="TEKLIF_ONAY1_AD" />
+          <ScalarProperty Name="TEKLIF_ONAY2_AD" ColumnName="TEKLIF_ONAY2_AD" />
+          <ScalarProperty Name="TEKLIF_ONAY3_AD" ColumnName="TEKLIF_ONAY3_AD" />
+          <ScalarProperty Name="TALEP_OLUSTURAN_ISIM" ColumnName="TALEP_OLUSTURAN_ISIM" />
+          <ScalarProperty Name="TALEP_ONAY1" ColumnName="TALEP_ONAY1" />
+          <ScalarProperty Name="TALEP_ONAY2" ColumnName="TALEP_ONAY2" />
+          <ScalarProperty Name="TALEP_ONAY3" ColumnName="TALEP_ONAY3" />
+          <ScalarProperty Name="TALEP_ONAY1_TARIH" ColumnName="TALEP_ONAY1_TARIH" />
+          <ScalarProperty Name="TALEP_ONAY2_TARIH" ColumnName="TALEP_ONAY2_TARIH" />
+          <ScalarProperty Name="TALEP_ONAY3_TARIH" ColumnName="TALEP_ONAY3_TARIH" />
+          <ScalarProperty Name="TALEP_ONAY1_KULLANICI" ColumnName="TALEP_ONAY1_KULLANICI" />
+          <ScalarProperty Name="TALEP_ONAY2_KULLANICI" ColumnName="TALEP_ONAY2_KULLANICI" />
+          <ScalarProperty Name="TALEP_ONAY3_KULLANICI" ColumnName="TALEP_ONAY3_KULLANICI" />
+          <ScalarProperty Name="TALEP_ONAY1_AD" ColumnName="TALEP_ONAY1_AD" />
+          <ScalarProperty Name="TALEP_ONAY2_AD" ColumnName="TALEP_ONAY2_AD" />
+          <ScalarProperty Name="TALEP_ONAY3_AD" ColumnName="TALEP_ONAY3_AD" />
+          <ScalarProperty Name="STOK_KODU" ColumnName="STOK_KODU" />
+          <ScalarProperty Name="DEPO_AD" ColumnName="DEPO_AD" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="IDP_STOK_HAR_I" FunctionName="UMET_DBModel.Store.IDP_STOK_HAR_I" />
+    <FunctionImportMapping FunctionImportName="IDP_STOK_HAREKET_GRID" FunctionName="UMET_DBModel.Store.IDP_STOK_HAREKET_GRID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="UMET_DBModel.IDP_STOK_HAREKET_GRID_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="FISNO" ColumnName="FISNO" />
+          <ScalarProperty Name="STOK_KODU" ColumnName="STOK_KODU" />
+          <ScalarProperty Name="MIKTAR" ColumnName="MIKTAR" />
+          <ScalarProperty Name="GC_KOD" ColumnName="GC_KOD" />
+          <ScalarProperty Name="TARIH" ColumnName="TARIH" />
+          <ScalarProperty Name="SIPARIS_NO" ColumnName="SIPARIS_NO" />
+          <ScalarProperty Name="ALIS_MALIYET" ColumnName="ALIS_MALIYET" />
+          <ScalarProperty Name="KULLANICI_ID" ColumnName="KULLANICI_ID" />
+          <ScalarProperty Name="DEPO_ID" ColumnName="DEPO_ID" />
+          <ScalarProperty Name="STOK_GRUP_ID" ColumnName="STOK_GRUP_ID" />
+          <ScalarProperty Name="KAYIT_ZAMAN" ColumnName="KAYIT_ZAMAN" />
+          <ScalarProperty Name="SUBE_ID" ColumnName="SUBE_ID" />
+          <ScalarProperty Name="DEPARTMAN_ID" ColumnName="DEPARTMAN_ID" />
+          <ScalarProperty Name="DEPARTMAN_AD" ColumnName="DEPARTMAN_AD" />
+          <ScalarProperty Name="DEPO_AD" ColumnName="DEPO_AD" />
+          <ScalarProperty Name="GRUP_ADI" ColumnName="GRUP_ADI" />
+          <ScalarProperty Name="ISIM_SOYISIM" ColumnName="ISIM_SOYISIM" />
+          <ScalarProperty Name="STOK_ADI" ColumnName="STOK_ADI" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="IDP_STOK_HAREKET_LOG_GRID" FunctionName="UMET_DBModel.Store.IDP_STOK_HAREKET_LOG_GRID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="UMET_DBModel.IDP_STOK_HAREKET_LOG_GRID_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="STOK_KODU" ColumnName="STOK_KODU" />
+          <ScalarProperty Name="MIKTAR" ColumnName="MIKTAR" />
+          <ScalarProperty Name="TARIH" ColumnName="TARIH" />
+          <ScalarProperty Name="KULLANICI_ID" ColumnName="KULLANICI_ID" />
+          <ScalarProperty Name="SUBE_ID" ColumnName="SUBE_ID" />
+          <ScalarProperty Name="KULLANILDI_MI" ColumnName="KULLANILDI_MI" />
+          <ScalarProperty Name="STOK_GRUP_ID" ColumnName="STOK_GRUP_ID" />
+          <ScalarProperty Name="DEPARTMAN_ID" ColumnName="DEPARTMAN_ID" />
+          <ScalarProperty Name="DEPO_ID" ColumnName="DEPO_ID" />
+          <ScalarProperty Name="PLAKA_BIRIM" ColumnName="PLAKA_BIRIM" />
+          <ScalarProperty Name="H_NOT" ColumnName="H_NOT" />
+          <ScalarProperty Name="DEPARTMAN_AD" ColumnName="DEPARTMAN_AD" />
+          <ScalarProperty Name="DEPO_AD" ColumnName="DEPO_AD" />
+          <ScalarProperty Name="GRUP_ADI" ColumnName="GRUP_ADI" />
+          <ScalarProperty Name="ISIM_SOYISIM" ColumnName="ISIM_SOYISIM" />
+          <ScalarProperty Name="STOK_ADI" ColumnName="STOK_ADI" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="IDP_TALEP_GRID" FunctionName="UMET_DBModel.Store.IDP_TALEP_GRID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="UMET_DBModel.IDP_TALEP_GRID_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TALEP_NO" ColumnName="TALEP_NO" />
+          <ScalarProperty Name="TALEP_ISLEM_ACIKLAMA" ColumnName="TALEP_ISLEM_ACIKLAMA" />
+          <ScalarProperty Name="TALEP_MIKTAR" ColumnName="TALEP_MIKTAR" />
+          <ScalarProperty Name="TALEP_DEPARTMAN_ID" ColumnName="TALEP_DEPARTMAN_ID" />
+          <ScalarProperty Name="TALEP_DURUM_ID" ColumnName="TALEP_DURUM_ID" />
+          <ScalarProperty Name="TALEP_NOT" ColumnName="TALEP_NOT" />
+          <ScalarProperty Name="OLUSTURULMA_TARIH" ColumnName="OLUSTURULMA_TARIH" />
+          <ScalarProperty Name="OLUSTURAN_ID" ColumnName="OLUSTURAN_ID" />
+          <ScalarProperty Name="DEPARTMAN_AD" ColumnName="DEPARTMAN_AD" />
+          <ScalarProperty Name="DURUM_AD" ColumnName="DURUM_AD" />
+          <ScalarProperty Name="SUBE_ID" ColumnName="SUBE_ID" />
+          <ScalarProperty Name="PLAKA_BIRIM" ColumnName="PLAKA_BIRIM" />
+          <ScalarProperty Name="OLUSTURAN_ISIM" ColumnName="OLUSTURAN_ISIM" />
+          <ScalarProperty Name="STOK_KODU" ColumnName="STOK_KODU" />
+          <ScalarProperty Name="STOK_ADI" ColumnName="STOK_ADI" />
+          <ScalarProperty Name="OLCU_BR" ColumnName="OLCU_BR" />
+          <ScalarProperty Name="GRUP_KODU" ColumnName="GRUP_KODU" />
+          <ScalarProperty Name="A_FIYAT" ColumnName="A_FIYAT" />
+          <ScalarProperty Name="S_FIYAT" ColumnName="S_FIYAT" />
+          <ScalarProperty Name="KDV_ORAN" ColumnName="KDV_ORAN" />
+          <ScalarProperty Name="DEPO_KODU" ColumnName="DEPO_KODU" />
+          <ScalarProperty Name="STOK_GRUP_ID" ColumnName="STOK_GRUP_ID" />
+          <ScalarProperty Name="GRUP_ADI" ColumnName="GRUP_ADI" />
+          <ScalarProperty Name="ONAY1" ColumnName="ONAY1" />
+          <ScalarProperty Name="ONAY2" ColumnName="ONAY2" />
+          <ScalarProperty Name="ONAY3" ColumnName="ONAY3" />
+          <ScalarProperty Name="ONAY1_TARIH" ColumnName="ONAY1_TARIH" />
+          <ScalarProperty Name="ONAY2_TARIH" ColumnName="ONAY2_TARIH" />
+          <ScalarProperty Name="ONAY3_TARIH" ColumnName="ONAY3_TARIH" />
+          <ScalarProperty Name="ONAY1_KULLANICI" ColumnName="ONAY1_KULLANICI" />
+          <ScalarProperty Name="ONAY2_KULLANICI" ColumnName="ONAY2_KULLANICI" />
+          <ScalarProperty Name="ONAY3_KULLANICI" ColumnName="ONAY3_KULLANICI" />
+          <ScalarProperty Name="DEPO_AD" ColumnName="DEPO_AD" />
+          <ScalarProperty Name="ANLIK_STOK_MIKTAR" ColumnName="ANLIK_STOK_MIKTAR" />
+          <ScalarProperty Name="ONAY1_AD" ColumnName="ONAY1_AD" />
+          <ScalarProperty Name="ONAY2_AD" ColumnName="ONAY2_AD" />
+          <ScalarProperty Name="ONAY3_AD" ColumnName="ONAY3_AD" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="IDP_TEKLIF_ASAMASINDAKI_TALEPLER_GRID" FunctionName="UMET_DBModel.Store.IDP_TEKLIF_ASAMASINDAKI_TALEPLER_GRID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="UMET_DBModel.IDP_TEKLIF_ASAMASINDAKI_TALEPLER_GRID_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TALEP_NO" ColumnName="TALEP_NO" />
+          <ScalarProperty Name="TALEP_ISLEM_ACIKLAMA" ColumnName="TALEP_ISLEM_ACIKLAMA" />
+          <ScalarProperty Name="TALEP_MIKTAR" ColumnName="TALEP_MIKTAR" />
+          <ScalarProperty Name="TALEP_DEPARTMAN_ID" ColumnName="TALEP_DEPARTMAN_ID" />
+          <ScalarProperty Name="TALEP_DURUM_ID" ColumnName="TALEP_DURUM_ID" />
+          <ScalarProperty Name="TALEP_NOT" ColumnName="TALEP_NOT" />
+          <ScalarProperty Name="OLUSTURULMA_TARIH" ColumnName="OLUSTURULMA_TARIH" />
+          <ScalarProperty Name="OLUSTURAN_ID" ColumnName="OLUSTURAN_ID" />
+          <ScalarProperty Name="DEPARTMAN_AD" ColumnName="DEPARTMAN_AD" />
+          <ScalarProperty Name="DURUM_AD" ColumnName="DURUM_AD" />
+          <ScalarProperty Name="SUBE_ID" ColumnName="SUBE_ID" />
+          <ScalarProperty Name="PLAKA_BIRIM" ColumnName="PLAKA_BIRIM" />
+          <ScalarProperty Name="OLUSTURAN_ISIM" ColumnName="OLUSTURAN_ISIM" />
+          <ScalarProperty Name="STOK_KODU" ColumnName="STOK_KODU" />
+          <ScalarProperty Name="STOK_ADI" ColumnName="STOK_ADI" />
+          <ScalarProperty Name="OLCU_BR" ColumnName="OLCU_BR" />
+          <ScalarProperty Name="GRUP_KODU" ColumnName="GRUP_KODU" />
+          <ScalarProperty Name="A_FIYAT" ColumnName="A_FIYAT" />
+          <ScalarProperty Name="S_FIYAT" ColumnName="S_FIYAT" />
+          <ScalarProperty Name="KDV_ORAN" ColumnName="KDV_ORAN" />
+          <ScalarProperty Name="DEPO_KODU" ColumnName="DEPO_KODU" />
+          <ScalarProperty Name="STOK_GRUP_ID" ColumnName="STOK_GRUP_ID" />
+          <ScalarProperty Name="GRUP_ADI" ColumnName="GRUP_ADI" />
+          <ScalarProperty Name="ONAY1" ColumnName="ONAY1" />
+          <ScalarProperty Name="ONAY2" ColumnName="ONAY2" />
+          <ScalarProperty Name="ONAY3" ColumnName="ONAY3" />
+          <ScalarProperty Name="ONAY1_TARIH" ColumnName="ONAY1_TARIH" />
+          <ScalarProperty Name="ONAY2_TARIH" ColumnName="ONAY2_TARIH" />
+          <ScalarProperty Name="ONAY3_TARIH" ColumnName="ONAY3_TARIH" />
+          <ScalarProperty Name="ONAY1_KULLANICI" ColumnName="ONAY1_KULLANICI" />
+          <ScalarProperty Name="ONAY2_KULLANICI" ColumnName="ONAY2_KULLANICI" />
+          <ScalarProperty Name="ONAY3_KULLANICI" ColumnName="ONAY3_KULLANICI" />
+          <ScalarProperty Name="DEPO_AD" ColumnName="DEPO_AD" />
+          <ScalarProperty Name="ANLIK_STOK_MIKTAR" ColumnName="ANLIK_STOK_MIKTAR" />
+          <ScalarProperty Name="ONAY1_AD" ColumnName="ONAY1_AD" />
+          <ScalarProperty Name="ONAY2_AD" ColumnName="ONAY2_AD" />
+          <ScalarProperty Name="ONAY3_AD" ColumnName="ONAY3_AD" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="IDP_TEKLIF_GRID" FunctionName="UMET_DBModel.Store.IDP_TEKLIF_GRID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="UMET_DBModel.IDP_TEKLIF_GRID_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TALEP_ID" ColumnName="TALEP_ID" />
+          <ScalarProperty Name="TEKLIF_NO" ColumnName="TEKLIF_NO" />
+          <ScalarProperty Name="TEKLIF_ISLEM_ACIKLAMA" ColumnName="TEKLIF_ISLEM_ACIKLAMA" />
+          <ScalarProperty Name="TEKLIF_FIYAT" ColumnName="TEKLIF_FIYAT" />
+          <ScalarProperty Name="MARKA" ColumnName="MARKA" />
+          <ScalarProperty Name="TEKLIF_NOT" ColumnName="TEKLIF_NOT" />
+          <ScalarProperty Name="OLUSTURULMA_TARIH" ColumnName="OLUSTURULMA_TARIH" />
+          <ScalarProperty Name="OLUSTURAN_ID" ColumnName="OLUSTURAN_ID" />
+          <ScalarProperty Name="TEKLIF_DURUM_ID" ColumnName="TEKLIF_DURUM_ID" />
+          <ScalarProperty Name="TALEP_ISLEM_ACIKLAMA" ColumnName="TALEP_ISLEM_ACIKLAMA" />
+          <ScalarProperty Name="DURUM_AD" ColumnName="DURUM_AD" />
+          <ScalarProperty Name="FIRMA_AD" ColumnName="FIRMA_AD" />
+          <ScalarProperty Name="SUBE_ID" ColumnName="SUBE_ID" />
+          <ScalarProperty Name="DEPARTMAN_AD" ColumnName="DEPARTMAN_AD" />
+          <ScalarProperty Name="DEPARTMAN_ID" ColumnName="DEPARTMAN_ID" />
+          <ScalarProperty Name="TALEP_MIKTAR" ColumnName="TALEP_MIKTAR" />
+          <ScalarProperty Name="PLAKA_BIRIM" ColumnName="PLAKA_BIRIM" />
+          <ScalarProperty Name="OLUSTURAN_ISIM" ColumnName="OLUSTURAN_ISIM" />
+          <ScalarProperty Name="TALEP_NO" ColumnName="TALEP_NO" />
+          <ScalarProperty Name="STOK_ADI" ColumnName="STOK_ADI" />
+          <ScalarProperty Name="STOK_KODU" ColumnName="STOK_KODU" />
+          <ScalarProperty Name="OLCU_BR" ColumnName="OLCU_BR" />
+          <ScalarProperty Name="GRUP_ADI" ColumnName="GRUP_ADI" />
+          <ScalarProperty Name="STOK_GRUP_ID" ColumnName="STOK_GRUP_ID" />
+          <ScalarProperty Name="ONAY1" ColumnName="ONAY1" />
+          <ScalarProperty Name="ONAY2" ColumnName="ONAY2" />
+          <ScalarProperty Name="ONAY3" ColumnName="ONAY3" />
+          <ScalarProperty Name="ONAY1_TARIH" ColumnName="ONAY1_TARIH" />
+          <ScalarProperty Name="ONAY2_TARIH" ColumnName="ONAY2_TARIH" />
+          <ScalarProperty Name="ONAY3_TARIH" ColumnName="ONAY3_TARIH" />
+          <ScalarProperty Name="ONAY1_KULLANICI" ColumnName="ONAY1_KULLANICI" />
+          <ScalarProperty Name="ONAY2_KULLANICI" ColumnName="ONAY2_KULLANICI" />
+          <ScalarProperty Name="ONAY3_KULLANICI" ColumnName="ONAY3_KULLANICI" />
+          <ScalarProperty Name="ONAY1_AD" ColumnName="ONAY1_AD" />
+          <ScalarProperty Name="ONAY2_AD" ColumnName="ONAY2_AD" />
+          <ScalarProperty Name="ONAY3_AD" ColumnName="ONAY3_AD" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>
